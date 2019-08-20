@@ -1,0 +1,22 @@
+<?php
+/**
+ * Шапка сайта:
+ *   - Все всплывающие окна на сайте (скрыты по умолчанию)
+ *   - Меню основных страниц сайта, разбитое на две части - левую и правую
+ *   - Блок с логотипом сайта, формой "Заказать звонок", режимом работы и корзиной товаров
+ *   - Блок с меню каталога товаров, формой поиска, кнопкой сравнения товаров, кнопки входа на сайт (или панели управления пользователя)
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<?= $this->render($variables, 'layout/modal/index') ?>
+<?= $this->render($variables, 'layout/header/mobile') ?>
+<?= $this->render($variables, 'layout/header/mobile_menu') ?>
+
+<header class="hidden-sm hidden-xs">
+	<?= $this->render($variables, 'layout/header/top/index') ?>
+	<?= $this->render($variables, 'layout/header/middle/index') ?>
+	<?= $this->render($variables, 'layout/header/bottom/index') ?>
+</header>

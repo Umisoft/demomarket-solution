@@ -1,0 +1,20 @@
+<?php
+/**
+ * Вывод ошибок макросов (когда url содержит get-параметр `_err`).
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<?php if (isset($variables['items'])): ?>
+	<div class="container">
+		<div class="error">
+			<h3><?= $this->translate('errors') ?></h3>
+
+			<?php foreach ($variables['items'] as $error): ?>
+				<p><?= $this->getErrorMessage($error) ?></p>
+			<?php endforeach; ?>
+		</div>
+	</div>
+<?php endif; ?>

@@ -1,0 +1,29 @@
+<?php
+/**
+ * Меню основных страниц в шапке сайта (левое или правое).
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var string $variables
+ * @var array $pageList
+ */
+
+$menuId = $variables;
+$data = $this->getMenu($menuId);
+$pageList = $data['lines'];
+?>
+
+<?php if (umiCount($pageList) > 0): ?>
+	<div>
+		<ul class="list_inline">
+			<?php foreach ($pageList as $page): ?>
+				<?php if (in_array($page['rel'], ['custom', 'system']) || $page['is-active'] == 1): ?>
+					<li>
+						<a href="<?= $page['link'] ?>">
+							<?= $this->escape($page['name']) ?>
+						</a>
+					</li>
+				<?php endif; ?>	
+			<?php endforeach; ?>
+		</ul>
+	</div>
+<?php endif; ?>

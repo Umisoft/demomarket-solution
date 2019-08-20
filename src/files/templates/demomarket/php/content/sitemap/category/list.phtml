@@ -1,0 +1,34 @@
+<?php
+/**
+ * Список категорий первого уровня в карте сайта.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $categoryList
+ */
+$fullCategoryList = $this->getCommonVar('catalog_category_list');
+$categoryId = $fullCategoryList['category_id'];
+$categoryList = $this->filterCategoryList();
+?>
+
+<div umi:add-method="none"
+     umi:element-id="<?= $categoryId ?>"
+     umi:region="list"
+     umi:module="catalog"
+     umi:sortable="sortable"
+>
+	<?php foreach ($categoryList as $category): ?>
+		<div umi:element-id="<?= $category['id'] ?>" umi:region="row">
+			<a href="<?= $category['link'] ?>"
+			   umi:field-name="name"
+			   umi:delete="delete"
+			   umi:empty="<?= $this->translate('empty_section_name') ?>"
+			>
+				<?= $this->escape($category['text']) ?>
+			</a>
+
+			<?= $this->render($category, 'content/sitemap/category/sub_list') ?>
+		</div>
+	<?php endforeach; ?>
+</div>
+

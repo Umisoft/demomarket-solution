@@ -1,0 +1,17 @@
+<?php
+/**
+ * Кнопка "Убрать из корзины".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $product
+ */
+
+$product = $variables['page'];
+?>
+
+<div id="remove_order_item_<?= $variables['id'] ?>" class="col-md-1 col-sm-12 col-xs-12 order_delete" style="<?= $this->isCartPage() ? '' : 'display:none;' ?>">
+	<a href="<?= $this->getRemoveFromCartLink($product) ?>">
+		<img src="img/order_delete.png" alt="delete">
+	</a>
+</div>

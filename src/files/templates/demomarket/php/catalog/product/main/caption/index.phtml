@@ -1,0 +1,23 @@
+<?php
+/**
+ * Заголовок страницы товара:
+ *   - Хлебные крошки
+ *   - Отзывы о товаре
+ *   - Кнопка "назад" на мобильной версии
+ *   -
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<?= $this->render($variables, 'layout/header/breadcrumbs') ?>
+			<?= $this->render($variables, 'catalog/product/main/caption/ratings') ?>
+			<?= $this->render($variables, 'catalog/mobile_back_button') ?>
+			<?= $this->render($variables, 'catalog/product/main/caption/mobile_header') ?>
+		</div>
+	</div>
+</div>

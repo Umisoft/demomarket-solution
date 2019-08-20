@@ -1,0 +1,40 @@
+<?php
+/**
+ * Первый уровень меню каталога товаров.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $categoryList
+ */
+$fullCategoryList = $this->getCommonVar('catalog_category_list');
+$categoryId = $fullCategoryList['category_id'];
+$categoryList = $this->filterCategoryList();
+?>
+
+<ul umi:add-method="none"
+    umi:element-id="<?= $categoryId ?>"
+    umi:region="list"
+    umi:module="catalog"
+    umi:sortable="sortable"
+>
+	<?php foreach ($categoryList as $category): ?>
+		<li class="clearfix hover_sub"
+		    umi:element-id="<?= $category['id'] ?>"
+		    umi:region="row"
+		>
+			<a href="<?= $category['link'] ?>"
+			   umi:field-name="name"
+			   umi:delete="delete"
+			   umi:empty="<?= $this->translate('empty_section_name') ?>"
+			>
+				<?= $this->escape($category['text']) ?>
+			</a>
+
+			<?php if($this->isCategoryHasChild($category['id'])):?>
+				<span><i class="fa fa-angle-right"></i></span>
+			<?php endif; ?>
+
+			<?= $this->render($category, 'layout/header/bottom/catalog/sub_list') ?>
+		</li>
+	<?php endforeach; ?>
+</ul>

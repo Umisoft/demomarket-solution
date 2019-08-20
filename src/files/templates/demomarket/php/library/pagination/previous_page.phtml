@@ -1,0 +1,16 @@
+<?php
+/**
+ * Ссылка на предыдущую страницу пагинации.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$pagination = $variables;
+?>
+
+<?php if (isset($pagination['toprev_link'])): ?>
+	<li class="prev">
+		<a href="<?= $this->getCurrentPath() . $pagination['toprev_link']['value'] ?>"></a>
+	</li>
+<?php endif; ?>

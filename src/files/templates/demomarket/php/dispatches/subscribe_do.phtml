@@ -1,0 +1,49 @@
+<?php
+/**
+ * Страница результата подписки на рассылку.
+ * @todo рефакторинг
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$subscribeDo = $this->getSubscribeDoData();
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="container grey_border">
+	<?php if (isset($subscribeDo['result']['class']) && $subscribeDo['result']['class'] == 'error'): ?>
+		<p><?= $this->translate($subscribeDo['result']['node']) ?></p>
+
+	<?php elseif (isset($subscribeDo['unsubscribe_link'])): ?>
+		<?php if ($this->isGuest()): ?>
+			<p><?= $this->translate('dispatch-you-to') ?>.</p>
+			<p><?= $this->translate('dispatch-unsubscribe') ?> <a href="<?= $subscribeDo['unsubscribe_link'] ?>"><?= $this->translate('dispatch-unsubscribe-part') ?></a>.</p>
+		<?php endif; ?>
+
+	<?php elseif (isset($subscribeDo['result']['items']) && is_array($subscribeDo['result']['items']) && umiCount($subscribeDo['result']['items'])): ?>
+		<p><?= $this->translate('dispatch-you-to') ?>:</p>
+
+		<ul>
+			<?php foreach ($subscribeDo['result']['items'] as $item): ?>
+				<li>
+					<?= $this->escape($item['disp_name']) ?>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+
+	<?php elseif (isset($subscribeDo['result'])): ?>
+		<?php if ($this->isGuest()): ?>
+			<?= $this->translate($subscribeDo['result']) ?>
+		<?php else: ?>
+			<p><?= $this->translate('dispatch-you-from') ?>.</p>
+		<?php endif; ?>
+	<?php endif; ?>
+</div>

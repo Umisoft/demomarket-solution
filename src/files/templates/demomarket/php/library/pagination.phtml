@@ -1,0 +1,20 @@
+<?php
+/**
+ * Пагинация.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+if (!$this->canShowPagination($variables)) {
+	return;
+}
+
+$pagination = $this->macros('system', 'numpages', [$variables['total'], $variables['per_page']]);
+?>
+
+<ul class="pagination_numbers">
+	<?= $this->render($pagination, 'library/pagination/previous_page') ?>
+	<?= $this->render($pagination, 'library/pagination/page_list') ?>
+	<?= $this->render($pagination, 'library/pagination/next_page') ?>
+</ul>

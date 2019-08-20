@@ -1,0 +1,26 @@
+<?php
+/**
+ * Меню каталога товаров. Состоит из двух уровней.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="col-md-4 background_red bottom_sub_menu catalog_menu clearfix col-lg-3" data-element="sub">
+	<div class="menu_toggle float_left">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+
+	<h3 class="capt center up white_text">
+		<?= $this->translate('catalog_label') ?>
+	</h3>
+
+	<a class="float_right" data-toggle="sub_menu" id="sub_menu_toggle">
+		<i class="fa fa-angle-down" aria-hidden="true" data-toggle="angle"></i>
+	</a>
+
+	<?= $this->render($variables, 'layout/header/bottom/catalog/list') ?>
+</div>

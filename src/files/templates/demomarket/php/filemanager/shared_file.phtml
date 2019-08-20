@@ -1,0 +1,50 @@
+<?php
+/**
+ * Страница скачиваемого файла.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $page
+ */
+
+$page = $variables['page'];
+$sharedFile = $this->macros('filemanager', 'shared_file', [$variables['pageId']]);
+?>
+
+<div class="container">
+	<div class="download_file">
+		<h3 umi:element-id="<?= $variables['pageId'] ?>" umi:field-name="h1" umi:empty="<?= $this->translate('empty_page_name') ?>">
+			<?= $this->escape($page->getValue('h1')) ?>
+		</h3>
+
+		<div umi:element-id="<?= $variables['pageId'] ?>" umi:field-name="content" umi:empty="<?= $this->translate('empty_page_content') ?>">
+			<?= $page->getValue('content') ?>
+		</div>
+
+		<p>
+			<?= $this->translate('download_file_name') . ':' ?>
+			<?= $this->escape($sharedFile['file_name']) ?>
+		</p>
+
+		<p>
+			<?= $this->translate('download_file_size') . ':' ?>
+			<?= $sharedFile['file_size'] ?>
+			<?= ' Kb' ?>
+		</p>
+
+		<p>
+			<?= $this->translate('download_part_one') ?>
+
+			<a href="<?= $sharedFile['download_link'] ?>">
+				<?= $this->translate('download_part_two') ?>
+			</a>
+		</p>
+	</div>
+</div>
+
+<script>
+	// Файл автоматически начнет скачиваться через 10 секунд
+	window.setTimeout(function() {
+		document.location.href = "<?= $sharedFile['download_link'] ?>";
+	}, 10000);
+</script>

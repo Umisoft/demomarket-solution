@@ -1,0 +1,24 @@
+<?php
+/**
+ * Системная страница логина/регистрации пользователя через сервис ulogin.
+ * @link https://ulogin.ru/
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+// Побочный эффект: при успешном логине/регистрации происходит редирект в личный кабинет пользователя
+$this->macros('users', 'ulogin');
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->translate('ulogin') ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="container grey_border">
+	<p><?= $this->translate('ulogin_failed') ?></p>
+</div>

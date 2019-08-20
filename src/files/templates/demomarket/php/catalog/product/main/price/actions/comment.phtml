@@ -1,0 +1,20 @@
+<?php
+/**
+ * Кнопка "Комментарии".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables;
+?>
+
+<?php if ($this->isShowCommentsOnProductPage()): ?>
+	<div class="col-md-6 col-lg-3 rew">
+		<a href="<?= $this->getPath($product) ?>" class="comment_count">
+			<i class="sprite-item sprite-item_icons_comment inline"></i>
+			<?= $this->translate('comments') ?>
+			<span class="lazy_comment_count">?</span>
+		</a>
+	</div>
+<?php endif;?>

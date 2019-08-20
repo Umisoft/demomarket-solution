@@ -1,0 +1,10 @@
+<?php
+/**
+ * Список заказов пользователя.
+ * Отдельно не выводится, поэтому происходит редирект на страницу "Личный кабинет".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$this->redirect($this->getPersonalLink());

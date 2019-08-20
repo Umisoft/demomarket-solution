@@ -1,0 +1,20 @@
+<?php
+/**
+ * Главная страница:
+ *   - Блок со слайдером
+ *   - Блок акции с таймером
+ *   - Блок "Наши преимущества"
+ *   - Блок с новостями и опросом
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$this->setCommonVar('banner', $this->getBanner());
+?>
+
+<?= $this->render($variables, 'content/home/slider_block') ?>
+<?= $this->render($variables, 'content/home/mobile_timer') ?>
+<?= $this->render($variables, 'content/home/catalog') ?>
+<?= $this->render($variables, 'content/home/advantage') ?>
+<?= $this->render($variables, 'content/home/news_block') ?>

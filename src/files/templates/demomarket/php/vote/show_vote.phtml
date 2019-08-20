@@ -1,0 +1,16 @@
+<?php
+	/**
+	 * Выводит опрос, либо его результаты.
+	 *
+	 * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+	 * @var array $variables
+	 */
+
+	$vote = $variables;
+?>
+
+<?php if ($this->canShowVoteForm($vote)): ?>
+	<?= $this->render($vote, 'vote/form') ?>
+<?php elseif ($this->canShowVoteResults($vote)): ?>
+	<?= $this->render($vote, 'vote/results') ?>
+<?php endif; ?>

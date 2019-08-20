@@ -1,0 +1,25 @@
+<?php
+/**
+ * Вкладка "Заказы".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$orderList = $this->macros('emarket', 'ordersList');
+?>
+
+<div class="tab-pane active" id="order">
+	<div class="title hidden-sm hidden-xs">
+		<div><?= $this->translate('order_number') ?></div>
+		<div><?= $this->translate('order_sum') ?></div>
+		<div><?= $this->translate('order_status') ?></div>
+		<div><?= $this->translate('order_method') ?></div>
+	</div>
+
+	<div class="content">
+		<?php foreach ($orderList['items'] as $order): ?>
+			<?= $this->render($order, 'emarket/personal/order') ?>
+		<?php endforeach; ?>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<?php
+/**
+ * Блок "С этим товаром покупают".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables['page'];
+$suggestedProductList = $this->getSuggestedProducts($product);
+?>
+
+<?php if ($suggestedProductList): ?>
+	<div class="container mobile_all_width">
+		<div class="row">
+			<div class="sect_capt">
+				<h3 class="up"><?= $this->translate('suggested_products') ?></h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="subCarousel goods w100p">
+				<?php foreach ($suggestedProductList as $suggestedProduct): ?>
+					<div>
+						<?= $this->render($suggestedProduct, 'catalog/product/preview/index') ?>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>

@@ -1,0 +1,31 @@
+<?php
+/**
+ * Превью комментария к посту блога.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$comment = $variables;
+?>
+
+<div class="one_comment"
+     umi:element-id="<?= $comment['cid'] ?>"
+     umi:region="row"
+>
+	<div class="date" umi:field-name="publish_time">
+		<?= $this->getFormattedPublishTime($comment) ?>
+	</div>
+
+	<div class="name">
+		<?= $this->getFullAuthorName($comment['author_id']) ?>
+	</div>
+
+	<div class="text"
+	     umi:field-name="content"
+	     umi:delete="delete"
+	     umi:empty="<?= $this->translate('empty') ?>"
+	>
+		<?= ($comment['content']) ?>
+	</div>
+</div>

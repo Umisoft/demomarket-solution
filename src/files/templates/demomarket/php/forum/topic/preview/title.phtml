@@ -1,0 +1,18 @@
+<?php
+/**
+ * Название и ссылка на топик в превью топика внутри конференции форума.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$topic = $variables;
+?>
+
+<td class="forum_name">
+	<img src="img/folder.png" alt="folder" class="hidden-sm hidden-xs">
+
+	<a href="<?= $topic['link'] ?>" umi:element-id="<?= $topic['id'] ?>" umi:field-name="name">
+		<?= $this->escape($topic['name']) ?>
+	</a>
+</td>

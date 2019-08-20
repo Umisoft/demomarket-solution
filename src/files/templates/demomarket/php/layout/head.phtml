@@ -1,0 +1,45 @@
+<?php
+/**
+ * Содержимое html-тега <head>.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<base href="<?= $this->macros('umiTemplates', 'getResourceDirectory') ?>">
+<title><?= $this->escape($variables['title']) ?></title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="<?= $this->escape($variables['meta']['description']) ?>">
+<meta name="keywords" content="<?= $this->escape($variables['meta']['keywords']) ?>">
+<meta name="author" content="Umisoft">
+
+<?= $this->macros('content', 'includeFrontendResources') ?>
+
+<link rel="stylesheet" href="compiled/demomarket.lib.min.css">
+<link rel="stylesheet" href="compiled/demomarket.min.css">
+
+<?= $this->getCanonicalLinkTag($variables) ?>
+
+<script type="text/javascript" src="/ulang/<?= $variables['lang'] ?>/common/emarket/?js" charset="utf-8"></script>
+<script src="compiled/demomarket.lib-min.js"></script>
+<script src="compiled/demomarket-min.js"></script>
+
+<?php if ($this->isRecaptchaEnabled()): ?>
+	<script src="<?= $this->getRecaptchaUrl($variables) ?>" async defer></script>
+
+	<!--suppress JSUnusedLocalSymbols -->
+	<script>
+		var CaptchaCallback = function() {
+			$('.g-recaptcha').each(function(index, el) {
+				grecaptcha.render(el, {'sitekey': '<?= $this->getRecaptchaSiteKey() ?>'});
+			});
+		};
+	</script>
+<?php endif; ?>
+
+<style>
+	<?= $this->getUserCss() ?>
+</style>

@@ -1,0 +1,32 @@
+<?php
+/**
+ * Список комментариев с пагинацией.
+ * Форма добавления нового комментария.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$commentList = isset($variables['lines']) ? $variables['lines'] : [];
+?>
+
+<div class="container">
+	<div class="comment">
+		<?php if ($commentList): ?>
+			<div id="comments"
+			     class="comment_list"
+			     umi:module="comments"
+			     umi:add-method="none"
+			     umi:region="list"
+			     umi:sortable="sortable"
+			>
+				<?php foreach ($commentList as $comment): ?>
+					<?= $this->render($comment, 'comments/comment/preview') ?>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
+		<?= $this->render($variables, 'library/pagination') ?>
+		<?= $this->render($variables, 'comments/comment/new') ?>
+	</div>
+</div>

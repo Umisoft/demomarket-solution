@@ -1,0 +1,44 @@
+<?php
+/**
+ * Системная страница результата регистрации.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$registerDone = $this->macros('users', 'registrate_done')
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="container grey_border">
+	<?php if (isset($registerDone['result'])): ?>
+		<?php switch ($registerDone['result']) {
+			case 'without_activation' : {
+				echo '<h4>' . $this->translate('registration_done') . '</h4>';
+				break;
+			}
+			case 'error' : {
+				echo '<h4>' . $this->translate('registration-error') . '</h4>';
+				break;
+			}
+			case 'error_user_exists': {
+				echo '<h4>' . $this->translate('registration-error-user-exists') . '</h4>';
+				break;
+			}
+			default: {
+				echo '<h4>' . $this->translate('registration_done') . '</h4>';
+				echo '<p>' . $this->translate('registration-activation-note') . '</p>';
+			}
+		} ?>
+	<?php else:
+		echo '<h4>' . $this->translate('registration_done') . '</h4>';
+		echo '<p>' . $this->translate('registration-activation-note') . '</p>';
+	endif; ?>
+</div>

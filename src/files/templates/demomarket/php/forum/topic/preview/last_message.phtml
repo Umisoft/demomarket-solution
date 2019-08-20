@@ -1,0 +1,36 @@
+<?php
+/**
+ * Последнее сообщение и его автор в превью топика внутри конференции форума.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$topic = $variables;
+$data = $this->getLastTopicMessage($topic);
+$lastMessage = $this->getPageById($data['id']);
+?>
+
+<td class="hidden-sm hidden-xs">
+	<?php if ($lastMessage instanceof iUmiHierarchyElement): ?>
+		<a href="<?= $data['link'] ?>"
+		   umi:empty="<?= $this->translate('comment_title') ?>"
+		   umi:field-name="name"
+		   umi:element-id="<?= $data['id'] ?>"
+		>
+			<?= $this->escape($data['name']) ?>
+		</a>
+
+		<p>
+			<?= $this->getFullAuthorName($lastMessage->getValue('author_id')) ?>
+
+			<span class="gray_text"
+			      umi:empty="<?= $this->translate('forum_message_date') ?>"
+			      umi:field-name="publish_time"
+			      umi:element-id="<?= $lastMessage->getId() ?>"
+			>
+				(<?= $this->getFormattedPublishTime($lastMessage) ?>)
+			</span>
+		</p>
+	<?php endif; ?>
+</td>

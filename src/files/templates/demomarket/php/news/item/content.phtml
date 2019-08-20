@@ -1,0 +1,32 @@
+<?php
+/**
+ * Контент новости.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $newsItem
+ */
+
+$newsItem = $variables['page'];
+?>
+
+<div class="one_news">
+	<div class="container">
+		<div class="grey_border">
+			<div class="left_block">
+				<?= $this->render($newsItem, 'news/item/date') ?>
+
+				<div class="free_text" umi:element-id="<?= $variables['pageId'] ?>" umi:field-name="content"
+					 umi:empty="<?= $this->translate('empty_page_content') ?>">
+					<?= $newsItem->getValue('content') ?>
+				</div>
+
+				<div class="social_technology catalog_item">
+					<?= $this->render($variables, 'library/social_count') ?>
+				</div>
+			</div>
+
+			<?= $this->render($newsItem, 'news/item/photo') ?>
+		</div>
+	</div>
+</div>

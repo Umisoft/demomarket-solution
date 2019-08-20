@@ -1,0 +1,28 @@
+<?php
+/**
+ * Картинка для публикации новости.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $newsItem
+ * @var string|null $photoPath
+ */
+
+$newsItem = $variables;
+$photoPath = $this->getNewsItemPhotoPath($newsItem);
+?>
+
+<?php if ($photoPath): ?>
+	<div class="right_block">
+		<?= $this->render(
+			[
+				'id' => $newsItem->getId(),
+				'field_name' => 'publish_pic',
+				'src' => $photoPath,
+				'alt' => $this->getNewsItemPhotoAlt($newsItem),
+				'title' => $this->getNewsItemPhotoTitle($newsItem)
+			],
+			'library/thumbnail'
+		) ?>
+	</div>
+<?php endif; ?>

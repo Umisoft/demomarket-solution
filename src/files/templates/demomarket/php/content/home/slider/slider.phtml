@@ -1,0 +1,41 @@
+<?php
+/**
+ * Слайдер.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $slideList
+ */
+
+list($variables, $data) = $variables;
+$slideList = $data['slides'];
+?>
+
+<div class="row">
+	<div id="mainCarousel" class="carousel slide" data-ride="carousel" data-interval="15000">
+		<ol class="carousel-indicators white_indicators">
+			<?php foreach (array_keys($slideList) as $index): ?>
+				<li data-target="#mainCarousel"
+				    data-slide-to="<?= $index ?>"
+				    class="<?= $this->getSlideClassByPosition($index) ?>"
+				></li>
+			<?php endforeach; ?>
+		</ol>
+
+		<div class="carousel-inner">
+			<?php foreach ($slideList as $index => $slide): ?>
+				<div class="item <?= $this->getSlideClassByPosition($index) ?>">
+					<?= $this->render([$data, $slide], 'content/home/slider/slide') ?>
+				</div>
+			<?php endforeach; ?>
+		</div>
+
+		<a href="#mainCarousel" data-slide="prev" class="carousel-control left">
+			<i class="fa fa-angle-left"></i>
+		</a>
+
+		<a href="#mainCarousel" data-slide="next" class="carousel-control right">
+			<i class="fa fa-angle-right"></i>
+		</a>
+	</div>
+</div>

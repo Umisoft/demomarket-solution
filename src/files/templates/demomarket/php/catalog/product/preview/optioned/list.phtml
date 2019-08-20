@@ -1,0 +1,23 @@
+<?php
+/**
+ * Скрытый блок с формой выбора опционных свойств, если они есть у товара.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var iUmiHierarchyElement $variables
+ */
+
+$product = $variables;
+$fieldList = $this->getOptionedFieldList($product);
+?>
+
+<?php if ($this->canShowOptionedProperties($product, $fieldList)): ?>
+	<div class="hidden_optioned_properties">
+		<form method="post">
+			<?php foreach ($fieldList as $field): ?>
+				<?= $this->render([$product, $field], 'catalog/product/preview/optioned/property') ?>
+			<?php endforeach; ?>
+
+			<input type="submit" value="<?= $this->translate('add_to_cart') ?>" />
+		</form>
+	</div>
+<?php endif; ?>

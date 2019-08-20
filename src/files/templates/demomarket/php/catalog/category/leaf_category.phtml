@@ -1,0 +1,46 @@
+<?php
+/**
+ * Категория каталога, в которой находятся товары:
+ *   - Форма умных фильтров
+ *   - Блок сортировки и выбора вида превью товаров
+ *   - Блок превью товаров + пагинация
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$catalog = $this->getCatalog($variables);
+$productList = $this->getPages($catalog);
+$pagination = $this->getPagination($catalog);
+$this->setCommonVar('smart_filters', $this->getSmartFilters($variables));
+?>
+
+<?= $this->render($variables, 'catalog/category/filters/index') ?>
+
+<div id="catalog_category" class="col-md-10 <?= $this->getCatalogClass() ?>">
+	<?= $this->render($variables, 'catalog/category/sort/index') ?>
+
+	<div class="row"
+	     umi:element-id="<?= $variables['pageId'] ?>"
+	     umi:module="catalog"
+	     umi:method="getObjectsList"
+	     umi:sortable="sortable"
+	     umi:add-method="popup"
+	>
+		<?php foreach ($productList as $product): ?>
+			<?= $this->render($product, 'catalog/product/preview/index') ?>
+		<?php endforeach; ?>
+	</div>
+
+	<div class="catalog_more top_bottom_platform">
+		<?= $this->render($pagination, 'library/pagination') ?>
+	</div>
+
+	<div class="text-field"
+	     umi:element-id="<?= $variables['pageId'] ?>"
+	     umi:field-name="text_under_catalog"
+	     umi:empty="<?= $this->translate('empty_page_content') ?>"
+	>
+		<?= $variables['page']->getValue('text_under_catalog') ?>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<?php
+/**
+ * Прогресс-баг с шагами оформления заказа.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$langPrefix = $this->getCommonVar('pre_lang');
+?>
+
+<div class="progress_bar clearfix">
+	<a href="<?= $this->getCartLink() ?>" class="active">
+		<?= $this->translate('cart') ?>
+	</a>
+
+	<?php foreach ($variables as $step): ?>
+		<a href="<?= $langPrefix . $step['link'] ?>"
+		   class="<?= $this->getPurchaseStepClass($step) ?>">
+			<?= $step['name'] ?>
+		</a>
+	<?php endforeach; ?>
+</div>

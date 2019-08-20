@@ -1,0 +1,50 @@
+<?php
+/**
+ * Страница товара:
+ *   - Заголовок
+ *   - Изображение и слайдер
+ *   - Ценовой блок
+ *   - Свойства товара
+ *   - Социальные кнопки
+ *   - Блок "С этим товаром покупают"
+ *   - Блок "Похожие товары"
+ *   - Блок "Вы недавно смотрели"
+ *   - Комментарии
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="catalog_item">
+	<?= $this->render($variables, 'catalog/product/main/caption/index') ?>
+
+	<div class="container mobile_all_width">
+		<div class="row">
+			<?= $this->render($variables, 'catalog/product/main/slider') ?>
+			<?= $this->render($variables, 'catalog/product/main/price/index') ?>
+		</div>
+	</div>
+
+	<div class="item_option">
+		<?= $this->render($variables, 'catalog/product/main/properties/index') ?>
+
+		<div class="container visible-xs visible-sm pl20">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<?= $this->render($variables, 'library/social_count') ?>
+				</div>
+			</div>
+		</div>
+
+		<div class="sub_item">
+			<?= $this->render($variables, 'catalog/product/main/see_more/suggested_product_list') ?>
+			<?= $this->render($variables, 'catalog/product/main/see_more/related_product_list') ?>
+			<?= $this->render($variables, 'catalog/product/main/see_more/recently_visited_product_list') ?>
+		</div>
+	</div>
+</div>
+
+<?php if ($this->isShowCommentsOnProductPage()): ?>
+	<?= $this->renderComments($variables) ?>
+<?php endif;?>	

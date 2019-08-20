@@ -1,0 +1,24 @@
+<?php
+/**
+ * Всплывающее окно "Заказать звонок".
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="modal fade" id="callbackModal">
+	<div class="modal-dialog modal-xs">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title up"><?= $this->translate('callback_title') ?></h3>
+
+				<button class="close" data-dismiss="modal" aria-hidden="true">
+					<img src="img/close_form.png" alt="close">
+				</button>
+			</div>
+			<div class="modal-body" id="callbackContent">
+				<?= $this->renderWebform($this->getCallbackId(), 'webforms/callback') ?>
+			</div>
+		</div>
+	</div>
+</div>

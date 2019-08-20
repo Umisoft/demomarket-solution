@@ -1,0 +1,18 @@
+<?php
+/**
+ * Список способов доставки.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$deliveryList = $variables;
+?>
+
+<?php foreach ($deliveryList as $delivery): ?>
+	<?php if ($this->isApiShipDelivery($delivery)): ?>
+		<?= $this->render($delivery, 'emarket/delivery/choose/apiship') ?>
+	<?php else: ?>
+		<?= $this->render($delivery, 'emarket/delivery/choose/item') ?>
+	<?php endif; ?>
+<?php endforeach; ?>

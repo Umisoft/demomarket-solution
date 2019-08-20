@@ -1,0 +1,33 @@
+<?php
+/**
+ * Отдельное значение опционного свойства.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+list($fieldName, $value) = $variables;
+$option = $this->getObjectById(isset($value['rel']) ? $value['rel'] : null);
+?>
+
+<?php if ($option): ?>
+	<div>
+		<label>
+			<input type="radio"
+			       name="options[<?= $fieldName ?>]"
+			       value="<?= $option->getId() ?>"
+			       required
+			/>
+
+			<span></span>
+
+			<p>
+				<?= $this->escape($option->getName()) ?>
+			</p>
+		</label>
+
+		<span class="bold">
+			<?= $this->getFormattedOptionPrice($value) ?>
+		</span>
+	</div>
+<?php endif; ?>

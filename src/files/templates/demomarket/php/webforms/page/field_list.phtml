@@ -1,0 +1,15 @@
+<?php
+/**
+ * Список полей формы обратной связи.
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<?php foreach ($variables['groups']['group'] as $group): ?>
+	<?php foreach ($group['fields'] as $field): ?>
+		<div class="<?= $this->getFormFieldClass($field) ?>">
+			<?= $this->render($field, "data/form_field/{$field['type']}") ?>
+		</div>
+	<?php endforeach; ?>
+<?php endforeach; ?>

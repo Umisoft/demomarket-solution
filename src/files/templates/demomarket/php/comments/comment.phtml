@@ -1,0 +1,58 @@
+<?php
+/**
+ * Страница комментария.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $comment
+ */
+
+$comment = $variables['page'];
+$parent = end($variables['parents']);
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<?= $this->render($variables, 'layout/header/breadcrumbs') ?>
+
+			<h1 umi:element-id="<?= $variables['pageId'] ?>"
+			    umi:field-name="h1"
+			    umi:empty="<?= $this->translate('empty_page_name') ?>"
+			>
+				<?= $this->escape($variables['header']) ?>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="comment page_with_comment">
+		<div class="comment_list">
+			<div class="one_comment" umi:element-id="<?= $variables['pageId'] ?>">
+				<div class="date"
+				     umi:field-name="publish_time"
+				     umi:empty="<?= $this->translate('empty_publish_time') ?>"
+				>
+					<?= $this->getFormattedPublishTime($comment) ?>
+				</div>
+
+				<div class="name">
+					<?= $this->getFullAuthorName($comment->getValue('author_id')) ?>
+				</div>
+
+				<div class="text"
+				     umi:field-name="message"
+				     umi:delete="delete"
+				     umi:empty="<?= $this->translate('empty') ?>"
+				>
+					<?= $comment->getValue('message') ?>
+				</div>
+			</div>
+
+			<a href="<?= $this->getPath($parent) ?>">
+				<?= $this->translate('back_to_parent_page') ?>
+			</a>
+		</div>
+	</div>
+</div>

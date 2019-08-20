@@ -1,0 +1,24 @@
+<?php
+/**
+ * Список соседних страниц в пагинации.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$pagination = $variables;
+?>
+
+<?php foreach ($pagination['pages'] as $page): ?>
+	<?php if (isset($page['is-active'])): ?>
+		<li class="active">
+			<a><?= $page['num'] ?></a>
+		</li>
+	<?php else: ?>
+		<li>
+			<a href="<?= $this->getCurrentPath() . $page['link'] ?>">
+				<?= $page['num'] ?>
+			</a>
+		</li>
+	<?php endif; ?>
+<?php endforeach; ?>

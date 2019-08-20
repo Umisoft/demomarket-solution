@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+	<route>
+		<transaction name="demomarket_on_install">
+			<action name="\UmiCms\Manifest\Demomarket\RemoveContentForUnavailableModules" />
+		</transaction>
+	</route>
+</manifest>

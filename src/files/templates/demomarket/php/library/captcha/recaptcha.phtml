@@ -1,0 +1,17 @@
+<?php
+/**
+ * Google ReCaptcha.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$class = isset($variables['recaptcha-class']) ? $variables['recaptcha-class'] : '';
+$siteKey = isset($variables['recaptcha-sitekey']) ? $variables['recaptcha-sitekey'] : '';
+?>
+
+<div>
+	<div class="<?= $class ?>"
+	     data-sitekey="<?= $siteKey ?>">
+	</div>
+</div>

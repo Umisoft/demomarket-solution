@@ -1,0 +1,10 @@
+<?php
+/**
+ * Системная страница деавторизации пользователя.
+ * Для этого действия нет специального шаблона, поэтому происходит редирект на главную страницу.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$this->redirect($this->getHomePageUrl());

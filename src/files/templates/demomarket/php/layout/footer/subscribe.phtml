@@ -1,0 +1,42 @@
+<?php
+/**
+ * Форма подписки на новости в подвале сайта.
+ * @todo Рефакторинг
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$preLang = $this->getCommonVar('pre_lang');
+$action = $preLang . '/dispatches/subscribe_do/';
+?>
+
+<?php if(isset($variables['subscriber_dispatches'])): ?>
+	<?php if ($variables['subscriber_dispatches']['items']): ?>
+		<form
+			action="<?= $action ?>"
+			class="circle_form footer_form"
+			name="sbs_frm"
+			method="post">
+
+			<?php
+			$newsletter = $variables['subscriber_dispatches']['items'][0];
+			?>
+
+			<input type="hidden" name="subscriber_dispatches[<?=$newsletter['id']?>]" value="<?=$newsletter['id']?>" />
+
+			<a class="footer_subscription_button"><?= $this->translate('subscribe') ?></a>
+		</form>
+	<?php endif; ?>
+<?php else: ?>
+	<form
+		action="<?= $action ?>"
+		class="circle_form footer_form"
+		name="sbs_frm"
+		method="post">
+		<input type="text" required name="sbs_mail" placeholder="<?= $this->translate('enter_your_email') ?>" />
+        <button type="submit"></button>
+
+		<?= $this->render('dispatches-152-federal-law', 'library/personalDataNotice') ?>
+	</form>
+<?php endif; ?>

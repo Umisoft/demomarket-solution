@@ -1,0 +1,18 @@
+<?php
+/**
+ * Общая цена товарного наименования.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables;
+?>
+
+<div class="col-md-2 col-sm-12 col-xs-12 order_sum sum_rub">
+	<h5 class="gray_text hidden-md hidden-lg">
+		<?= $this->getCommonVar('sumHeader') ?>
+	</h5>
+
+	<span><?= $this->getTotalPrice($product) ?></span>
+</div>

@@ -1,0 +1,51 @@
+<?php
+/**
+ * Форма поиска в шапке сайта.
+ * За функционал поиска отвечает скрипт js/search.js.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$action = $this->getCommonVar('pre_lang') . '/search/search_do/';
+?>
+
+<div class="col-md-5 col-lg-6 search">
+	<form action="<?= $action ?>" method="get" id="searchForm" class="circle_form">
+		<input
+			type="search"
+			placeholder="<?= $this->translate('search_placeholder') ?>"
+			name="search_string"
+			autocomplete="off"
+			class="tooltip_toggle"
+		/>
+	</form>
+
+	<div class="search_content"></div>
+
+	<script id="search_result_template" type="text/template">
+		<% _.each(typesList, function(type) { %>
+			<ul class="goods_list">
+				<li>
+					<span class="list_heading gray_text">
+						<%= type.module ? type.module : '&nbsp;' %>
+					</span>
+
+					<ul>
+						<% _.each(type.elements, function(page) { %>
+							<li class="clearfix">
+								<a href="<%= page.link %>" class="pull-left">
+									<%= page.context %>
+								</a>
+							</li>
+						<% }); %>
+					</ul>
+				</li>
+			</ul>
+		<% }); %>
+
+		<div class="all_result">
+			<a><?= $this->translate('show_all_search_results') ?></a>
+		</div>
+	</script>
+</div>

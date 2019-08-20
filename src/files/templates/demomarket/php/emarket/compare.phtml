@@ -1,0 +1,16 @@
+<?php
+/**
+ * Страница сравнения товаров.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$result = $this->macros('emarket', 'compare');
+?>
+
+<?php if ($this->canCompare($result)): ?>
+	<?= $this->render($result, 'emarket/compare/populated') ?>
+<?php else: ?>
+	<?= $this->render($result, 'emarket/compare/empty') ?>
+<?php endif; ?>

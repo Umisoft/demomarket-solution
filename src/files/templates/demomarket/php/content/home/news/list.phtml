@@ -1,0 +1,25 @@
+<?php
+/**
+ * Список последних новостей на главной.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $newsItemList
+ */
+
+$lastNews = $variables;
+$newsItemList = $lastNews['items'];
+?>
+
+<div class="news_content clearfix"
+     umi:element-id="<?= $lastNews['category_id'] ?>"
+     umi:region="list"
+     umi:sortable="none"
+     umi:module="news"
+     umi:method="lastlist"
+     umi:button-position="bottom center"
+>
+	<?php foreach ($newsItemList as $newsItem): ?>
+		<?= $this->render($this->getPageById($newsItem['id']), 'content/home/news/item') ?>
+	<?php endforeach; ?>
+</div>

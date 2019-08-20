@@ -1,0 +1,21 @@
+<?php
+/**
+ * Старая цена товара.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables;
+?>
+
+<del class="gray_text"
+     umi:element-id="<?= $product->getId() ?>"
+     umi:field-name="old_price"
+     umi:empty="<?= $this->translate('old_price') ?>"
+>
+	<?php if ($product->getValue('old_price')): ?>
+		<?= $this->formatPrice($product->getValue('old_price')) ?>
+	<?php endif; ?>
+</del>
+

@@ -1,0 +1,16 @@
+<?php
+/**
+ * Поле типа "Выпадающий список".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$field = $variables;
+?>
+
+<select name="<?= $field['input_name'] ?>">
+	<?php foreach ($field['options'] as $option): ?>
+		<option value="<?= $option['id'] ?>"><?= $this->escape($option['name']) ?></option>
+	<?php endforeach; ?>
+</select>

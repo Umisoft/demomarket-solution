@@ -1,0 +1,18 @@
+<?php
+/**
+ * Скидка товарного наименования.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables;
+?>
+
+<div class="col-md-1 col-sm-12 col-xs-12 order_sale">
+	<h5 class="gray_text hidden-md hidden-lg">
+		<?= $this->getCommonVar('discountHeader') ?>
+	</h5>
+
+	<span><?= $this->getDiscount($product) ?></span>
+</div>

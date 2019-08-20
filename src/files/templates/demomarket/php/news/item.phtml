@@ -1,0 +1,15 @@
+<?php
+/**
+ * Страница новости.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $newsItem
+ */
+
+$newsItem = $variables['page'];
+?>
+
+<?= $this->render($variables, 'news/item/caption') ?>
+<?= $this->render($variables, 'news/item/back_link') ?>
+<?= $this->render($variables, 'news/item/content') ?>

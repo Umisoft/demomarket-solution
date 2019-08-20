@@ -1,0 +1,16 @@
+<?php
+/**
+ * Блок сортировки товаров каталога.
+ * Блок из трех вариантов отображения превью товаров каталога.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="row">
+	<div class=" clearfix sort_row top_bottom_platform">
+		<?= $this->render($variables, 'catalog/category/sort/sort') ?>
+		<?= $this->render($variables, 'catalog/category/sort/choose_product_preview_style') ?>
+	</div>
+</div>

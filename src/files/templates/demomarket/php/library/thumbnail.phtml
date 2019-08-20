@@ -1,0 +1,24 @@
+<?php
+/**
+ * Уменьшенное изображение.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$thumbnail = $this->getThumbnail($variables);
+$canShowEIP = $thumbnail['field_name'] && $thumbnail['id'];
+?>
+
+<img
+	class="img-responsive"
+	src="<?= $thumbnail['src'] ?>"
+	alt="<?= $this->escape($thumbnail['alt']) ?>"
+	title="<?= $this->escape($thumbnail['title']) ?>"
+	width="<?= $thumbnail['width'] ?>"
+	height="<?= $thumbnail['height'] ?>"
+	<?php if ($canShowEIP): ?>
+		<?= $this->getUmiIdAttributeName($thumbnail['object']) . '="' . $thumbnail['id'] . '"' ?>
+		<?= 'umi:field-name="' . $thumbnail['field_name'] . '" ' ?>
+	<?php endif; ?>
+/>

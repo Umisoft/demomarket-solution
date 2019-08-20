@@ -1,0 +1,61 @@
+<?php
+/**
+ * Блок с ценой и кнопкой "Купить" в превью товара.
+ *
+ * Для вида превью списком:
+ *   - Статус наличия товара
+ *   - Ссылка на комментарии товара
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var iUmiHierarchyElement $variables
+ */
+
+$product = $variables;
+$isShowComments = $this->isShowCommentsOnProductPage();
+?>
+
+<div class="list_quantity">
+	<p>
+		<?= $this->render($product, 'catalog/product/preview/stock_status') ?>
+	</p>
+
+	<?php if ($isShowComments): ?>
+		<p>
+			<a href="<?= $this->getPath($product) ?>" class="comment_count">
+				<?= $this->translate('comments') ?>:
+				<span class="lazy_comment_count">?</span>
+			</a>
+		</p>
+	<?php endif; ?>
+
+	<p>
+		<a href="<?= $this->getProductComparisonLink($product) ?>">
+			<?= $this->getComparisonMessage($product) ?>
+		</a>
+	</p>
+</div>
+
+<div class="info">
+	<div class="price">
+		<?= $this->render($product, 'emarket/old_price') ?>
+
+		<h3
+			umi:element-id="<?= $product->getId() ?>"
+			umi:field-name="price"
+			umi:empty="<?= $this->translate('price') ?>">
+			<?= $this->getPrice($product) ?>
+		</h3>
+	</div>
+
+	<?php if ($isShowComments): ?>
+		<a href="<?= $this->getPath($product) ?>" class="gray_text comment_count comment_catalog_inline">
+			<img src="img/comment.png" alt="comment" />
+			<span class="lazy_comment_count">?</span>
+		</a>
+	<?php endif; ?>
+
+	<a href="<?= $this->getAddToCartLink($product) ?>"
+	   class="add_to_cart_button transparent_btn goods_btn <?= $this->getAddToCartButtonClass($product) ?>">
+		<?= $this->getAddToCartButtonMessage($product) ?>
+	</a>
+</div>

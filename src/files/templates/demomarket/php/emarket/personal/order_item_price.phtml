@@ -1,0 +1,18 @@
+<?php
+/**
+ * Цена одного товарного наименования в заказе.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$orderItem = $variables;
+?>
+
+<div>
+	<?= $this->render(['price' => $orderItem['price']], 'emarket/price') ?>
+	×
+	<?= $orderItem['amount'] ?>
+	=
+	<?= $this->render(['price' => $orderItem['total-price']], 'emarket/price') ?>
+</div>

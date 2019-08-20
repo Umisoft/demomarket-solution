@@ -1,0 +1,56 @@
+<?php
+/**
+ * Страница подписки на рассылку.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$data = $this->getSubscribeData();
+$action = $this->getCommonVar('pre_lang') . '/dispatches/subscribe_do/';
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="container grey_border">
+	<form action="<?= $action ?>" name="sbs_frm" method="post">
+		<?php if (isset($data['subscriber_dispatches']) && $data['subscriber_dispatches']): ?>
+			<?php if (umiCount($data['subscriber_dispatches']['items'])): ?>
+				<div>
+					<?php foreach ($data['subscriber_dispatches']['items'] as $newsletter): ?>
+						<div>
+							<label>
+								<input type="checkbox" name="subscriber_dispatches[<?= $newsletter['id'] ?>]" value="<?= $newsletter['id'] ?>"
+									<?php if ($newsletter['is_checked'] == 1): ?>
+										checked
+									<?php endif; ?>
+								/>
+								<span></span>
+								<?= $this->escape($newsletter['disp_name']) ?>
+							</label>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
+		<?php else: ?>
+			<div class="important">
+				<input type="text"
+				       value="<?= $this->translate('e-mail') ?>"
+				       required
+				       class="input"
+				       id="subscribe"
+				       name="sbs_mail" />
+			</div>
+		<?php endif; ?>
+
+		<input type="submit" class="button" value="<?= $this->translate('subscribe') ?>" />
+	</form>
+</div>
+
+

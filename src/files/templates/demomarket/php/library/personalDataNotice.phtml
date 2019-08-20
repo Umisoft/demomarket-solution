@@ -1,0 +1,17 @@
+<?php
+/**
+ * Оповещение о согласии на обработку персональных данных
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$inputId = $variables;
+$settingsContainer = $this->getSettingsContainer();
+?>
+
+<div class="personal_data_wrapper">
+	<label for="<?= $inputId ?>">
+        <input id="<?= $inputId ?>" type="checkbox" name="personal" required checked >
+        <span></span>
+		<?= $settingsContainer->getValue('personal_data_text') ?>
+	</label>
+</div>

@@ -1,0 +1,29 @@
+<?php
+/**
+ * Меню основных страниц сайта.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $pageList
+ */
+
+$data = $this->getSiteMap();
+$pageList = $data['items'];
+?>
+
+<div class="col-md-6 col-sm-6">
+	<div class="pages">
+		<?php foreach ($pageList as $page) : ?>
+			<a href="<?= $page['link'] ?>"
+			   umi:element-id="<?= $page['id'] ?>"
+			   umi:field-name="name"
+			   umi:delete="delete"
+			   umi:empty="<?= $this->translate('empty_section_name') ?>"
+			>
+				<?= $this->escape($page['name']) ?>
+			</a>
+
+			<br />
+		<?php endforeach; ?>
+	</div>
+</div>

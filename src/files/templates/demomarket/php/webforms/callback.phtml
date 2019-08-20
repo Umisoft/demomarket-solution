@@ -1,0 +1,27 @@
+<?php
+/**
+ * Форма всплывающего окна "Заказать звонок".
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<form enctype="multipart/form-data">
+	<input type="hidden" name="system_email_to" value="<?= $this->getCallbackAddressId($variables) ?>" />
+
+	<?php foreach ($variables['groups']['group'] as $group): ?>
+		<?php foreach ($group['fields'] as $field): ?>
+			<div class="<?= $this->getFormFieldClass($field) ?>">
+				<?= $this->render($field, "data/form_field/{$field['type']}") ?>
+			</div>
+		<?php endforeach; ?>
+	<?php endforeach; ?>
+
+	<input type="hidden" name="system_form_id" value="<?= $variables['form_id'] ?>" />
+
+	<?= $this->renderCaptcha() ?>
+
+	<input type="submit" value="<?= $this->translate('send_form') ?>" />
+
+	<?= $this->render('common-152-federal-law', 'library/personalDataNotice') ?>
+</form>

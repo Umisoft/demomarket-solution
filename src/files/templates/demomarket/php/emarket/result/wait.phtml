@@ -1,0 +1,32 @@
+<?php
+/**
+ * Шаблон страницы, на которую перенаправляет платежная система,
+ * если ответ от платежной системы не был обработан
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ *
+ */
+?>
+
+<div class="container grey_border">
+	<h4 class="empty-content">
+		<?= $this->translate('emarket-order-waited') ?>
+	</h4>
+
+	<?php if ($this->orderWasPlaced($variables)): ?>
+		<div>
+			<p>
+				<b><?= $this->escape($this->getPlacedOrder($variables)->getName()) ?></b>
+
+				<?= $this->translate('order_is_waiting_payment_confirmation') ?>
+			</p>
+		</div>
+	<?php endif; ?>
+
+	<div>
+		<a href="<?= $this->getHomePageUrl() ?>">
+			<?= $this->translate('continue_shopping') ?>
+		</a>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<?php
+/**
+ * Третий уровень меню каталога товаров в мобильной версии сайта.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $categoryList
+ */
+
+$categoryList = $variables;
+?>
+
+<?php if (umiCount($categoryList) > 0): ?>
+	<ul class="mobile_sub_sub_menu">
+		<?php foreach ($categoryList as $child): ?>
+			<li>
+				<a href="<?= $child['link'] ?>">
+					<?= $this->escape($child['text']) ?>
+				</a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+<?php endif; ?>

@@ -1,0 +1,41 @@
+<?php
+/**
+ * Форма добавления нового комментария.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div id="add_comment" class="comment_add">
+	<h3><?= $this->translate('comment_submit') ?></h3>
+
+	<?php if ($this->canComment($variables)): ?>
+		<form method="post" action="<?= $this->getNewCommentUrl($variables) ?>">
+			<?php if ($this->isGuest()): ?>
+				<div class="important">
+					<input type="text" name="author_nick" placeholder="<?= $this->translate('comment_author_name') ?>" required />
+					<span class="sub_text"><?= $this->translate('comment_author_name') ?></span>
+				</div>
+
+				<div class="important">
+					<input type="text" name="author_email" placeholder="<?= $this->translate('comment_author_email') ?>" required />
+					<span class="sub_text"><?= $this->translate('comment_author_email') ?></span>
+				</div>
+			<?php endif; ?>
+
+			<div class="important">
+				<textarea name="comment" placeholder="<?= $this->translate('comment_text') ?>" required></textarea>
+				<span class="sub_text"><?= $this->translate('comment_text') ?></span>
+			</div>
+
+			<?= $this->renderCaptcha() ?>
+
+			<input type="submit" value="<?= $this->translate('comment_submit') ?>" />
+
+			<?= $this->render('common-152-federal-law', 'library/personalDataNotice') ?>
+		</form>
+	<?php else: ?>
+		<p><?= $this->translate('login_to_add_new_comment') ?></p>
+	<?php endif; ?>
+</div>

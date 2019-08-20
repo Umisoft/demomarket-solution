@@ -1,0 +1,27 @@
+<?php
+/**
+ * Страница формы обратной связи.
+ * Страница "Контакты" выводится по особому шаблону `webforms/page/contacts`.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$page = $variables['page'];
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1 umi:element-id="<?= $page->getId() ?>" umi:field-name="h1" umi:empty="<?= $this->translate('empty_page_name') ?>">
+				<?= $this->escape($page->getValue('h1')) ?>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<?php if ($this->isContactsPage($page)): ?>
+	<?= $this->render($variables, 'webforms/page/contacts') ?>
+<?php else: ?>
+	<?= $this->render($variables, 'webforms/page/default') ?>
+<?php endif; ?>

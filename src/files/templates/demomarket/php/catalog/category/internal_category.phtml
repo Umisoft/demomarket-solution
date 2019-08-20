@@ -1,0 +1,54 @@
+<?php
+/**
+ * Категория каталога, в которой находятся другие категории.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $parent
+ * @var iUmiHierarchyElement[] $childCategoryList
+ */
+
+$parent = $variables['page'];
+$shortDescription = $this->escape($parent->getValue('meta_descriptions'));
+$fullDescription = $parent->getValue('descr');
+
+$catalog = $this->getChildCategories($variables);
+$childCategoryList = $catalog['items'];
+$pagination = $this->getPagination($catalog);
+?>
+
+<div id="catalog_category"
+     class="col-md-10 subsection_container"
+     umi:element-id="<?= $variables['pageId'] ?>"
+>
+	<div
+		class="catalog_category_description_top"
+		umi:field-name="meta_descriptions"
+		umi:empty="<?= $this->translate('short_category_description') ?>"
+	>
+		<?= $shortDescription ?>
+	</div>
+
+	<div class="subsection"
+	     umi:element-id="<?= $variables['pageId'] ?>"
+	     umi:module="catalog"
+	     umi:method="getCategoryList"
+	     umi:add-method="popup"
+	>
+		<?php foreach ($childCategoryList as $category): ?>
+			<?= $this->render($category, 'catalog/category/preview') ?>
+		<?php endforeach; ?>
+	</div>
+
+	<div class="catalog_more top_bottom_platform">
+		<?= $this->render($pagination, 'library/pagination') ?>
+	</div>
+
+	<div
+		class="catalog_category_description_bottom"
+		umi:field-name="descr"
+		umi:empty="<?= $this->translate('full_category_description') ?>"
+	>
+		<?= $fullDescription ?>
+	</div>
+</div>

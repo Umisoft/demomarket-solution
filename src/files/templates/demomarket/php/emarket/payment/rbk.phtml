@@ -1,0 +1,28 @@
+<?php
+/**
+ * Способ оплаты RBK Money.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<form action="<?= $variables['purchasing']['formAction'] ?>" method="post">
+	<input type="hidden" name="eshopId" value="<?= $variables['purchasing']['eshopId'] ?>" />
+	<input type="hidden" name="orderId" value="<?= $variables['purchasing']['orderId'] ?>" />
+	<input type="hidden" name="recipientAmount"
+	       value="<?= $variables['purchasing']['recipientAmount'] ?>" />
+	<input type="hidden" name="recipientCurrency"
+	       value="<?= $variables['purchasing']['recipientCurrency'] ?>" />
+	<input type="hidden" name="version" value="<?= $variables['purchasing']['version'] ?>" />
+
+	<div class="container grey_border">
+		<?= $this->translate('payment_redirect_text') ?> RBK Money.
+	</div>
+
+	<div>
+		<input type="submit" value="<?= $this->translate('pay') ?>" class="button big" />
+	</div>
+</form>
+
+<script src="js/payment/send_form_immediately.js"></script>

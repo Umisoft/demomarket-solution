@@ -1,0 +1,24 @@
+<?php
+/**
+ * Список вопросов категории в модуле "FAQ".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $questionList
+ */
+
+$data = $this->getFaqQuestions($variables);
+$questionList = $data['lines'];
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="support_content">
+			<?php foreach ($questionList as $index => $question): ?>
+				<?= $this->render([$index, $question], 'faq/question/preview') ?>
+			<?php endforeach; ?>
+		</div>
+	</div>
+
+	<?= $this->render($data, 'library/pagination') ?>
+</div>

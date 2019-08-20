@@ -1,0 +1,21 @@
+<?php
+/**
+ * Список сообщений в топике форума.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var umiHierarchyElement $topic
+ */
+
+$messageList = $this->getForumTopicMessages();
+?>
+
+<?php if ($messageList['lines']): ?>
+	<div class="comment_list">
+		<?php foreach ($messageList['lines'] as $message): ?>
+			<?= $this->render($message, 'forum/message/preview') ?>
+		<?php endforeach; ?>
+	</div>
+
+	<?= $this->render($messageList, 'library/pagination') ?>
+<?php endif; ?>

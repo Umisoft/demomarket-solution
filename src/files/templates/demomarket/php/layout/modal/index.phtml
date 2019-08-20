@@ -1,0 +1,16 @@
+<?php
+/**
+ * Все всплывающие окна на сайте (скрыты по умолчанию)
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<?= $this->renderWebform($this->getCallbackId(), 'layout/modal/callback') ?>
+
+<?= $this->render($variables, 'layout/modal/buy') ?>
+<?= $this->render($variables, 'layout/modal/buy_one_click') ?>
+
+<?php if($variables['user']['type'] === 'guest'): ?>
+	<?= $this->render($variables, 'layout/modal/login') ?>
+<?php endif; ?>

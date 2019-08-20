@@ -1,0 +1,35 @@
+<?php
+/**
+ *  Цена товарного наименования.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables;
+?>
+
+<div class="col-md-3 col-sm-12 col-xs-12 order_price">
+	<h5 class="gray_text hidden-md hidden-lg">
+		<?= $this->getCommonVar('priceHeader') ?>
+	</h5>
+
+	<span class="price">
+		<?= $this->getOriginalPrice($product) ?>
+	</span>
+
+	<img src="img/char.png" alt="some image" class="char_x">
+
+	<input type="number"
+	       class="quantity"
+	       value="<?= $this->getAmount($product) ?>"
+	       oninput="validity.valid || (value = '');"
+	       min="0"/>
+
+	<?php if ($this->isCartPage()): ?>
+		<span class="change_product_quantity" data-id="<?= $product['id'] ?>">
+				<a class="increment_product_quantity">+</a>
+				<a class="decrement_product_quantity">−</a>
+			</span>
+	<?php endif; ?>
+</div>

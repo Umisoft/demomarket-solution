@@ -1,0 +1,29 @@
+<?php
+/**
+ * Превью категории в модуле "FAQ".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$category = $variables;
+?>
+
+<div class="support_cat_box">
+	<div class="img_box">
+		<img src="img/folder.png" alt="folder" class="hidden-sm hidden-xs">
+	</div>
+
+	<div class="text_box">
+		<a href="<?= $category['link'] ?>"
+		   umi:element-id="<?= $category['id'] ?>"
+		   umi:field-name="name"
+		>
+			<?= $this->escape($category['name']) ?>
+		</a>
+
+		<div umi:element-id="<?= $category['id'] ?>" umi:field-name="content">
+			<?= $category['content'] ?>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+<?php
+/**
+ * Страница с сообщением об успешно отправленной форме.
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="container grey_border">
+	<?= $this->macros('webforms', 'posted', [$this->getRequest('param0')]) ?>
+</div>

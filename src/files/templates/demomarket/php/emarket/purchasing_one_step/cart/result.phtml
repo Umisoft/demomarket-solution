@@ -1,0 +1,45 @@
+<?php
+/**
+ * Блок "Оформить заказ".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$price = isset($variables['summary']['price']) ? $variables['summary']['price'] : [];
+$prefix = isset($price['prefix']) ? $price['prefix'] : '';
+$suffix = isset($price['suffix']) ? $price['suffix'] : '';
+$originalPrice = isset($price['original']) ? $price['original'] : 0;
+$actualPrice = isset($price['actual']) ? $price['actual'] : 0;
+
+$discount = $this->getOrderDiscountAmount($variables);
+?>
+
+
+<div class="order_bill-item discount">
+	<span class="text"><?=$this->translate('order-discount')?></span>
+	<span class="prefix"><?= $this->getOrderDiscountPrefix($variables) ?></span>
+	<span id="discount" class="price" data-price="<?= $discount ?>"><?= $discount ?></span>
+	<span class="suffix"><?= $this->getOrderDiscountSuffix($variables) ?></span>
+</div>
+
+<div class="order_bill-item result">
+	<span class="text"><?= $this->translate('summary-price') ?>:</span>
+	<span class="prefix large"><?= $prefix ?></span>
+	<span id="order_price" class="price" data-price="<?= $originalPrice ?: $actualPrice ?>">
+		<?= $actualPrice ?>
+	</span>
+	<span class="suffix large"><?= $suffix ?></span>
+</div>
+
+<div class="del_row delivery_address_btn">
+	<div class="del_content">
+		<?= $this->render('purchase-step-address-152-federal-law', 'library/personalDataNotice') ?>
+		<div class="order-error-wrapper">
+			<span class="order-error">
+				<?= $this->translate('error-empty-fields') ?>
+			</span>
+		</div>
+		<input id="one-step-order_confirm" type="submit" value="<?= $this->translate('submit-order') ?>">
+	</div>
+</div>

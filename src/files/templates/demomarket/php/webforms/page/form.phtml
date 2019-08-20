@@ -1,0 +1,27 @@
+<?php
+/**
+ * Форма обратной связи.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $form
+ */
+
+$form = $this->getWebformsForm($variables['page']);
+?>
+
+<?php if ($form): ?>
+	<form method="post" action="<?= $this->getWebformsActionUrl() ?>" enctype="multipart/form-data">
+		<?= $this->render($form, 'webforms/page/recipient_list') ?>
+		<?= $this->render($form, 'webforms/page/field_list') ?>
+
+		<input type="hidden" name="system_form_id" value="<?= $form['form_id'] ?>" />
+		<input type="hidden" name="ref_onsuccess" value="<?= $this->getWebformSuccessUrl($form['form_id']) ?>" />
+
+		<?= $this->renderCaptcha() ?>
+
+		<input type="submit" value="<?= $this->translate('send_form') ?>" />
+
+		<?= $this->render('common-152-federal-law', 'library/personalDataNotice') ?>
+	</form>
+<?php endif; ?>

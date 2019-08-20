@@ -1,0 +1,32 @@
+<?php
+/**
+ * Список комментариев к посту блога с пагинацией.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $commentList
+ */
+
+$data = $this->getBlogPostComments($variables);
+$commentList = $data['items'];
+?>
+
+<?php if (umiCount($commentList) > 0): ?>
+	<div id="comments"
+	     class="comment_list"
+	     umi:module="blogs20"
+	     umi:add-method="none"
+	     umi:region="list"
+	     umi:sortable="sortable"
+	>
+		<?php foreach ($commentList as $comment): ?>
+			<?= $this->render($comment, 'blogs20/comment/preview') ?>
+		<?php endforeach; ?>
+	</div>
+
+	<?= $this->render($data, 'library/pagination') ?>
+<?php else: ?>
+	<div class="container grey_border">
+		<p><?= $this->translate('this_blog_post_has_no_comments') ?></p>
+	</div>
+<?php endif; ?>

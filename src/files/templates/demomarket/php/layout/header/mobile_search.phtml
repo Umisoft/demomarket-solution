@@ -1,0 +1,25 @@
+<?php
+/**
+ * Форма поиска в мобильной версии.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$action = $this->getCommonVar('pre_lang') . '/search/search_do/';
+?>
+
+<div class="icon_search">
+	<img src="img/icon_search.png" alt="search">
+
+	<form action="<?= $action ?>" method="get" id="searchFormMobile">
+		<input
+			type="search"
+			placeholder="<?= $this->translate('search_placeholder') ?>"
+			name="search_string"
+			autocomplete="off"
+		/>
+	</form>
+
+	<div class="search_content"></div>
+</div>

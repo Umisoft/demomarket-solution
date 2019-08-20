@@ -1,0 +1,22 @@
+<?php
+/**
+ * Выбор способа оплаты.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$paymentList = isset($variables['onestep']['payment']) ? $variables['onestep']['payment'] : [];
+?>
+
+<?php if ($paymentList): ?>
+	<div id="payment_choose" class="payment onestep del_row">
+		<div class="del_content">
+			<h3 class="up input_capt">
+				<?= $this->translate('payment_type') ?>
+			</h3>
+
+			<?= $this->render(["paymentList" => $paymentList, "isOneStep" => true], 'emarket/payment/choose/list') ?>
+		</div>
+	</div>
+<?php endif; ?>

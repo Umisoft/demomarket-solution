@@ -1,0 +1,76 @@
+<?php
+/**
+ * Оплата по безналичному расчету.
+ * @todo рефакторинг
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$legalPersons = $variables['purchasing']['items'];
+$action = $this->getCurrentPath() . 'do/';
+?>
+
+<form id="invoice" method="post" action="<?= $action ?>">
+    <div class="onestep del_row">
+        <div class="del_content">
+            <?php if (isset($legalPersons[0])): ?>
+                <h4><?= $this->translate('choose-legal_person') ?>:</h4>
+            <?php endif; ?>
+
+            <?php foreach ($legalPersons as $key => $item): ?>
+                <div class="form_element">
+                    <label>
+                        <input
+								type="radio"
+								name="legal-person"
+								value="<?= $item['id'] ?>"
+								<?= ($key == 0) ? 'checked' : '' ?>
+								required
+						/>
+                        <span></span>
+						<p>
+							<?= (isset($item['name']) ? $item['name'] : '') ?>
+						</p>
+                    </label>
+                </div>
+            <?php endforeach; ?>
+
+            <div>
+                <label>
+                    <?php if (isset($legalPersons[0])): ?>
+                        <input type="radio" name="legal-person" value="new" required/>
+                        <span></span>
+                        <?= $this->translate('new-legal-person') ?>
+                    <?php else: ?>
+                        <input type="hidden" name="legal-person" value="new"/>
+                    <?php endif; ?>
+
+                </label>
+            </div>
+
+            <div id="new-legal-person">
+                <?php
+                $customerEmail = '';
+                if (isset($variables['purchasing']['customer']['e-mail'])) {
+                    $customerEmail = $variables['purchasing']['customer']['e-mail'];
+                }
+                ?>
+                <?= $this->render(
+                    [
+                        'form' => $this->macros('data', 'getCreateForm', [$variables['purchasing']['type-id']]),
+                        'customerEmail' => $customerEmail,
+                    ],
+                    'emarket/payment/legal-person-form'
+                )
+                ?>
+            </div>
+
+            <div>
+                <input type="submit" value="<?= $this->translate('make-bill') ?>" class="button big"/>
+            </div>
+
+	        <?= $this->render('purchase-step-invoice-152-federal-law', 'library/personalDataNotice') ?>
+        </div>
+    </div>
+</form>

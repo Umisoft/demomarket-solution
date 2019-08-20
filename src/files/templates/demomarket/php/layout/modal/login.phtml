@@ -1,0 +1,66 @@
+<?php
+/**
+ * Всплывающее окно входа на сайт для незарегистрированного пользователя:
+ *   - Форма входа
+ *   - Кнопки uLogin для входа/регистрации через социальные сети
+ *   - Ссылка для регистрации на сайте
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $params
+ */
+
+$params = $this->getLoginParams($variables);
+?>
+
+<div class="modal fade" id="logModal">
+	<div class="modal-dialog modal-xs">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title up">
+					<?= $this->translate('login_header') ?>
+				</h3>
+
+				<button data-dismiss="modal" aria-hidden="true" class="close">
+					<img src="img/close_form.png" alt="close">
+				</button>
+			</div>
+
+			<div class="modal-body">
+				<form id="login_form">
+					<a href="<?= $this->getPasswordRestoreLink() ?>" class="forgot_password">
+						<?= $this->translate('forgot_your_password_short') ?>
+					</a>
+
+					<div class="important">
+						<input type="text" name="login" value="<?= $params['login'] ?>" placeholder="<?= $this->translate('login') ?>" required />
+						<span class="sub_text"><?= $this->translate('login') ?></span>
+					</div>
+
+					<div class="important">
+						<input type="password" name="password" value="<?= $params['password'] ?>" placeholder="<?= $this->translate('password') ?>" required />
+						<span class="sub_text"><?= $this->translate('password') ?></span>
+					</div>
+
+					<input type="submit" value="<?= $this->translate('log_in') ?>">
+				</form>
+			</div>
+
+			<div class="modal-footer">
+				<h5 class="gray_text">
+					<?= $this->translate('login_social_header') ?>
+				</h5>
+
+				<div id="uLogin" data-ulogin="display=panel;theme=flat;fields=first_name,last_name,network,email,nickname;providers=vkontakte,facebook,twitter;hidden=google,mailru,odnoklassniki,yandex,googleplus,instagram;redirect_uri=<?= $this->getULoginRedirectUrl() ?>;mobilebuttons=0;"></div>
+
+				<p>
+					<?= $this->translate('not_a_member_yet?') ?>
+
+					<a href="<?= $params['register_link'] ?>" class="blue_link">
+						<?= $this->translate('register') ?>
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

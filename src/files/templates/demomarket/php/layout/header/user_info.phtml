@@ -1,0 +1,30 @@
+<?php
+/**
+ * Всплывающая панель управления пользователя.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<ul class="userInfo">
+	<?php if ($this->canShowAdminLink($variables)): ?>
+		<li>
+			<a href="<?= $this->getAdminLink() ?>">
+				<?= $this->translate('go_to_admin') ?>
+			</a>
+		</li>
+	<?php endif ?>
+
+	<li>
+		<a href="<?= $this->getPersonalLink() ?>">
+			<?= $this->translate('personal') ?>
+		</a>
+	</li>
+
+	<li>
+		<a href="<?= $this->getLogoutLink() ?>">
+			<?= $this->translate('log_out') ?>
+		</a>
+	</li>
+</ul>

@@ -1,0 +1,33 @@
+<?php
+/**
+ * Поле умных фильтров, которое нужно вывести со слайдером.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$data = $this->getSliderFilterFieldData($variables);
+?>
+
+<div class="slider_field col-md-12 dropdown_price clearfix">
+	<div class="clearfix arrow_product">
+		<p class="float_left"><?= $data['title'] ?></p>
+		<i class="fa fa-angle-up float_right arrow_dropdown" aria-hidden="true"></i>
+	</div>
+
+	<div class="progress_hide product_form">
+		<div class="col-md-12 delta_price clearfix">
+			<input type="text" name="<?= $data['name_from'] ?>" value="<?= $data['selected_min'] ?>" data-minimum="<?= $data['min'] ?>" class="min float_left" />
+			<span>&mdash;</span>
+			<input type="text" name="<?= $data['name_to'] ?>" value="<?= $data['selected_max'] ?>" data-maximum="<?= $data['max'] ?>" class="max float_right" />
+		</div>
+
+		<div class="col-md-12 allHide clearfix">
+			<div class="col-md-12 price_progress">
+				<span class="min_val"></span>
+				<span class="max_val"></span>
+				<div class="range"></div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<?php
+/**
+ * Системная страница регистрации на сайте.
+ * Если пользователь уже залогинен, произойдет редирект в личный кабинет.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$this->redirectLoggedInUserToUserSettings();
+$action = $this->getCommonVar('pre_lang') . '/users/registrate_do/';
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="feedback">
+	<div class="container">
+		<div class="grey_border">
+			<form id="registrate" enctype="multipart/form-data" method="post" action="<?= $action ?>">
+				<div class="important">
+					<input type="text" name="login" placeholder="<?= $this->translate('login') ?>" required>
+					<span class="sub_text"><?= $this->translate('login') ?></span>
+				</div>
+
+				<div class="important">
+					<input type="password" name="password" placeholder="<?= $this->translate('password') ?>" required>
+					<span class="sub_text"><?= $this->translate('password') ?></span>
+				</div>
+
+				<div class="important">
+					<input type="password" name="password_confirm" placeholder="<?= $this->translate('password_confirm') ?>" required>
+					<span class="sub_text"><?= $this->translate('password_confirm') ?></span>
+				</div>
+
+				<div class="important">
+					<input type="email" name="email" placeholder="<?= $this->translate('e-mail') ?>" required>
+					<span class="sub_text"><?= $this->translate('e-mail') ?></span>
+				</div>
+
+				<div>
+					<?= $this->renderCaptcha() ?>
+				</div>
+
+				<input type="submit" value="<?= $this->translate('registration_do') ?>">
+
+				<?= $this->render('registration-152-federal-law', 'library/personalDataNotice') ?>
+			</form>
+		</div>
+	</div>
+</div>

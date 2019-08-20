@@ -1,0 +1,21 @@
+<?php
+/**
+ * Меню основных страниц сайта в мобильной версии.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $mainPageList
+ */
+
+$menuId = 'main_mobile';
+$mainMenu = $this->getMenu($menuId);
+$mainPageList = $mainMenu['lines'];
+?>
+
+<?php foreach ($mainPageList as $page): ?>
+	<li>
+		<a href="<?= $page['link'] ?>">
+			<?= $this->escape($page['name']) ?>
+		</a>
+	</li>
+<?php endforeach; ?>

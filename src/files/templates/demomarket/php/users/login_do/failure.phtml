@@ -1,0 +1,25 @@
+<?php
+/**
+ * Результат неуспешного вход на сайт.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<h4><?= $this->translate('login_do_try_again') ?></h4>
+
+<div>
+	<div>
+		<a href="<?= $this->getRegistrationLink() ?>">
+			<?= $this->translate('registration') ?>
+		</a>
+	</div>
+
+	<div>
+		<a href="<?= $this->getPasswordRestoreLink() ?>">
+			<?= $this->translate('forgot_your_password') ?>
+		</a>
+	</div>
+</div>
+

@@ -1,0 +1,31 @@
+<?php
+/**
+ * Способ оплаты "AcquiroPay".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$data = $this->getAcquiroPayParams($variables);
+?>
+
+<form action="<?= $data['formAction'] ?>" method="post">
+	<input type="hidden" name="product_id" value="<?= $data['product_id'] ?>" />
+	<input type="hidden" name="amount" value="<?= $data['amount'] ?>" />
+	<input type="hidden" name="language" value="<?= $data['language'] ?>" />
+	<input type="hidden" name="cf" value="<?= $data['order_id'] ?>" />
+	<input type="hidden" name="ok_url" value="<?= $data['ok_url'] ?>" />
+	<input type="hidden" name="cb_url" value="<?= $data['cb_url'] ?>" />
+	<input type="hidden" name="ko_url" value="<?= $data['ko_url'] ?>" />
+	<input type="hidden" name="token" value="<?= $data['token'] ?>" />
+
+	<div class="container grey_border">
+		<?= $this->translate('payment_redirect_text') ?> AcquiroPay.
+	</div>
+
+	<div>
+		<input type="submit" value="<?= $this->translate('pay') ?>" class="button big" />
+	</div>
+</form>
+
+<script src="js/payment/send_form_immediately.js"></script>

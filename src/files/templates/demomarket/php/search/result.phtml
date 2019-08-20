@@ -1,0 +1,37 @@
+<?php
+/**
+ * Результаты поиска.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $pageList
+ */
+
+$pageList = $variables['lines'];
+?>
+
+<div class="search_results">
+	<div class="container">
+		<div class="grey_border">
+			<?php foreach ($pageList as $page): ?>
+				<div class="search_box">
+					<div><?= $page['number'] ?></div>
+
+					<div>
+						<a href="<?= $page['link'] ?>"
+						   umi:element-id="<?= $page['id'] ?>"
+						   umi:field-name="name"
+						   umi:empty="<?= $this->translate('empty_page_name') ?>"
+						>
+							<?= $this->escape($page['name']) ?>
+						</a>
+
+						<p><?= $page['context'] ?></p>
+					</div>
+				</div>
+			<?php endforeach; ?>
+		</div>
+
+		<?= $this->render($variables, 'library/pagination') ?>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<?php
+/**
+ * Ценовой блок:
+ *   - Цена, наличие, кнопка "Купить" и "Купить в один клик"
+ *   - Дополнительные действия
+ *   - Социальные кнопки
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $product
+ */
+$product = $variables['page'];
+?>
+
+<div class="col-xs-12 col-md-6 price_block add_to_cart_block" data-element_id="<?= $variables['pageId'] ?>">
+	<?= $this->render($product, 'catalog/product/main/price/buy') ?>
+
+	<div class="row bottom_row hidden-xs hidden-sm">
+		<?= $this->render($product, 'catalog/product/main/price/actions/index') ?>
+		<?= $this->render($product, 'library/social_count') ?>
+	</div>
+
+	<?php if (!$this->hasTradeOffers($product->getId())): ?>
+		<?= $this->render($product, 'catalog/product/preview/optioned/list') ?>
+	<?php endif; ?>
+</div>

@@ -1,0 +1,24 @@
+<?php
+/**
+ * Статус наличия товара.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var iUmiHierarchyElement $variables
+ */
+
+$product = $variables;
+?>
+
+<?php if ($this->isCheckStock()): ?>
+
+	<?php if ($this->isInStock($product)): ?>
+		<div class="stock">
+			<?= $this->translate('in_stock') ?>
+		</div>
+	<?php else: ?>
+		<div class="stock not_available">
+			<?= $this->translate('not_in_stock') ?>
+		</div>
+	<?php endif; ?>
+	
+<?php endif; ?>

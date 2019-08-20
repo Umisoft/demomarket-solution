@@ -1,0 +1,39 @@
+<?php
+/**
+ * Страница контента.
+ * Страница по умолчанию обрабатывается по отдельному шаблону `content/home/index`.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $page
+ */
+
+$page = $variables['page'];
+?>
+
+<?php if ($this->isHomePage($variables)): ?>
+	<?= $this->render($variables, 'content/home/index') ?>
+<?php elseif ($this->is404Page($variables)): ?>
+	<?= $this->render($variables, 'content/notfound') ?>
+<?php else: ?>
+	<div class="section_capt">
+		<div class="container">
+			<div class="row">
+				<h1 umi:element-id="<?= $page->getId() ?>"
+				    umi:field-name="h1"
+				    umi:empty="<?= $this->translate('empty_page_name') ?>"
+				>
+					<?= $this->escape($page->getValue('h1')) ?>
+				</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="container grey_border"
+	     umi:element-id="<?= $page->getId() ?>"
+	     umi:field-name="content"
+	     umi:empty="<?= $this->translate('empty_page_content') ?>"
+	>
+		<?= $page->getValue('content') ?>
+	</div>
+<?php endif; ?>

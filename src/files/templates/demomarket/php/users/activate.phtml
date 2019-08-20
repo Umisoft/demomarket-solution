@@ -1,0 +1,24 @@
+<?php
+/**
+ * Системная страница результата активации пользователя.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$activationResult = $this->macros('users', 'activate');
+$status = (isset($activationResult['status'])) ? $activationResult['status'] : 'fail';
+$messageLabel = ($status == 'success') ? 'account_activated' : 'account_not_activated';
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="container grey_border">
+	<p><?= $this->translate($messageLabel) ?></p>
+</div>

@@ -1,0 +1,66 @@
+<?php
+/**
+ * Ряд с информацией об оформленном заказе.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $order
+ */
+
+$order = $this->getOrderInfo($variables);
+$invoiceLink = $this->macros('emarket', 'getInvoiceLink', [$variables['id']]);
+?>
+
+<div class="content_order">
+	<div>
+		<div class="title_text hidden-md hidden-lg">
+			<?= $this->translate('order_number') ?>
+		</div>
+
+		<div><?= $this->getOrderDateMessage($order) ?></div>
+
+		<?php foreach ($order['items'] as $orderItem): ?>
+			<div>
+				<a href="<?= $this->getOrderItemProductUrl($orderItem) ?>">
+					<?= $this->escape($orderItem['name']) ?>
+				</a>
+			</div>
+		<?php endforeach; ?>
+	</div>
+
+	<div>
+		<div class="title_text hidden-md hidden-lg">
+			<?= $this->translate('order_sum') ?>
+		</div>
+
+		<div><?= $this->render($order['summary'], 'emarket/price') ?></div>
+
+		<?php foreach ($order['items'] as $orderItem): ?>
+			<?= $this->render($orderItem, 'emarket/personal/order_item_price') ?>
+		<?php endforeach; ?>
+	</div>
+
+	<div>
+		<div class="title_text hidden-md hidden-lg">
+			<?= $this->translate('order_status') ?>
+		</div>
+
+		<div><?= $this->getOrderStatusMessage($order) ?></div>
+	</div>
+
+	<div>
+		<div class="title_text hidden-md hidden-lg">
+			<?= $this->translate('order_method') ?>
+		</div>
+
+		<div>
+			<?php if ($invoiceLink): ?>
+				<a href="<?= $invoiceLink ?>" target="__blank">
+					<?= $order['payment_name'] ?>
+				</a>
+			<?php else: ?>
+				<?= $order['payment_name'] ?>
+			<?php endif; ?>
+		</div>
+	</div>
+</div>

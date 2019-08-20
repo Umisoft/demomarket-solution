@@ -1,0 +1,36 @@
+<?php
+	/**
+	 * Блок торговых предложений
+	 * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+	 * @var array $variables
+	 * @var iUmiHierarchyElement $product
+	 */
+	$product = $variables;
+	$characteristicSet = $this->getCharacteristicSet($product->getId());
+
+	if (count($characteristicSet) === 0) {
+		return;
+	}
+?>
+
+<div class="additional_options">
+	<?php foreach ($characteristicSet as $title => $valueList): ?>
+		<div class="additional_options-item <?= $this->getCharacteristicBlockClass($title) ?>">
+			<div class="additional_options-text" data-title="<?= $this->escape($title) ?>">
+				<?= $this->escape($title) ?>
+			</div>
+			<div class="additional_options-list" data-title="<?= $this->escape($title) ?>">
+				<select data-characteristic-name="<?= $this->escape($title) ?>" class="<?= $this->getCharacteristicBlockClass($title) ?>">
+					<option selected="selected" data-offer-id-list="" data-value="">
+						<?= $this->translate('js-not-selected') ?>
+					</option>
+					<?php foreach ($valueList as $value => $offerIdList): ?>
+						<option data-offer-id-list="<?= implode(';', $offerIdList) ?>" data-value="<?= $this->escape($value) ?>">
+							<?= $this->escape($value) ?>
+						</option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+	<?php endforeach; ?>
+</div>

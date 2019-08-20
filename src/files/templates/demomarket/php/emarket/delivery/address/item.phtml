@@ -1,0 +1,29 @@
+<?php
+/**
+ * Опция адреса доставки в рамках выбора адреса доставки.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$address = $variables;
+$addressLine = $this->getAddressLine($address['id']);
+?>
+
+<div class="form_element">
+	<label>
+		<input
+			type="radio"
+			name="delivery-address"
+			value="<?= $address['id'] ?>"
+			<?= $this->getRadioStatusByActivity($address) ?>
+			required
+		/>
+
+		<span></span>
+
+		<p>
+			<?= $this->escape($addressLine) ?>
+		</p>
+	</label>
+</div>

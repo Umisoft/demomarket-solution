@@ -1,0 +1,58 @@
+<?php
+/**
+ * Новость на главной.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var iUmiHierarchyElement $variables
+ */
+
+$newsItem = $variables;
+?>
+
+<div class="col-xs-12 col-sm-6 col-md-12">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="media">
+				<div class="media-left">
+					<h2 class="day">
+						<?= $this->getPublishDay($newsItem) ?>
+					</h2>
+				</div>
+
+				<div class="media-body">
+					<span class="month text_gray up">
+						<?= $this->getPublishMonth($newsItem) ?>
+					</span>
+
+					<span class="year text_gray">
+						<?= $this->getPublishYear($newsItem) ?>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-9 news_text"
+		     umi:element-id="<?= $newsItem->getId() ?>"
+		     umi:region="row"
+		>
+			<a href="<?= $this->getPath($newsItem) ?>">
+				<h4 umi:field-name="name"
+				    umi:delete="delete"
+				    umi:empty="<?= $this->translate('empty_page_name') ?>"
+				>
+					<?= $this->escape($newsItem->getName()) ?>
+				</h4>
+			</a>
+
+			<div umi:field-name="anons"
+			     umi:empty="<?= $this->translate('empty_page_anons') ?>"
+			>
+				<?= $newsItem->getValue('anons') ?>
+			</div>
+
+			<a href="<?= $this->getPath($newsItem) ?>" class="more">
+				<i class="sprite-arrow sprite-blue_arrow"></i>
+			</a>
+		</div>
+	</div>
+</div>

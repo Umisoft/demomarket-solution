@@ -1,0 +1,19 @@
+<?php
+/**
+ * Меню мобильной версии сайта:
+ *   - Каталог товаров
+ *   - Основные страницы сайта
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<ul class="collapse_menu_header visible-xs visible-sm" id="headerMobileMenu">
+	<?= $this->render($variables, 'layout/header/mobile_menu/catalog') ?>
+	<?= $this->render($variables, 'layout/header/mobile_menu/main_pages') ?>
+
+	<li id="closeMenuToggle" class="close_toggle">
+		<i class="fa fa-times" aria-hidden="true"></i>
+	</li>
+</ul>

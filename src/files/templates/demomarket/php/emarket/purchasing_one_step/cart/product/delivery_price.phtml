@@ -1,0 +1,25 @@
+<?php
+/**
+ * Доставка в корзине
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$deliveryId = isset($variables['delivery']['method']['id']) ? $variables['delivery']['method']['id'] : 0;
+$addressId = isset($variables['delivery']['address']['id']) ? $variables['delivery']['address']['id'] : 0;
+
+$prefix = isset($variables['delivery-price']['prefix']) ? $variables['delivery-price']['prefix'] : '';
+$price = isset($variables['delivery-price']['actual']) ? $variables['delivery-price']['actual'] : 0;
+$suffix = isset($variables['delivery-price']['suffix']) ? $variables['delivery-price']['suffix'] : '';
+?>
+
+<span class="text"><?= $this->translate('delivery') ?></span>
+<span class="prefix"><?= $prefix ?></span>
+<span id="delivery_price"
+      class="price"
+      data-address="<?= $addressId ?>"
+      data-delivery="<?= $deliveryId ?>"
+      data-price="<?= $price ?>"
+>
+	<?= $price ?>
+</span>
+<span class="suffix"><?= $suffix ?></span>

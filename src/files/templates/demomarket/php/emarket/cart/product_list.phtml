@@ -1,0 +1,17 @@
+<?php
+/**
+ * Список товаров.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$cart = isset($variables['data']) ? $variables['data'] : $variables;
+$productList = $this->getOrderItems($cart);
+?>
+
+<?php foreach ($productList as $index => $product): ?>
+	<div id="<?= "order_item_{$product['id']}" ?>" class="row order_item <?= $this->getBorderClass($index) ?>">
+		<?= $this->render($product, 'emarket/cart/product/index') ?>
+	</div>
+<?php endforeach; ?>

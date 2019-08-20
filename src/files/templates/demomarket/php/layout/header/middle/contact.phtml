@@ -1,0 +1,31 @@
+<?php
+/**
+ * Контактный телефон и форма "заказать звонок".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$settings = $this->getSettingsContainer();
+?>
+
+<div class="col-md-3 header_contact">
+	<div class="media">
+		<div class="media-left">
+			<i class="sprite-header sprite-header_phone media-object"></i>
+		</div>
+
+		<div class="media-body">
+			<h3 class="media-heading up" umi:object-id="<?= $settings->getId() ?>" umi:field-name="phone">
+				<?= $this->escape($settings->getValue('phone')) ?>
+			</h3>
+			<span>
+				<a
+					href="#callbackModal" class="gray_text" data-toggle="modal"
+					umi:object-id="<?= $settings->getId() ?>" umi:field-name="call_order_text"
+				>
+					<?= $this->getCallBackWebformHeader($settings) ?>
+				</a>
+			</span>
+		</div>
+	</div>
+</div>

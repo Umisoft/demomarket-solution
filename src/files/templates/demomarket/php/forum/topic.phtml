@@ -1,0 +1,45 @@
+<?php
+/**
+ * Топик форума.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var umiHierarchyElement $topic
+ */
+
+$topic = $variables['page'];
+$newMessage = $this->getNewForumMessage($topic->getId());
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<?= $this->render($variables, 'layout/header/breadcrumbs') ?>
+
+			<h1 umi:element-id="<?= $topic->getId() ?>"
+			    umi:field-name="h1"
+			    umi:empty="<?= $this->translate('empty_page_name') ?>"
+			>
+				<?= $this->escape($topic->getValue('h1')) ?>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div class="forum_topic">
+	<div class="container">
+		<div class="comment">
+			<?= $this->render($variables, 'forum/message/list') ?>
+
+			<div class="container">
+				<div class="comment_add">
+					<?php if ($this->canAddNewForumMessage($newMessage)): ?>
+						<?= $this->render($newMessage, 'forum/message/new') ?>
+					<?php else: ?>
+						<p><?= $this->translate('login_to_add_new_forum_message') ?></p>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

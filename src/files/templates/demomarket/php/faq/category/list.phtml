@@ -1,0 +1,28 @@
+<?php
+/**
+ * Список категорий в модуле "FAQ".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $categoryList
+ */
+
+$data = $this->getFaqCategories($variables);
+$categoryList = $data['lines'];
+?>
+
+<?php if (umiCount($categoryList) > 0): ?>
+	<div class="container">
+		<div class="support_cat">
+			<?php foreach ($categoryList as $category): ?>
+				<?= $this->render($category, 'faq/category/preview') ?>
+			<?php endforeach; ?>
+		</div>
+
+		<?= $this->render($data, 'library/pagination') ?>
+	</div>
+<?php else: ?>
+	<div class="container grey_border">
+		<p><?= $this->translate('this_project_has_no_categories') ?></p>
+	</div>
+<?php endif; ?>

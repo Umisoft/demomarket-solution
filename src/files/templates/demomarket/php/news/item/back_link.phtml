@@ -1,0 +1,19 @@
+<?php
+/**
+ * Ссылка "вернуться обратно".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="back_link hidden-md hidden-lg">
+	<div class="container">
+		<div class="row">
+			<a href="<?= $this->getPath($this->getImmediateParent($variables)) ?>">
+				<img src="img/blue_arrow_left.png" alt="arrow">
+				<?= $this->translate('back_to_news_rubric') ?>
+			</a>
+		</div>
+	</div>
+</div>

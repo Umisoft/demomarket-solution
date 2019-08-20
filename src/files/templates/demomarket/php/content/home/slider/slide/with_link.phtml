@@ -1,0 +1,14 @@
+<?php
+/**
+ * Слайд со ссылкой.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+list($data, $slide) = $variables;
+?>
+
+<a href="<?= $slide['link'] ?>" <?= $slide['target'] ?>>
+	<?= $this->render([$data, $slide], 'content/home/slider/slide/without_link') ?>
+</a>

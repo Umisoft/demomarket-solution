@@ -1,0 +1,58 @@
+<?php
+/**
+ * Блок покупки товара:
+ *   - Цена
+ *   - Наличие
+ *   - Кнопки "Купить" и "Купить в один клик"
+ *   - Отзывы в мобильной версии
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables;
+$buyButtonClass = $this->getAddToCartButtonClass($product);
+?>
+
+<div class="row top_row">
+	<div class="col-md-12">
+		<div class="top_block">
+			<div class="top_block-price">
+				<h2>
+					<sup>
+						<?= $this->render($product, 'emarket/old_price') ?>
+					</sup>
+
+					<span umi:element-id="<?= $product->getId() ?>" umi:field-name="price">
+                        <?= $this->getPrice($product) ?>
+                    </span>
+				</h2>
+			</div>
+			<div class="top_block-availability">
+				<?= $this->render($product, 'catalog/product/main/price/stock_status') ?>
+				<?= $this->render($product, 'catalog/product/main/price/mobile_ratings') ?>
+			</div>
+		</div>
+
+		<div class="purchase_manage">
+
+			<?= $this->render($product, 'catalog/product/main/price/trade_offers') ?>
+
+			<div class="purchase_manage-btn">
+				<a href="<?= $this->getAddToCartLink($product) ?>" data-old-class=""
+				   class="transparent_btn item_btn hidden-xs hidden-sm add_to_cart_button <?= $buyButtonClass ?>">
+					<?= $this->getAddToCartButtonMessage($product) ?>
+				</a>
+
+				<a href="<?= $this->getAddToCartLink($product) ?>" data-old-class=""
+				   class="transparent_btn item_btn visible-xs visible-sm add_to_cart_button <?= $buyButtonClass ?>">
+					<?= $this->getAddToCartButtonMessage($product) ?>
+				</a>
+
+				<a class="buy_one_click_button transparent_btn item_one_click <?= $this->getBuyOneClickButtonClass($product) ?>" data-old-class="">
+					<?= $this->translate('purchase_one_click') ?>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
