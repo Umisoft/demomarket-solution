@@ -1,0 +1,80 @@
+<?php
+/**
+ * Шапка сайта в мобильной версии:
+ *   - Ссылка на меню (гамбургер)
+ *   - Форма поиска
+ *   - Логотип сайта
+ *   - Всплывающий блок входа на сайт / панель пользователя
+ *   - Ссылка на корзину товаров
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$cart = $this->getCommonVar('cart');
+$amount = (int) isset($cart['total-amount']) ? $cart['total-amount'] : 0;
+$settings = $this->getSettingsContainer();
+?>
+
+<div class="header_mobile clearfix visible-xs visible-sm">
+	<div class="container">
+		<div class="mobile_menu_toggle" id="topMenuToggle">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+
+		<?= $this->render($variables, 'layout/header/mobile_search') ?>
+
+		<div class="mobile_top_logo">
+			<div>
+				<a href="<?= $this->getHomePageUrl() ?>">
+					<img
+						umi:object-id="<?= $settings->getId() ?>"
+						umi:field-name="logo"
+						src="<?= $this->getLogoPath() ?>"
+						alt="<?= $this->escape($this->getLogoAlt()) ?>"
+						title="<?= $this->escape($this->getLogoTitle()) ?>"
+					>
+				</a>
+			</div>
+
+			<div>
+				<h3 class="media-heading up"
+				    umi:object-id="<?= $settings->getId() ?>"
+				    umi:field-name="site_name"
+				>
+					<?= $this->escape($settings->getValue('site_name')) ?>
+				</h3>
+
+				<span class="gray_text"
+				      umi:object-id="<?= $settings->getId() ?>"
+				      umi:field-name="header_under_name"
+				>
+					<?= $this->escape($settings->getValue('header_under_name')) ?>
+				</span>
+			</div>
+		</div>
+
+		<?php if ($this->isGuest()): ?>
+			<a href="#logModal" data-toggle="modal">
+				<i class="sprite-header sprite-header_user_icon"></i>
+			</a>
+		<?php else: ?>
+			<div class="user_mobile">
+				<i class="sprite-header sprite-header_user_icon"></i>
+				<?= $this->render($variables, 'layout/header/user_info') ?>
+			</div>
+		<?php endif; ?>
+
+		<div class="mobile_top_cart ">
+			<a class="sticker_cart" href="<?= $this->getCartLink() ?>">
+				<span class="order_item_count <?= $this->getProductStickerAmountClass($amount) ?>">
+					<?= $amount ?>
+				</span>
+
+				<i class="sprite-header sprite-header_cart"></i>
+			</a>
+		</div>
+	</div>
+</div>

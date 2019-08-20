@@ -1,0 +1,385 @@
+@import "variables";
+
+.align(@align: center) {
+	text-align: @align;
+}
+
+.box(@box-sizing: border-box) {
+	box-sizing: @box-sizing;
+	-moz-box-sizing: @box-sizing;
+	-webkit-box-sizing: @box-sizing;
+}
+
+.transform(@properties) {
+	transform: @properties;
+	-ms-transform: @properties;
+	-o-transform: @properties;
+	-webkit-transform: @properties;
+	-moz-transform: @properties;
+}
+
+.block_200(@background: @black) {
+	height: 185px;
+	width: 210px;
+	background: @background;
+	.box();
+}
+
+.cover(@img) {
+	background: url(@img) no-repeat;
+	background-size: cover;
+}
+
+.background_el(@img, @position_x, @position_y) {
+	background: url(@img) no-repeat @position_x @position_y;
+}
+
+.background_el_col(@img, @position_x, @position_y, @color) {
+	background: url(@img) no-repeat @position_x @position_y @color;
+}
+
+.no_link(@color: @black) {
+	text-decoration: none;
+	color: @color;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.padding_margin_clear() {
+	padding: 0;
+	margin: 0;
+}
+
+.margin_align(@y: 0) {
+	display: block;
+	margin: @y auto;
+}
+
+.transition(@what: all, @time: 0.4s) {
+	-webkit-transition: @what @time;
+	-moz-transition: @what @time;
+	-ms-transition: @what @time;
+	-o-transition: @what @time;
+	transition: @what @time;
+}
+
+.transition-more(@what, @time, @what-2, @time-2) {
+	-webkit-transition: @what @time, @what-2 @time-2;
+	-moz-transition: @what @time, @what-2 @time-2;
+	-ms-transition: @what @time, @what-2 @time-2;
+	-o-transition: @what @time, @what-2 @time-2;
+	transition: @what @time, @what-2 @time-2;
+}
+
+.flex-align(@space: space-between) {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: @space;
+	align-items: center;
+}
+
+.btn_style(@width: 210px, @padding: 20px) {
+	width: @width;
+	.align();
+	background: @color-base;
+	color: @white;
+	font-family: @baseFont;
+	padding: @padding;
+	border: none;
+	.img_hover();
+}
+
+.btn_base(@bord: @white) {
+	border: 2px solid @bord;
+	font-size: @baseFontSize + 2;
+	font-family: @highBold;
+	padding: 13px 0;
+	color: @white;
+	display: block;
+}
+
+.btn_hover(@background, @color) {
+	.transition(all, 0.2s);
+	&:hover {
+		color: @color;
+		background: @background;
+		text-decoration: none;
+	}
+}
+
+.form_btn() {
+	border: 2px solid @color-base;
+	background: transparent;
+	font-family: @highBold;
+	padding: 10px;
+	width: 250px;
+	display: block;
+	color: @color-base;
+	.transition(all, 0.6s);
+	.btn_hover(@color-base, @white);
+}
+
+.shadow(@properties) {
+	box-shadow: @properties;
+	-webkit-box-shadow: @properties;
+	-moz-box-shadow: @properties;
+	-o-box-shadow: @properties;
+}
+
+.go_filter(@properties) {
+	filter: @properties;
+	-moz-filter: @properties;
+	-webkit-filter: @properties;
+}
+
+.bord(@weight: 1px, @color: @bord_color) {
+	border: @weight solid @color;
+}
+
+.img_hover(@filter: 110%) {
+	.transition();
+	&:hover {
+		.go_filter(brightness(@filter));
+	}
+}
+
+.text_hover(@color: @color-base, @text-decoration: none) {
+	.transition(all, 0.2s);
+	&:hover {
+		color: @color;
+		text-decoration: @text-decoration;
+	}
+}
+
+.hover_scale(@scale: 1.1, @time: 0.4s) {
+	.transition(all, @time);
+	&:hover {
+		transform: scale(@scale);
+	}
+}
+
+.radius(@radius) {
+	border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+}
+
+.menu_toggle(@background: @black) {
+	& > span {
+		display: block;
+		width: 40px;
+		height: 4px;
+		background: @background;
+		margin-bottom: 8px;
+		.radius(5px);
+	}
+}
+
+.collapse_menu(@background, @color, @font: 20px) {
+	background: @background;
+	width: 65%;
+	height: 100%;
+	padding-top: 78px;
+	color: @color;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	overflow-y: auto;
+	text-transform: uppercase;
+	font-size: @font;
+	opacity: 0;
+	.transition(all, 0.6s);
+	.transform(translateX(-1000px));
+	&.active {
+		.transform(translateX(0));
+		opacity: 1;
+	}
+	& > li {
+		margin-bottom: 40px;
+		a {
+			font-family: @highBold;
+			position: relative;
+			color: @color;
+			font-size: @font;
+			max-width: 90%;
+			display: inline-block;
+			&.active {
+				&::after {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 100%;
+					height: 2px;
+					background: @color;
+					bottom: -10px;
+					right: 0;
+				}
+			}
+		}
+	}
+
+	& > .close_toggle {
+		position: absolute;
+		top: 25px;
+		right: 10%;
+		cursor: pointer;
+	}
+
+}
+
+.radio_form_style(@width, @height) {
+	padding: 40px;
+	background: @backgroundGray;
+
+	&:not(:last-child) {
+		margin-bottom: 25px;
+	}
+
+}
+
+.form_style(@width: 80%) {
+	width: @width;
+	.margin_align();
+
+}
+
+.carousel_indicators_style(@width: 8px, @height: 8px) {
+	& > li {
+
+		.padding_margin_clear();
+		margin-right: 5px;
+		margin-left: 5px;
+		margin-bottom: 10px;
+		width: @width;
+		height: @height;
+		background: transparent;
+		&.active {
+			width: @width;
+			height: @height;
+			background: @white;
+		}
+	}
+}
+
+.shadow_hover(@color: @color-base, @length: 7px) {
+	.transition();
+	&:hover {
+		.shadow(inset 0 0 0 @length @color);
+	}
+}
+
+.shadow_out_hover(@color: @white) {
+	.transition();
+	&:hover {
+		.shadow(0 0 5px 4px @color);
+	}
+}
+
+.toggle(@background: @white) {
+	& > span {
+		background: @background;
+		width: 25px;
+		height: 3px;
+		margin-bottom: 6px;
+		display: block;
+	}
+}
+
+.modal_style() {
+	.modal-content {
+		background: @backgroundGray;
+		padding: 40px 70px;
+		width: 470px;
+		.modal-header {
+			.padding_margin_clear();
+			h3 {
+				.align(left);
+				.padding_margin_clear();
+				font-family: @highBold;
+				font-size: @baseFontSize + 6;
+			}
+			.close {
+				right: 0;
+				top: 0;
+				opacity: 1;
+				outline: none;
+			}
+		}
+		.modal-body {
+			padding: 25px 0;
+			form {
+				.form_style(100%);
+
+				input {
+					width: 100%;
+					padding: 20px 25px;
+					&.small_input {
+						padding: 5px 0 5px 10px;
+						margin-top: 5px;
+					}
+
+				}
+
+				.small_input {
+					width: 45%;
+					&:first-child {
+						margin-right: 5%;
+					}
+				}
+			}
+		}
+		.modal-footer {
+			h5 {
+				margin-bottom: 20px;
+			}
+			border: none;
+			.align();
+			.padding_margin_clear();
+			.social_log {
+				.padding_margin_clear();
+				li {
+					width: 33.3%;
+					float: left;
+					display: block;
+					border: 1px solid @bord_color;
+					padding: 20px;
+					.align();
+					.box();
+					height: 60px;
+					a {
+						display: inline-block;
+						i {
+							.img_hover(120%);
+						}
+					}
+				}
+			}
+			p {
+				margin-top: 35px;
+			}
+		}
+	}
+}
+
+// Кнопка "Купить" или "Купить в один клик" для товара, который нельзя купить
+.buy_unavailable_product_button() {
+	border-color: #a3a3a3;
+	color: #a3a3a3;
+	cursor: default;
+	background: none;
+	&:hover {
+		background: none;
+		color: #a3a3a3;
+	}
+}
+
+.lazy_comment_count() {
+	font-size: 16px;
+	font-weight: bold;
+	color: @color-base;
+}

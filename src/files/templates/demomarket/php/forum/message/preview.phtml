@@ -1,0 +1,35 @@
+<?php
+/**
+ * Превью сообщения в топике форума.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var umiHierarchyElement $topic
+ */
+
+$message = $variables;
+?>
+
+<div class="one_comment">
+	<a name="<?= $message['id'] ?>"></a>
+
+	<div class="date"
+		 umi:element-id="<?= $message['id'] ?>"
+		 umi:field-name="publish_time"
+		 umi:empty="<?= $this->translate('empty_publish_time') ?>"
+	>
+		<?= $this->getFormattedPublishTime($message) ?>
+	</div>
+
+	<div class="name">
+		<?= $this->getFullAuthorName($message['author_id']) ?>
+	</div>
+
+	<div class="text"
+		 umi:element-id="<?= $message['id'] ?>"
+		 umi:field-name="message"
+		 umi:empty="<?= $this->translate('empty') ?>"
+	>
+		<?= $this->escape($message['message']) ?>
+	</div>
+</div>

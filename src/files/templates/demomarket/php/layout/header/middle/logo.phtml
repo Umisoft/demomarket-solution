@@ -1,0 +1,34 @@
+<?php
+/**
+ * Логотип сайта.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$settings = $this->getSettingsContainer();
+?>
+
+<div class="col-md-3 header_logo">
+	<div class="media">
+		<a href="<?= $this->getHomePageUrl() ?>">
+			<div class="media-left">
+				<img
+					umi:object-id="<?= $settings->getId() ?>" umi:field-name="logo"
+					src="<?= $this->getLogoPath() ?>"
+					alt="<?= $this->escape($this->getLogoAlt()) ?>"
+					title="<?= $this->escape($this->getLogoTitle()) ?>"
+				>
+			</div>
+			<div class="media-body">
+				<h2 class="media-heading up" umi:object-id="<?= $settings->getId() ?>"
+				    umi:field-name="site_name">
+					<?= $this->escape($settings->getValue('site_name')) ?>
+				</h2>
+				<span class="gray_text up" umi:object-id="<?= $settings->getId() ?>"
+				      umi:field-name="header_under_name">
+				<?= $this->escape($settings->getValue('header_under_name')) ?>
+			</span>
+			</div>
+		</a>
+	</div>
+</div>

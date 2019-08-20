@@ -1,0 +1,39 @@
+<?php
+/**
+ * Список получателей формы обратной связи.
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+if (umiCount($variables['items']) === 0) {
+	return;
+}
+
+$recipientId = null;
+
+foreach ($variables['items'] as $recipient) {
+	if (isset($recipient['selected'])) {
+		$recipientId = $recipient['id'];
+		break;
+	}
+}
+
+if ($recipientId === null && umiCount($variables['items']) === 1) {
+	$recipientId = array_shift($variables['items'][0]);
+}
+
+?>
+
+<?php if ($recipientId): ?>
+	<input type="hidden" name="system_email_to" value="<?= $recipientId ?>" />
+<?php else: ?>
+	<div class="important">
+		<select name="system_email_to" required>
+			<?php foreach ($variables['items'] as $recipient): ?>
+				<option value="<?= $recipient['id'] ?>">
+					<?= $this->escape($recipient['text']) ?>
+				</option>
+			<?php endforeach; ?>
+		</select>
+	</div>
+<?php endif; ?>

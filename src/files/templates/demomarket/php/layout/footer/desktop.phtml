@@ -1,0 +1,44 @@
+<?php
+/**
+ * Подвал сайта на десктопной версии:
+ *   - Блок с копирайтом
+ *   - Меню каталога товаров, разбитое на две части - левую и правую
+ *   - Меню главных страниц сайта, разбитое на две части - верхнюю и нижнюю
+ *   - Социальный блок
+ *   - Подписка на новости
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$settings = $this->getSettingsContainer();
+?>
+
+<div class="container hidden-xs hidden-sm">
+	<div class="row">
+		<div class="">
+			<?= $this->render($variables, 'layout/footer/copyright') ?>
+		</div>
+
+		<?= $this->render($variables, 'layout/footer/catalog_menu') ?>
+
+		<div class=" footer_nav">
+			<?= $this->render('top_left', 'layout/footer/site_menu') ?>
+			<?= $this->render('top_right', 'layout/footer/site_menu') ?>
+		</div>
+
+		<div class=" last_columns">
+			<div>
+				<ul class="footer_social list_inline align_left">
+					<?= $this->render($variables, 'layout/footer/social') ?>
+				</ul>
+
+				<p class="gray_text" umi:object-id="<?= $settings->getId() ?>"
+				   umi:field-name="dispatches_text">
+					<?= $this->getDispatchesFooterText($settings) ?>
+				</p>
+
+				<?= $this->renderSubscribe($variables['user']['id']) ?>
+			</div>
+		</div>
+	</div>
+</div>

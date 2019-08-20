@@ -1,0 +1,29 @@
+<?php
+/**
+ * Изображение превью товара.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var iUmiHierarchyElement $variables
+ */
+
+$product = $variables;
+?>
+
+<a href="<?= $this->getPath($product) ?>">
+	<div class="item_img">
+		<div class="label_new"><?= $this->translate('label_new') ?></div>
+
+		<?= $this->render(
+			[
+				'id' => $product->getId(),
+				'field_name' => 'photo',
+				'src' => $this->getPhotoPath($product),
+				'alt' => $this->getPhotoAlt($product),
+				'title' => $this->getPhotoTitle($product),
+				'width' => 'auto',
+				'height' => 150,
+			],
+			'library/thumbnail'
+		) ?>
+	</div>
+</a>

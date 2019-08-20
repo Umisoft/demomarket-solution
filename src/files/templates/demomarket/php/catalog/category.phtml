@@ -1,0 +1,20 @@
+<?php
+/**
+ * Категория каталога товаров.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="catalog">
+	<?= $this->render($variables, 'catalog/category/caption') ?>
+
+	<div class="container mobile_all_width d_flex">
+		<?php if ($this->isInternalCategory($variables)): ?>
+			<?= $this->render($variables, 'catalog/category/internal_category') ?>
+		<?php else: ?>
+			<?= $this->render($variables, 'catalog/category/leaf_category') ?>
+		<?php endif; ?>
+	</div>
+</div>

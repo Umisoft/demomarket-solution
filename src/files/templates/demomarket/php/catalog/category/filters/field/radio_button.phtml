@@ -1,0 +1,44 @@
+<?php
+/**
+ * Поле умных фильтров, которое нужно вывести с радиокнопками.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$fieldTitle = $this->getFilterFieldAttribute($variables, 'title');
+$fieldName = $this->getFilterFieldAttribute($variables, 'name');
+$selected = $this->getChecked($variables);
+?>
+
+<div class="col-md-12">
+	<div class="clearfix arrow_product">
+		<p class="float_left"><?= $fieldTitle ?></p>
+		<i class="fa fa-angle-up float_right arrow_dropdown" aria-hidden="true"></i>
+	</div>
+
+	<div class="col-md-12 product_form">
+		<div class="check_container">
+			<div>
+				<label>
+					<input type="radio" name="filter[<?= $fieldName ?>]" value="1" <?= $selected[1] ?> />
+					<span></span><?= $this->translate('boolean_yes') ?>
+				</label>
+			</div>
+
+			<div>
+				<label>
+					<input type="radio" name="filter[<?= $fieldName ?>]" value="0" <?= $selected[0] ?> />
+					<span></span><?= $this->translate('boolean_no') ?>
+				</label>
+			</div>
+
+			<div>
+				<label>
+					<input type="radio" name="filter[<?= $fieldName ?>]" value="" <?= $selected[2] ?> />
+					<span></span><?= $this->translate('boolean_both') ?>
+				</label>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+<?php
+/**
+ * Поле умных фильтров.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<?php if ($this->isCheckboxFilterField($variables)): ?>
+	<?= $this->render($variables, 'catalog/category/filters/field/checkbox') ?>
+<?php elseif ($this->isRadioFilterField($variables)): ?>
+	<?= $this->render($variables, 'catalog/category/filters/field/radio_button') ?>
+<?php elseif ($this->isIntervalFilterField($variables)): ?>
+	<?= $this->render($variables, 'catalog/category/filters/field/interval') ?>
+<?php endif; ?>

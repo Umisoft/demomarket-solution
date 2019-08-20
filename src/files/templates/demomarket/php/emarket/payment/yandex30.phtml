@@ -1,0 +1,67 @@
+<?php
+/**
+ * Способ оплаты "Яндекс.Касса" версии 3 (устарел).
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<form id="form_yandex30" action="<?= $variables['purchasing']['formAction'] ?>" method="post">
+	<input type="hidden" name="shopId" value="<?= $variables['purchasing']['shopId'] ?>" />
+	<input type="hidden" name="Sum" value="<?= $variables['purchasing']['Sum'] ?>" />
+	<input type="hidden" name="BankId" value="<?= $variables['purchasing']['BankId'] ?>" />
+	<input type="hidden" name="scid" value="<?= $variables['purchasing']['scid'] ?>" />
+	<input type="hidden" name="CustomerNumber" value="<?= $variables['purchasing']['CustomerNumber'] ?>" />
+	<input type="hidden" name="order-id" value="<?= $variables['purchasing']['orderId'] ?>" />
+	<input type="hidden" name="PaymentType" value="" />
+	<input type="hidden" name="PaymentTypeProvider" value="" />
+	<input type="hidden" name="cms_name" value="umistand" />
+
+	<?php
+	if (isset($variables['purchasing']['ym_merchant_receipt'])) {
+		$merchantReceipt = $variables['purchasing']['ym_merchant_receipt'];
+		echo <<<HTML
+	<input type="hidden" name="ym_merchant_receipt" value='$merchantReceipt' />
+HTML;
+	}
+	?>
+
+	<div class="inline">
+		<?php
+		if (isset($variables['mode_type_list']) && is_array($variables['mode_type_list'])) {
+			foreach ($variables['mode_type_list'] as $item) {
+				$id = (isset($item['id'])) ? $item['id'] : '';
+				$type = (isset($item['type'])) ? $item['type'] : '';
+				$subType = (isset($item['subtype'])) ? $item['subtype'] : '';
+				$label = (isset($item['subtype'])) ? $item['label'] : '';
+				echo <<<HTML
+<label>
+	<input type="radio" name="mode_type" value="$id" onChange="javascript:change('$type', '$subType');"/>
+	$label
+</label>
+HTML;
+			}
+		}
+		?>
+	</div>
+
+	<div class="container grey_border">
+		<?= $this->translate('payment_redirect_text') . ' Yandex.' ?>
+	</div>
+
+	<div>
+		<input type="submit" value="<?= $this->translate('pay') ?>" class="button big" />
+	</div>
+</form>
+
+<script>
+	var elements = document.getElementById('form_yandex30').elements;
+	elements.mode_type.value = '';
+	function change(type, subtype) {
+		elements.PaymentType.value = type;
+		elements.PaymentTypeProvider.value = subtype;
+	}
+</script>
+
+<script src="js/payment/send_form_immediately.js"></script>

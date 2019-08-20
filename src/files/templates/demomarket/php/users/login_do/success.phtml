@@ -1,0 +1,20 @@
+<?php
+/**
+ * Результат успешного вход на сайт.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$variables['user_name'] = isset($variables['user_name']) ? $variables['user_name'] : '';
+?>
+
+<div>
+	<?= $this->translate('welcome') ?>
+
+	<?php if ($variables['user_name']): ?>
+		<?= $variables['user_name'] ?> (<?= $variables['user_login'] ?>)
+	<?php else: ?>
+		<?= $variables['user_login'] ?>
+	<?php endif; ?>
+</div>

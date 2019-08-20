@@ -1,0 +1,29 @@
+<?php
+/**
+ * Блок комментария к заказу
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$commentHeader = $this->translate('order-comment');
+?>
+<div id="orderComment" class="comment">
+	<div class="del_row">
+		<div class="del_content">
+			<h3 class="up input_capt">
+				<?= $commentHeader ?>
+			</h3>
+			<div class="sub_group">
+				<div>
+					<?= $this->render(
+						[
+							'input_name' => 'order_comment',
+							'title' => "$commentHeader"
+						],
+						'data/form_field/text'
+					) ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

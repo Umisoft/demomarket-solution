@@ -1,0 +1,57 @@
+<?php
+/**
+ * Баннер с таймером до времени окончания действия акции.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$banner = $this->getCommonVar('banner');
+?>
+
+<?php if ($this->isBannerExists($banner)): ?>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-lg-3 hidden-xs hidden-sm">
+				<div class="timer_block absolute red_background clearfix">
+					<div class="timer align_center">
+						<a href="<?= $banner['url'] ?>" target="<?= $banner['target'] ?>">
+							<h4 class="white_text timer_capt"
+							    umi:object-id="<?= $banner['id'] ?>"
+							    umi:field-name="name"
+							    umi:empty="<?= $this->translate('banner_empty_name') ?>"
+							>
+								<?= $this->escape($banner['name']) ?>
+							</h4>
+
+							<?= $this->render(
+								[
+									'id' => $banner['id'],
+									'field_name' => 'image',
+									'src' => $banner['image'],
+									'alt' => $banner['alt'],
+									'title' => $banner['name'],
+									'width' => $banner['width'],
+									'height' => $banner['height'],
+									'object' => true
+								],
+								'library/thumbnail'
+							) ?>
+						</a>
+
+						<p class="white_text">
+							<?= $this->translate('banner_show_till_date') ?>
+
+							<span umi:object-id="<?= $banner['id'] ?>"
+							      umi:empty="<?= $this->translate('banner_show_till_date') ?>"
+							      umi:field-name="show_till_date"
+							>
+								<?= $banner['show_till_date'] ?>
+							</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>

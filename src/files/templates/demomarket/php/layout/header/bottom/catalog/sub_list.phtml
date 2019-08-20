@@ -1,0 +1,33 @@
+<?php
+/**
+ * Второй уровень меню каталога товаров.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $categoryList
+ */
+$categoryId = $variables['id'];
+$categoryList = $this->filterCategoryList($categoryId, 1);
+?>
+
+<ul class="sub_menu"
+    umi:element-id="<?= $categoryId ?>"
+    umi:region="list"
+    umi:module="catalog"
+    umi:sortable="sortable"
+    umi:add-method="none"
+>
+	<?php foreach ($categoryList as $child): ?>
+		<li umi:element-id="<?= $child['id'] ?>" umi:region="row">
+			<a href="<?= $child['link'] ?>"
+			   umi:field-name="name"
+			   umi:delete="delete"
+			   umi:empty="<?= $this->translate('empty_section_name') ?>"
+			>
+				<?= $this->escape($child['text']) ?>
+			</a>
+
+			<?= $this->render($child, 'layout/header/bottom/catalog/sub_sub_list') ?>
+		</li>
+	<?php endforeach; ?>
+</ul>

@@ -1,0 +1,17 @@
+<?php
+/**
+ * Основной контент страницы.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<main>
+	<?= $this->render($this->macros('system', 'listErrorMessages'), 'library/errors') ?>
+	<?= $this->render($variables, "{$variables['module']}/{$variables['method']}") ?>
+
+	<div class="container-fluid">
+		<div class="container"></div>
+	</div>
+</main>

@@ -1,0 +1,71 @@
+<?php
+/**
+ * Пост блога.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $post
+ */
+
+$post = $variables['page'];
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<?= $this->render($variables, 'layout/header/breadcrumbs') ?>
+
+			<h1 umi:element-id="<?= $post->getId() ?>"
+			    umi:field-name="h1"
+			    umi:empty="<?= $this->translate('empty_page_name') ?>"
+			>
+				<?= $this->escape($post->getValue('h1')) ?>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div class="novelty_technique">
+	<div class="container">
+		<div class="on_technology">
+			<div class="free_text"
+			     umi:element-id="<?= $post->getId() ?>"
+			     umi:field-name="content"
+			>
+				<?= $this->getPostContent($variables) ?>
+			</div>
+
+			<div class="social_technology catalog_item">
+				<?php if ($post->getValue('publish_time')): ?>
+					<div class="bold">
+						<?= $this->translate('comment_posted_on') ?>
+
+						<span umi:element-id="<?= $post->getId() ?>"
+						      umi:field-name="publish_time"
+						>
+							<?= $this->getFormattedPublishTime($post) ?>
+						</span>
+					</div>
+				<?php endif; ?>
+
+				<?= $this->render($variables, 'library/social_count') ?>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="comment">
+				<?= $this->render($variables, 'blogs20/comment/list') ?>
+
+				<div id="add_comment" class="comment_add">
+					<h3><?= $this->translate('comment_submit') ?></h3>
+
+					<?php if ($this->canAddNewBlogComment()): ?>
+						<?= $this->render($variables, 'blogs20/comment/new') ?>
+					<?php else: ?>
+						<p><?= $this->translate('login_to_add_new_comment') ?></p>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

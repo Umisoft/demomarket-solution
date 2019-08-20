@@ -1,0 +1,49 @@
+<?php
+/**
+ * Всплывающее окно с товарами в корзине.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $productList
+ */
+
+$cart = $variables;
+$productList = $this->getOrderItems($cart);
+?>
+
+<div class="basket_tooltip">
+	<ul class="basket_tooltip-list">
+		<?php foreach ($productList as $product): ?>
+			<li>
+				<a href="<?= $this->getPath($product['page']) ?>">
+					<?= $this->render(
+						[
+							'src' => $this->getOrderItemPhotoPath($product),
+							'alt' => $this->getPhotoAlt($product['page']),
+							'title' => $this->getPhotoTitle($product['page']),
+							'width' => 75,
+							'height' => 50,
+						],
+						'library/thumbnail'
+					) ?>
+					<p><?= $this->escape($product['name']) ?></p>
+				</a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+
+	<div class="basket_tooltip-price">
+		<?php if (umiCount($productList) > 0): ?>
+			<div class="tooltip_price">
+				<span><?= $this->translate('result_price') ?></span>
+				<h3><?= $this->getOrderPrice($cart) ?></h3>
+			</div>
+		<?php endif; ?>
+
+		<a href="<?= $this->getCartLink() ?>">
+			<button class="tooltip_btn">
+				<?= $this->translate('go_to_basket') ?>
+			</button>
+		</a>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<?php
+/**
+ * Шапка категории каталога товаров:
+ *   - Хлебные крошки
+ *   - Стрелочка "назад" в мобильной версии
+ *   - Блок с кнопкой "показать/скрыть умные фильтры" в мобильной версии
+ *   - Форма умных фильтров в мобильной версии
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$this->setCommonVar('smart_filters', $this->getSmartFilters($variables));
+?>
+
+<div class="section_capt">
+	<div class="container mobile_all_width">
+		<div class="row">
+			<?= $this->render($variables, 'layout/header/breadcrumbs') ?>
+			<?= $this->render($variables, 'catalog/mobile_back_button') ?>
+			<?= $this->render($variables, 'catalog/category/filters/mobile_show_filter_button') ?>
+
+			<h1 umi:element-id="<?= $variables['pageId'] ?>" umi:field-name="h1" umi:empty="<?= $this->translate('empty_page_name') ?>">
+				<?= $this->escape($variables['header']) ?>
+			</h1>
+			<div umi:element-id="<?= $variables['pageId'] ?>"
+			     umi:field-name="text_above_catalog"
+			     umi:empty="<?= $this->translate('empty_page_content') ?>"
+			>
+				<?= $variables['page']->getValue('text_above_catalog') ?>
+			</div>
+		</div>
+	</div>
+
+	<?= $this->render($variables, 'catalog/category/filters/mobile_filter') ?>
+</div>

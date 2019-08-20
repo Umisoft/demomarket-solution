@@ -1,0 +1,51 @@
+<?php
+/**
+ * Характеристики товара.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables['page'];
+$description = $product->getValue('description');
+?>
+
+<div class="container mobile_all_width">
+	<div class="row">
+		<div class="row">
+			<div class="sect_capt">
+				<h3 class="up"><?= $this->translate('product_properties_header') ?></h3>
+			</div>
+		</div>
+
+		<?php foreach ($this->getProductPropertyChunks($product) as $index => $chunk): ?>
+			<div class="col-md-6">
+				<div class="row opt <?= $this->getPropertyChunkClass($index) ?>">
+					<div class="col-md-12">
+						<?php foreach ($chunk as $property): ?>
+							<div class="row clearfix">
+								<div class="col-md-6 col-xs-6">
+									<span><?= $property['title'] ?></span>
+								</div>
+
+								<div class="col-md-6 col-xs-6">
+									<span umi:element-id="<?= $variables['pageId'] ?>" umi:field-name="<?= $property['name'] ?>"
+									      umi:empty="<?= $property['title'] ?>">
+										<?= $property['value'] ?>
+									</span>
+								</div>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			</div>
+		<?php endforeach; ?>
+	</div>
+
+	<div class="row product_description">
+		<div class="col-md-12" umi:element-id="<?= $variables['pageId'] ?>"
+		     umi:field-name="description" umi:empty="<?= $this->translate('item_description') ?>">
+			<?= $description ?>
+		</div>
+	</div>
+</div>

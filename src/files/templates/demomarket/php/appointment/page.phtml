@@ -1,0 +1,352 @@
+<?php
+/**
+ * Страница Онлайн-записи.
+ * @TODO рефакторинг
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $page
+ */
+
+$page = $variables['page'];
+$langPrefix = $this->getCommonVar('pre_lang');
+
+$recordingTimeBlock = <<<HTML
+<div class="recording-time" style="display: none;">
+	<div class="recording-time__title">{$this->translate('recording_time_title')}
+		<div class="recording-time__note">{$this->translate('recording_time_note')}</div>
+	</div>
+	
+	<div class="recording-time-selection__wrapper"></div>
+	
+	<div class="free-days">{$this->translate('free_days')}</div>
+	<div class="recording-time__title">{$this->translate('available_masters_title')}</div>
+	
+	<ul class="masters-list"></ul>
+	
+	<span class="online-entry__btn mobile_next_step mobile_visible">{$this->translate('appointment_next')}</span>
+</div>
+HTML;
+
+$finalRegistrationText = <<<HTML
+<div class="online-entry__ordering">
+	<div class="final-registration__title">{$this->translate('final_registration_title')}</div>
+	
+	<ul></ul>
+	
+	<div class="final-registration__hint">{$this->translate('final_registration_hint')}</div>
+	<div class="final-registration__hint final-registration__error"></div>
+</div>
+HTML;
+
+$hintText = $this->escape($page->getValue('appoint_hint_step_text')) ?: $this->translate('appoint_hint_step_text');
+$dontCareBtnText = $this->escape($page->getValue('appoint_dont_care_button')) ?: $this->translate('appoint_dont_care_button');
+$dontCareHintText = $this->escape($page->getValue('appoint_dont_care_hint')) ?: $this->translate('appoint_dont_care_hint');
+?>
+
+<link rel="stylesheet" href="css/appointment.css">
+<script src='/templates/demomarket/js/appointment/lib.js' type="text/javascript"></script>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1 umi:element-id="<?= $page->getId() ?>"
+			    umi:field-name="h1"
+			    umi:empty="<?= $this->translate('empty_page_name') ?>"
+			>
+				<?= $this->escape($page->getValue('h1')) ?>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div class="container grey_border">
+	<div class="appointments main-container">
+		<script src='/templates/demomarket/js/appointment/main.js' type="text/javascript"></script>
+		<div id="wrapper">
+			<!-- Начало блока Онлайн запись -->
+			<div class="online-entry__wrapper">
+				<!-- Начало первого шага -->
+				<div class="online-entry__step selected" id="data-service">
+					<div class="online-entry__title">
+						<span umi:element-id="<?= $page->getId() ?>"
+						      umi:field-name="appoint_service_choice_title"
+						      umi:field-type="text"
+						      umi:empty="<?= $this->translate('appoint_service_choice_title') ?>"
+						>
+							<?= $this->escape($page->getValue('appoint_service_choice_title')) ?: $this->translate('appoint_service_choice_title') ?>
+						</span>
+
+						&nbsp;
+
+						<span class="online-entry__choice"></span>
+					</div>
+
+					<div class="online-entry__content">
+						<div class="column-60pct mobile_full_width">
+							<div class="mobile_visible">
+								<?= $recordingTimeBlock ?>
+
+								<div class="hint_step_mobile"
+								     umi:element-id="<?= $page->getId() ?>"
+								     umi:field-name="appoint_hint_step_text"
+								     umi:field-type="wysiwyg"
+								     umi:empty="<?= $this->translate('empty-appoint-hint-step') ?>"
+								>
+									<?= $hintText ?>
+								</div>
+							</div>
+
+							<div class="service-choose mobile_no_bord">
+								<img id="service-loader" src="/templates/demomarket/img/appointments/loader.gif" />
+							</div>
+						</div>
+
+						<div class="column-40pct hidden_mobile">
+							<?= $recordingTimeBlock ?>
+
+							<div class="hint-step"
+							     umi:element-id="<?= $page->getId() ?>"
+							     umi:field-name="appoint_hint_step_text"
+							     umi:field-type="wysiwyg"
+							     umi:empty="<?= $this->translate('empty-appoint-hint-step') ?>"
+							>
+								<?= $hintText ?>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Начало второго шага -->
+				<div class="online-entry__step" id="data-personal">
+					<div class="online-entry__title">
+						<span class="online-entry__nonactive"
+						      umi:element-id="<?= $page->getId() ?>"
+						      umi:field-name="appoint_personal_step_title"
+						      umi:field-type="text"
+						      umi:empty="<?= $this->translate('appoint_personal_step_title') ?>"
+						>
+							<?= $this->escape($page->getValue('appoint_personal_step_title')) ?: $this->translate('appoint_personal_step_title') ?>
+						</span>
+
+						<span class="online-entry__current"
+						      umi:element-id="<?= $page->getId() ?>"
+						      umi:field-name="appoint_personal_choice_title"
+						      umi:field-type="text"
+						      umi:empty="<?= $this->translate('appoint_personal_choice_title') ?>"
+						>
+							<?= $this->escape($page->getValue('appoint_personal_choice_title')) ?: $this->translate('appoint_personal_choice_title') ?>
+						</span>
+
+						&nbsp;
+
+						<span class="online-entry__choice"></span>
+					</div>
+
+					<div class="online-entry__content">
+						<div class="selection-specialist">
+							<div class="selection-specialist_hint hidden_mobile">
+								<span id="operator-click"
+								      class="online-entry__btn .operator-click-btn"
+								      umi:element-id="<?= $page->getId() ?>"
+								      umi:field-name="appoint_dont_care_button"
+								      umi:field-type="string"
+								      umi:empty="<?= $this->translate('empty-appoint-dont-care-button') ?>"
+								>
+									<?= $dontCareBtnText ?>
+								</span>
+
+								<span class="operator-prompt"
+								      umi:element-id="<?= $page->getId() ?>"
+								      umi:field-name="appoint_dont_care_hint"
+								      umi:field-type="string"
+								      umi:empty="<?= $this->translate('empty-appoint-dont-care-hint') ?>"
+								>
+									<?= $dontCareHintText ?>
+								</span>
+							</div>
+
+							<div class="master-list"></div>
+
+							<div class="selection-specialist_hint mobile_visible clearfix">
+								<span class="operator-prompt"
+								      umi:element-id="<?= $page->getId() ?>"
+								      umi:field-name="appoint_dont_care_hint"
+								      umi:field-type="string"
+								      umi:empty="<?= $this->translate('empty-appoint-dont-care-hint') ?>"
+								>
+									<?= $dontCareHintText ?>
+								</span>
+
+								<span id="operator-click"
+								      class="online-entry__btn operator-click-btn"
+								      umi:element-id="<?= $page->getId() ?>"
+								      umi:field-name="appoint_dont_care_button"
+								      umi:field-type="string"
+								      umi:empty="<?= $this->translate('empty-appoint-dont-care-button') ?>"
+								>
+									<?= $dontCareBtnText ?>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Начало третьего шага -->
+				<div class="online-entry__step" id="data-entry">
+					<div class="online-entry__title">
+						<span class="online-entry__nonactive"
+						      umi:element-id="<?= $page->getId() ?>"
+						      umi:field-name="appoint_date_step_title"
+						      umi:field-type="text"
+						      umi:empty="<?= $this->translate('appoint_date_step_title') ?>"
+						>
+							<?= $this->escape($page->getValue('appoint_date_step_title')) ?: $this->translate('appoint_date_step_title') ?>
+						</span>
+
+						<span class="online-entry__current"
+						      umi:element-id="<?= $page->getId() ?>"
+						      umi:field-name="appoint_date_choice_title"
+						      umi:field-type="text"
+						      umi:empty="<?= $this->translate('appoint_date_choice_title') ?>"
+						>
+							<?= $this->escape($page->getValue('appoint_date_choice_title')) ?: $this->translate('appoint_date_choice_title') ?>
+						</span>
+
+						&nbsp;
+
+						<span class="online-entry__choice"></span>
+					</div>
+
+					<div class="online-entry__content">
+						<div class="column-70pct mobile_full_width mobile_calendar" style="padding: 0;">
+							<div class="date-visit__wrapper">
+								<div id="datepicker"></div>
+							</div>
+						</div>
+
+						<div class="column-30pct mobile_full_width mobile_choose_time">
+							<div class="choose-time" style="display: none;">
+								<div class="choose-time__title">
+									<?= $this->translate('choose_time_title') ?>
+								</div>
+
+								<div class="choose-time_selection"></div>
+
+								<div class="description-step__status">
+									<div class="status-busy">
+										<?= $this->translate('description_status_busy') ?>
+									</div>
+
+									<div class="status-free">
+										<?= $this->translate('description_status_free') ?>
+									</div>
+
+									<div class="status-output">
+										<?= $this->translate('description_status_day_off') ?>
+									</div>
+								</div>
+							</div>
+
+							<div class="description-step clearfix">
+								<div class="description-step__status">
+									<div class="status-busy">
+										<?= $this->translate('description_status_busy') ?>
+									</div>
+
+									<div class="status-free">
+										<?= $this->translate('description_status_free') ?>
+									</div>
+
+									<div class="status-output">
+										<?= $this->translate('description_status_day_off') ?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Начало четвертого шага -->
+				<div class="online-entry__step" id="data-confirm">
+					<div class="online-entry__title">
+						<span umi:element-id="<?= $page->getId() ?>"
+						      umi:field-name="appoint_confirm_step_title"
+						      umi:field-type="text"
+						      umi:empty="<?= $this->translate('appoint_confirm_step_title') ?>"
+						>
+							<?= $this->escape($page->getValue('appoint_confirm_step_title')) ?: $this->translate('appoint_confirm_step_title') ?>
+						</span>
+					</div>
+
+					<div class="online-entry__content">
+						<div class="final-registration clearfix">
+							<div class="mobile_visible">
+								<?= $finalRegistrationText ?>
+							</div>
+
+							<div class="column-50pct mobile_full_width">
+								<div class="online-entry__ordering">
+									<form action="<?= $langPrefix ?>/appointment/postAppointment/" method="POST">
+										<input type="text" name="name" placeholder="<?= $this->translate('appointment_name') ?>" data-valid="text" required/>
+										<input type="text" name="phone" placeholder="<?= $this->translate('appointment_phone') ?>" data-valid="phone" />
+										<input type="text" name="email" placeholder="<?= $this->translate('appointment_email') ?>" data-valid="email" data-inputmask="'alias': 'email'" />
+										<textarea name="commentary" placeholder="<?= $this->translate('appointment_comment') ?>"></textarea>
+
+										<?php
+										$submitValue = $this->escape($page->getValue('appoint_book_time_button')) ?: $this->translate('empty-appoint-book-time-button');
+
+										if (permissionsCollection::getInstance()->isSv()) {
+											$pageId = $page->getId();
+											$emptyButtonText = $this->translate('empty-appoint-book-time-button');
+											$editButtonTest = <<<HTML
+<div class="hidden">{$this->translate('appoint_book_time_button')}
+	<span
+		umi:element-id="$pageId"
+		umi:field-name="appoint_book_time_button"
+		umi:field-type="string"
+		umi:empty="$emptyButtonText">
+		$submitValue
+	</span>
+</div>
+HTML;
+										}
+										?>
+
+										<input type="submit" id="create-appointment" value="<?= $submitValue ?>">
+
+										<?= $this->render('common-152-federal-law', 'library/personalDataNotice') ?>
+									</form>
+								</div>
+							</div>
+
+							<div class="column-50pct hidden_mobile">
+								<?= $finalRegistrationText ?>
+							</div>
+						</div>
+
+						<div class="communication-admin">
+							<div class="communication-admin__content">
+								<span umi:element-id="<?= $page->getId() ?>"
+								      umi:field-name="appoint_book_time_hint"
+								      umi:field-type="string"
+								      umi:empty="<?= $this->translate('empty-appoint-book-time-hint') ?>"
+								>
+									<?= $this->escape($page->getValue('appoint_book_time_hint')) ?: $this->translate('appoint_book_time_hint') ?>
+								</span>
+
+								<br />
+
+								<a href="<?= $langPrefix ?>/contacts">
+									<?= $this->translate('appointment_contacts') ?>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src='/templates/demomarket/js/appointment/datepicker.js' type="text/javascript"></script>
+	</div>
+</div>

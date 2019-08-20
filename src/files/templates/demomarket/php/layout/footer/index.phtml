@@ -1,0 +1,15 @@
+<?php
+/**
+ * Подвал сайта.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="pre_footer"></div>
+
+<footer class="background_black">
+	<?= $this->render($variables, 'layout/footer/mobile') ?>
+	<?= $this->render($variables, 'layout/footer/desktop') ?>
+</footer>

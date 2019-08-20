@@ -1,0 +1,32 @@
+<?php
+/**
+ * Товар из блока "С этим товаром покупают".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var iUmiHierarchyElement $variables
+ */
+
+$product = $variables;
+?>
+
+<div class="add_to_cart_block alt_item hidden-xs hidden-sm clearfix">
+	<div class="left_block">
+		<a href="<?= $this->getPath($product) ?>" class="blue_link">
+			<?= $this->escape($product->getName()) ?>
+		</a>
+
+		<span class="price">
+			<?= $this->getPrice($product) ?>
+		</span>
+	</div>
+
+	<div class="right_block">
+		<a href="<?= $this->getAddToCartLink($product) ?>"
+		   class="add_to_cart_button transparent_btn m0 <?= $this->getAddToCartButtonClass($product) ?>"
+		>
+			<?= $this->getAddToCartButtonMessage($product) ?>
+		</a>
+	</div>
+
+	<?= $this->render($product, 'catalog/product/preview/optioned/list') ?>
+</div>

@@ -1,0 +1,32 @@
+<?php
+/**
+ * Способ оплаты "Paypal".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<form class="width_100" action="<?= $variables['purchasing']['formAction'] ?>" method="post">
+	<input type="hidden" name="cmd" value="_xclick" />
+	<input type="hidden" name="business" value="<?= $variables['purchasing']['paypalemail'] ?>" />
+	<input type="hidden" name="item_name" value="Payment for order #<?= $variables['purchasing']['order_id'] ?>" />
+	<input type="hidden" name="item_number" value="<?= $variables['purchasing']['order_id'] ?>" />
+	<input type="hidden" name="amount" value="<?= $variables['purchasing']['total'] ?>" />
+	<input type="hidden" name="no_shipping" value="1" />
+	<input type="hidden" name="return" value="<?= $variables['purchasing']['return_success'] ?>" />
+	<input type="hidden" name="rm" value="2" />
+	<input type="hidden" name="cancel_return" value="<?= $variables['purchasing']['cancel_return'] ?>" />
+	<input type="hidden" name="notify_url" value="<?= $variables['purchasing']['notify_url'] ?>" />
+	<input type="hidden" name="currency_code" value="<?= $variables['purchasing']['currency'] ?>" />
+
+	<div class="container grey_border">
+		<?= $this->translate('payment_redirect_text') ?> PayPal.
+	</div>
+
+	<div>
+		<input type="submit" value="<?= $this->translate('pay') ?>" class="button big" />
+	</div>
+</form>
+
+<script src="js/payment/send_form_immediately.js"></script>

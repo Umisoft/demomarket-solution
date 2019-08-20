@@ -1,0 +1,31 @@
+<?php
+/**
+ * Всплывающее окно добавления товара в корзину.
+ * Появляется только для товара с опционными свойствами.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="modal fade" id="buy_modal">
+	<div class="modal-dialog modal-xs">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title up">
+					<?= $this->translate('choose_options') ?>
+				</h3>
+
+				<button class="close" data-dismiss="modal" aria-hidden="true">
+					<img src="img/close_form.png" alt="close">
+				</button>
+			</div>
+
+			<div class="modal-body">
+				<main>
+					<!-- Сюда будут динамически подставлены опционные свойства конкретного товара при нажатии на кнопку "Купить" -->
+				</main>
+			</div>
+		</div>
+	</div>
+</div>

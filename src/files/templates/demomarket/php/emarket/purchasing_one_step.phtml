@@ -1,0 +1,38 @@
+<?php
+/**
+ * Оформление заказа в один шаг:
+ *   - Личная информация о покупателе (только если он неавторизован)
+ *   - Выбор адреса доставки
+ *   - Выбор способа доставки
+ *   - Выбор способа оплаты
+ *   - Статический блок с товарами в корзине
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$variables = $this->macros('emarket', 'purchasing_one_step');
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->translate('purchasing_one_step') ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="order">
+	<div class="container">
+		<form action="<?= $this->getPurchasingOneStepUrl() ?>" method="post" id="oneStepForm" class="without-steps" novalidate>
+			<div class="order_data">
+				<?= $this->render($variables, 'emarket/purchasing_one_step/customer_info') ?>
+				<?= $this->render($variables, 'emarket/purchasing_one_step/delivery_address') ?>
+				<?= $this->render($variables, 'emarket/purchasing_one_step/delivery_choose') ?>
+				<?= $this->render($variables, 'emarket/purchasing_one_step/payment_choose') ?>
+				<?= $this->render($variables, 'emarket/purchasing_one_step/comment_block') ?>
+			</div>
+			<?= $this->render($variables, 'emarket/purchasing_one_step/cart') ?>
+		</form>
+	</div>
+</div>

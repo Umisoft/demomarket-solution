@@ -1,0 +1,17 @@
+<?php
+/**
+ * Точка входа в шаблон Demomarket.
+ *
+ * В шаблоне используется:
+ *   - Кастомное расширение PHP-шаблонизатора `DemomarketPhpExtension`
+ *   - Кастомный файл config.ini
+ *   - Сборщик css и js-ресурсов gulp, @see gulpfile.js
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$this->initializeCommonVariables($variables);
+?>
+
+<?= $this->render($variables, 'layout/index') ?>

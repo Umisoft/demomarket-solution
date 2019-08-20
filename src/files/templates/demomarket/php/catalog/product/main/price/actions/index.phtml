@@ -1,0 +1,14 @@
+<?php
+/**
+ * Блок дополнительных действий.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables;
+?>
+
+<?= $this->render($product, 'catalog/product/main/price/actions/compare') ?>
+<?= $this->render($product, 'catalog/product/main/price/actions/comment') ?>
+<?= $this->render($product, 'catalog/product/main/price/actions/print') ?>

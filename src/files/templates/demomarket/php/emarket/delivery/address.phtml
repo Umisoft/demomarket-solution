@@ -1,0 +1,19 @@
+<?php
+/**
+ * Страница "Выбор адреса доставки".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<form action="<?= $this->getDeliveryAddressFormUrl() ?>" id="deliveryForm" method="post">
+	<?= $this->render($variables['purchasing'], 'emarket/delivery/address/block') ?>
+
+	<div class="del_row delivery_address_btn">
+		<div class="del_content">
+			<input type="submit" value="<?= $this->translate('continue') ?>">
+			<?= $this->render('purchase-step-address-152-federal-law', 'library/personalDataNotice') ?>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,23 @@
+<?php
+/**
+ * Опционное свойство.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $product
+ * @var iUmiField $field
+ */
+
+list($product, $field) = $variables;
+$valueList = $product->getValue($field->getName());
+?>
+
+<?php if (is_array($valueList) && umiCount($valueList) > 0): ?>
+	<div class="optioned_property">
+		<h4><?= $field->getTitle() ?>:</h4>
+
+		<?php foreach ($valueList as $value): ?>
+			<?= $this->render([$field->getName(), $value], 'catalog/product/preview/optioned/value') ?>
+		<?php endforeach; ?>
+	</div>
+<?php endif; ?>

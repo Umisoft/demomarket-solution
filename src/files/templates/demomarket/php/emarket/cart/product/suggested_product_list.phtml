@@ -1,0 +1,23 @@
+<?php
+/**
+ * Блок "С этим товаром покупают".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var iUmiHierarchyElement $variables
+ */
+
+$product = $variables;
+$suggestedProductList = $this->getSuggestedProducts($product);
+?>
+
+<?php if (umiCount($suggestedProductList) > 0 && $this->isCartPage()): ?>
+	<div class="with_goods hidden-xs hidden-sm">
+		<h3 class="title">
+			<?=$this->translate('suggested_products')?>:
+		</h3>
+
+		<?php foreach ($suggestedProductList as $suggestedProduct): ?>
+			<?= $this->render($suggestedProduct, 'emarket/cart/product/suggested_product') ?>
+		<?php endforeach; ?>
+	</div>
+<?php endif ?>

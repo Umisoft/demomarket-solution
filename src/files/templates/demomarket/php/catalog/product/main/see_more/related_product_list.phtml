@@ -1,0 +1,31 @@
+<?php
+/**
+ * Блок "Похожие товары".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables['page'];
+$relatedProductList = $this->getRelatedProducts($product);
+?>
+
+<?php if ($relatedProductList): ?>
+	<div class="container mobile_all_width">
+		<div class="row">
+			<div class="sect_capt">
+				<h3 class="up"><?= $this->translate('related_products') ?></h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="subCarousel goods w100p">
+				<?php foreach ($relatedProductList as $relatedProduct): ?>
+					<div>
+						<?= $this->render($relatedProduct, 'catalog/product/preview/index') ?>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>

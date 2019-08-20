@@ -1,0 +1,32 @@
+<?php
+/**
+ * Сортировка товаров каталога.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<?php if (!$this->isRootCatalog($variables)): ?>
+	<ul class="sort_list list_inline float_left">
+		<li><?= $this->translate('sort_message') ?></li>
+
+		<li class="<?= $this->getSortClass('price') ?>">
+			<a data-field="price" class="sort_price">
+				<?= $this->translate('sort_price') ?>
+			</a>
+		</li>
+
+		<li class="<?= $this->getSortClass('name') ?>">
+			<a data-field="name" class="sort_name">
+				<?= $this->translate('sort_name') ?>
+			</a>
+		</li>
+
+		<li class="<?= $this->getSortClass('common_quantity') ?>">
+			<a data-field="common_quantity" class="sort_common_quantity">
+				<?= $this->translate('sort_common_quantity') ?>
+			</a>
+		</li>
+	</ul>
+<?php endif; ?>

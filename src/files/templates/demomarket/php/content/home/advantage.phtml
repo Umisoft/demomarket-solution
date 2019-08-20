@@ -1,0 +1,102 @@
+<?php
+/**
+ * Блок "Наши преимущества".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $page
+ */
+
+$page = $variables['page'];
+$pageId = $page->getId();
+?>
+
+<div class="advantage">
+	<div class="container background_gray mobile_all_width">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-3 col-xs-12 col-xs-offset-0 col-md-offset-0">
+				<div class="media">
+					<div class="media-left">
+						<img class="sprite-mob-advantage sprite-mob_advantage_1 media-object"
+						     umi:element-id="<?= $pageId ?>"
+						     umi:field-name="quality_image"
+						     umi:field-type="img_file"
+						     src="<?= $page->getValue('quality_image')?>"
+						/>
+					</div>
+
+					<div class="media-body"
+					     umi:element-id="<?= $pageId ?>"
+					     umi:field-name="quality"
+					     umi:empty="<?= $this->translate('quality') ?>"
+					>
+						<?= $page->getValue('quality') ?>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-xs-12">
+				<div class="media">
+					<div class="media-left">
+						<img class="sprite-mob-advantage sprite-mob_advantage_2 media-object"
+						     umi:element-id="<?= $pageId ?>"
+						     umi:field-name="delivery_image"
+						     umi:field-type="img_file"
+						     src="<?= $page->getValue('delivery_image')?>"
+						/>
+					</div>
+
+					<div class="media-body"
+					     umi:element-id="<?= $pageId ?>"
+					     umi:field-name="delivery"
+					     umi:empty="<?= $this->translate('delivery') ?>"
+					>
+						<?= $page->getValue('delivery') ?>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-xs-12">
+				<div class="media">
+					<div class="media-left">
+						<img class="sprite-mob-advantage sprite-mob_advantage_3 media-object"
+						     umi:element-id="<?= $pageId ?>"
+						     umi:field-name="protection_image"
+						     umi:field-type="img_file"
+						     src="<?= $page->getValue('protection_image')?>"
+						/>
+					</div>
+
+					<div class="media-body"
+					     umi:element-id="<?= $pageId ?>"
+					     umi:field-name="protection"
+					     umi:empty="<?= $this->translate('protection') ?>"
+					>
+						<?= $page->getValue('protection') ?>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-xs-12">
+				<div class="media">
+					<div class="media-left">
+						<img class="sprite-mob-advantage sprite-mob_advantage_4 media-object"
+						     umi:element-id="<?= $pageId ?>"
+						     umi:field-name="support_image"
+						     umi:field-type="img_file"
+						     src="<?= $page->getValue('support_image')?>"
+						/>
+					</div>
+
+					<div class="media-body"
+					     umi:element-id="<?= $pageId ?>"
+					     umi:field-name="support"
+					     umi:empty="<?= $this->translate('support') ?>"
+					>
+						<?= $page->getValue('support') ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

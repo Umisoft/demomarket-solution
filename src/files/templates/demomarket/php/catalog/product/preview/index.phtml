@@ -1,0 +1,27 @@
+<?php
+/**
+ * Превью товара:
+ *   - Изображение
+ *   - Название
+ *   - Блок цены
+ *   - Дополнительные действия
+ *   - Скрытый блок с формой выбора опционных свойств, если они есть у товара.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var iUmiHierarchyElement $variables
+ */
+
+$product = $variables;
+?>
+
+<div class="col-md-3 col-xs-6 preview_product">
+	<div class="tab_container <?= $this->getNewLabelClass($product) ?>">
+		<div class="tab_item add_to_cart_block" data-element_id="<?= $product->getId() ?>" umi:region="row" umi:element-id="<?= $product->getId() ?>">
+			<?= $this->render($product, 'catalog/product/preview/image') ?>
+			<?= $this->render($product, 'catalog/product/preview/title') ?>
+			<?= $this->render($product, 'catalog/product/preview/price') ?>
+			<?= $this->render($product, 'catalog/product/preview/more') ?>
+			<?= $this->render($product, 'catalog/product/preview/optioned/list') ?>
+		</div>
+	</div>
+</div>

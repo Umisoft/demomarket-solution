@@ -1,0 +1,28 @@
+<?php
+/**
+ * Способ оплаты "Pay online".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<form action="<?= $variables['purchasing']['formAction'] ?>" method="post">
+	<input type="hidden" name="MerchantId" value="<?= $variables['purchasing']['MerchantId'] ?>" />
+	<input type="hidden" name="OrderId" value="<?= $variables['purchasing']['OrderId'] ?>" />
+	<input type="hidden" name="Currency" value="<?= $variables['purchasing']['Currency'] ?>" />
+	<input type="hidden" name="SecurityKey" value="<?= $variables['purchasing']['SecurityKey'] ?>" />
+	<input type="hidden" name="ReturnUrl" value="<?= $variables['purchasing']['ReturnUrl'] ?>" />
+	<input type="hidden" name="Amount" value="<?= $variables['purchasing']['Amount'] ?>" />
+	<input type="hidden" name="order-id" value="<?= $variables['purchasing']['orderId'] ?>" />
+
+	<div class="container grey_border">
+		<?= $this->translate('payment_redirect_text') ?> PayOnline.
+	</div>
+
+	<div>
+		<input type="submit" value="<?= $this->translate('pay') ?>" class="button big" />
+	</div>
+</form>
+
+<script src="js/payment/send_form_immediately.js"></script>

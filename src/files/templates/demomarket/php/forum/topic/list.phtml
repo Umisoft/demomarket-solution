@@ -1,0 +1,50 @@
+<?php
+/**
+ * Список топиков в конференции форума.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $data
+ * @var array $topicList
+ */
+
+$data = $this->getTopics();
+$topicList = $data['lines'];
+?>
+
+<?php if (umiCount($topicList) > 0): ?>
+	<div class="forum">
+		<div class="container">
+			<table>
+				<thead>
+					<tr>
+						<td>
+							<?= $this->translate('forum_topics') ?>
+						</td>
+
+						<td class="hidden-sm hidden-xs">
+							<?= $this->translate('forum_answers') ?>
+						</td>
+
+						<td class="hidden-sm hidden-xs">
+							<?= $this->translate('forum_last_message') ?>
+						</td>
+					</tr>
+				</thead>
+
+				<tbody>
+					<?php foreach ($topicList as $topic): ?>
+						<tr>
+							<?= $this->render($topic, 'forum/topic/preview') ?>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+
+			<?= $this->render($data, 'library/pagination') ?>
+		</div>
+	</div>
+<?php else: ?>
+	<div class="container grey_border">
+		<p><?= $this->translate('this_conference_has_no_topics') ?></p>
+	</div>
+<?php endif; ?>

@@ -1,0 +1,16 @@
+<?php
+/**
+ * Каталог новинок.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div id="newItems" class="tab-pane fade in active">
+	<div class="row">
+		<?php foreach ($this->getNewProducts() as $product): ?>
+			<?= $this->render($product, 'catalog/product/preview/index') ?>
+		<?php endforeach; ?>
+	</div>
+</div>

@@ -1,0 +1,38 @@
+<?php
+/**
+ * Второй уровень меню каталога товаров в мобильной версии сайта.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $categoryList
+ */
+$categoryId = $variables['id'];
+$categoryList = $this->filterCategoryList($categoryId, 1);
+?>
+
+<li>
+	<ul umi:element-id="<?= $categoryId ?>"
+		umi:region="list"
+		umi:module="catalog"
+		umi:sortable="sortable"
+		umi:add-method="none"
+		class="mobile_sub_menu"
+	>
+		<?php foreach ($categoryList as $child):
+			$subCategoryList = $this->filterCategoryList($child['id'], 2);
+			?>
+			<li umi:element-id="<?= $child['id'] ?>" umi:region="row" class="<?= $this->getMobileMenuCatalogClass($subCategoryList) ?>">
+				<a href="<?= $child['link'] ?>"
+				   umi:field-name="name"
+				   umi:delete="delete"
+				   umi:empty="<?= $this->translate('empty_section_name') ?>"
+
+				>
+					<?= $this->escape($child['text']) ?>
+				</a>
+
+				<?= $this->render($subCategoryList, 'layout/header/mobile_menu/catalog/sub_sub_list') ?>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+</li>

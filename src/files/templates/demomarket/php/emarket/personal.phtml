@@ -1,0 +1,48 @@
+<?php
+/**
+ * Страница "Личный кабинет" покупателя.
+ * Если пользователь авторизован, выводятся две вкладки - "Заказы" и "Личная информация".
+ * Если пользователь - гость, выводится только вкладка "Заказы".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$userType = $variables['user']['type'];
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="personal_area">
+	<div class="container">
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a href="#order" data-toggle="tab">
+					<?= $this->translate('personal_orders') ?>
+				</a>
+			</li>
+
+			<?php if ($userType !== 'guest'): ?>
+				<li>
+					<a href="#personal" data-toggle="tab">
+						<?= $this->translate('personal_info') ?>
+					</a>
+				</li>
+			<?php endif; ?>
+		</ul>
+
+		<div class="tab-content">
+			<?= $this->render($variables, 'emarket/personal/order_list') ?>
+
+			<?php if ($userType !== 'guest'): ?>
+				<?= $this->render($variables, 'emarket/personal/user_settings') ?>
+			<?php endif; ?>
+		</div>
+	</div>
+</div>

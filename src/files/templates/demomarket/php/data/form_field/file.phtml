@@ -1,0 +1,22 @@
+<?php
+/**
+ * Поле типа "Файл".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$field = $variables;
+?>
+
+<label class="file">
+	<input
+		type="file"
+		placeholder="<?= $this->escape($field['title']) ?>"
+		<?= (isset($field['required']) ? ' required ' : '') ?>
+		name="<?= $field['input_name'] ?>"
+		value="<?= isset($field['value']) ? $field['value'] : '' ?>"
+	/>
+
+	<span><?= $this->translate('upload_file') ?></span>
+</label>

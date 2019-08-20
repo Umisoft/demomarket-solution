@@ -1,0 +1,29 @@
+<?php
+/**
+ * Поле умных фильтров типа "Дата".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$data = $this->getDateFilterFieldData($variables);
+?>
+
+<div class="date_field col-md-12 dropdown_price clearfix">
+	<div class="clearfix arrow_product">
+		<p class="float_left"><?= $data['title'] ?></p>
+		<i class="fa fa-angle-up float_right arrow_dropdown" aria-hidden="true"></i>
+	</div>
+
+	<div class="progress_hide product_form">
+		<div class="col-md-12 delta_price clearfix">
+			<input type="text" name="<?= $data['name_from'] ?>" value="<?= $data['selected_min'] ?>"
+				   data-minimum="<?= $data['min'] ?>" data-maximum="<?= $data['max'] ?>" class="min float_left" />
+
+			<span>&mdash;</span>
+
+			<input type="text" name="<?= $data['name_to'] ?>" value="<?= $data['selected_max'] ?>"
+				   data-minimum="<?= $data['min'] ?>" data-maximum="<?= $data['max'] ?>" class="max float_right" />
+		</div>
+	</div>
+</div>

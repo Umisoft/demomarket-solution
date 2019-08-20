@@ -1,0 +1,27 @@
+<?php
+/**
+ * Страница "Выбор способа доставки".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$deliveryList = $variables['purchasing']['items'];
+?>
+
+<form method="post" id="deliverySettingsForm" action="<?= $this->getDeliveryChooseUrl() ?>">
+	<div class="delivery_choose onestep del_row order_img_1">
+		<div class="del_content">
+			<h3 class="up input_capt">
+				<?= $this->translate('delivery_agent') ?>
+			</h3>
+
+			<?php if ($deliveryList): ?>
+				<?= $this->render($deliveryList, 'emarket/delivery/choose/list') ?>
+				<input type="submit" value="<?= $this->translate('continue') ?>">
+			<?php else: ?>
+				<div><?= $this->translate('delivery_providers_not_found') ?></div>
+			<?php endif; ?>
+		</div>
+	</div>
+</form>

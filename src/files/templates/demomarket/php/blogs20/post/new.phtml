@@ -1,0 +1,34 @@
+<?php
+/**
+ * Форма добавления нового поста в блог.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<?php if ($this->canAddNewBlogPost($variables)): ?>
+	<div class="comment">
+		<div class="comment_add">
+			<h3><?= $this->translate('add_new_blog_post') ?></h3>
+
+			<form action="<?= $this->getNewBlogPostFormAction($variables) ?>" method="post">
+				<div class="important">
+					<input type="text" name="title" placeholder="<?= $this->translate('post_title') ?>" required />
+					<span class="sub_text"><?= $this->translate('post_title') ?></span>
+				</div>
+
+				<div class="important">
+					<textarea name="content" cols="30" rows="8" placeholder="<?= $this->translate('post_message') ?>" required></textarea>
+					<span class="sub_text"><?= $this->translate('post_message') ?></span>
+				</div>
+
+				<?= $this->renderCaptcha() ?>
+
+				<input type="submit" value="<?= $this->translate('add_new_blog_post') ?>" />
+
+				<?= $this->render('common-152-federal-law', 'library/personalDataNotice') ?>
+			</form>
+		</div>
+	</div>
+<?php endif; ?>

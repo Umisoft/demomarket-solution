@@ -1,0 +1,16 @@
+<?php
+/**
+ * Слайд без ссылки.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+list($data, $slide) = $variables;
+?>
+
+<img src="<?= $slide['image'] ?>" umi:slider-id="<?= $data['slider_id'] ?>" />
+
+<div class="carousel-caption">
+	<?= $slide['text'] ?>
+</div>

@@ -1,0 +1,67 @@
+<?php
+/**
+ * Форма опроса.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $voteOptions
+ */
+
+$voteOptions = $variables['items'];
+?>
+
+<div class="interview col-md-6">
+	<h3 class="block_capt up">
+		<?= $this->translate('vote') ?>
+	</h3>
+
+	<div class="radio_form">
+		<p class="form_text">
+			<?= $this->escape($variables['text']) ?>
+		</p>
+
+		<form id="post_vote" data-vote_id="<?= $variables['id'] ?>">
+			<?php foreach ($voteOptions as $index => $option): ?>
+				<div>
+					<label>
+						<input type="radio" name="answer" required id="var_<?= $index ?>" value="<?= $option['id'] ?>" />
+						<span></span>
+						<span><?= $this->escape($option['item_name']) ?></span>
+					</label>
+				</div>
+			<?php endforeach; ?>
+
+			<input type="submit" value="<?= $this->translate('reply') ?>" class="transparent_btn" />
+		</form>
+	</div>
+</div>
+
+<script id="vote_result_template" type="text/template">
+	<div class="interview complete col-md-6">
+		<h3 class="block_capt up">
+			<?= $this->translate('vote') ?>
+		</h3>
+
+		<div class="radio_form">
+			<p class="form_text">
+				<?= $this->escape($variables['text']) ?>
+			</p>
+
+			<div class="result_interview">
+				<% _.each(optionList, function(option) { %>
+					<div class="row">
+						<div class="text">
+							<span><%= option['item_name'] %></span>
+						</div>
+
+						<div class="result clearfix">
+							<div class="result_range"></div>
+
+							<span class="result_num"><%= option['score-rel'] %>%</span>
+						</div>
+					</div>
+				<% }); %>
+			</div>
+		</div>
+	</div>
+</script>

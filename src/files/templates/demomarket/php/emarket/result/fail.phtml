@@ -1,0 +1,20 @@
+<?php
+/**
+ * Страница неуспешного оформления заказа.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="container grey_border">
+	<h4 class="empty-content">
+		<?= $this->translate('emarket-order-failed') ?>
+	</h4>
+
+	<div>
+		<a href="<?= $this->getHomePageUrl() ?>">
+			<?= $this->translate('continue_shopping') ?>
+		</a>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+<?php
+/**
+ * Личная информация о покупателе (только если он неавторизован).
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<?php if (isset($variables['onestep']['customer'])): ?>
+	<div class="personal_data del_row">
+		<div class="del_content">
+			<?= $this->render(['form' => $this->getEditForm($variables['onestep']['customer']['id'])], 'data/form') ?>
+		</div>
+	</div>
+<?php endif; ?>

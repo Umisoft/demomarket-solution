@@ -1,0 +1,48 @@
+<?php
+/**
+ * Страница успешного оформления заказа.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="container grey_border">
+	<h4 class="empty-content">
+		<?= $this->translate('emarket-order-successful') ?>
+	</h4>
+
+	<?php if ($this->orderWasPlaced($variables)): ?>
+		<div>
+			<p>
+				<b><?= $this->escape($this->getPlacedOrder($variables)->getName()) ?></b>
+
+				<?= $this->translate('order_is_being_processed_message') ?>
+
+				<a href="<?= $this->getPersonalAccountUrl($variables) ?>">
+					<?= $this->translate('personal_account') ?>
+				</a>
+
+				<?= $this->translate('orders_tab') ?>
+			</p>
+		</div>
+	<?php endif; ?>
+
+	<div>
+		<a href="<?= $this->getHomePageUrl() ?>">
+			<?= $this->translate('continue_shopping') ?>
+		</a>
+	</div>
+</div>
+
+<?php
+// Всплывающее окно с квитанцией безналичной оплаты
+if (isset($variables['purchasing']['invoice_link'])): ?>
+	<script>
+		$(function() {
+			var url = '//' + "<?= $this->getCommonVar('domain') ?>" + "<?= $variables['purchasing']['invoice_link'] ?>";
+			var popupParams = 'width=650,height=650,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no';
+			window.open(url, '<?= $this->translate("invoice") ?>', popupParams);
+		});
+	</script>
+<?php endif; ?>

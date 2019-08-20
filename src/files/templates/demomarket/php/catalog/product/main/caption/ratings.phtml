@@ -1,0 +1,24 @@
+<?php
+/**
+ * Заголовок товара.
+ * Блок отзывов о товаре (пять звездочек).
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$productId = $variables['pageId'];
+?>
+
+<div class="clearfix hidden-xs hidden-sm">
+	<h1 umi:element-id="<?= $productId ?>" umi:field-name="h1" umi:empty="<?= $this->translate('empty_page_name') ?>">
+		<?= $this->escape($variables['header']) ?>
+	</h1>
+
+	<?php if ($this->isShowRatingOnProductPage()): ?>
+		<ul class="rate_star list_inline inline">
+			<?= $this->renderProductRating($productId) ?>
+		</ul>
+	<?php endif;?>
+	
+</div>

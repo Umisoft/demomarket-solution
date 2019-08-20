@@ -1,0 +1,13 @@
+<?php
+/**
+ * Страница товара.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+// Побочный эффект: страница товара добавляется в список недавно посещенных страниц
+$this->macros('content', 'addRecentPage', [$variables['pageId']]);
+?>
+
+<?= $this->render($variables, 'catalog/product/main/index') ?>

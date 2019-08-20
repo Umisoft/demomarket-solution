@@ -1,0 +1,37 @@
+<?php
+/**
+ * Превью категории.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var iUmiHierarchyElement $variables
+ */
+
+$category = $variables;
+$name = $this->escape($category->getName());
+?>
+
+<a href="<?= $this->getPath($category) ?>" class="subsection_item">
+	<div class="img">
+		<?= $this->render(
+			[
+				'id' => $category->getId(),
+				'field_name' => 'photo',
+				'src' => $this->getPhotoPath($category),
+				'alt' => $this->getPhotoAlt($category),
+				'title' => $this->getPhotoTitle($category),
+				'width' => 'auto',
+				'height' => 150,
+			],
+			'library/thumbnail'
+		) ?>
+	</div>
+
+	<div class="text"
+	     umi:element-id="<?=$category->getId()?>"
+	     umi:field-name="name"
+	     umi:empty="<?= $this->translate('empty') ?>"
+	     umi:delete="delete"
+	>
+		<?= $name ?>
+	</div>
+</a>

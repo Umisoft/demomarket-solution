@@ -1,0 +1,37 @@
+<?php
+/**
+ * Шаблон вывода цены
+ * @var array $variables
+ * @var umiTemplaterPHP $this
+ */
+
+$isError = false;
+
+if (is_string($variables)) {
+	$isError = true;
+} elseif (umiCount($variables) == 2 && isset($variables[0])) {
+	$oldPrice = $variables[1];
+	$variables = $variables[0];
+}
+
+?>
+
+<span class="prefix">
+    <?= isset($variables['price']['prefix']) ? $variables['price']['prefix'] : null ?>
+</span>
+
+<span class="price <?= $isError ? 'price-error' : '' ?>">
+	<?php if ($isError): ?>
+		<?= $variables ?>
+	<?php elseif (isset($oldPrice)): ?>
+		<?= $oldPrice ?>
+	<?php elseif ((isset($variables['price']['actual']))): ?>
+		<?= $variables['price']['actual'] ?>
+	<?php else: ?>
+		0
+	<?php endif; ?>
+</span>
+
+<span class="suffix">
+    <?= isset($variables['price']['suffix']) ? $variables['price']['suffix'] : null ?>
+</span>

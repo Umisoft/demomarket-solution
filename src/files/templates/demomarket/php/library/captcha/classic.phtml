@@ -1,0 +1,20 @@
+<?php
+/**
+ * Классическая капча.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="captcha_field">
+	<div class="important">
+		<input type="text" placeholder="<?= $this->translate('enter_classic_captcha') ?>" required name="captcha" class="captcha" />
+		<span class="sub_text"><?= $this->translate('enter_classic_captcha') ?></span>
+	</div>
+
+	<div class="classic_captcha_image">
+		<img class="captcha_img" src="<?= $this->getClassicCaptchaUrl($variables) ?>" />
+		<span class="captcha_reset"><?= $this->translate('reset_captcha_code') ?></span>
+	</div>
+</div>

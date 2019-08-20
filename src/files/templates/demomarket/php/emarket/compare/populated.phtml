@@ -1,0 +1,57 @@
+<?php
+/**
+ * Страница сравнения товаров.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $column
+ */
+
+$productList = $this->getProductsForComparison($variables);
+$fieldDataList = $this->filterAllowedFieldData($variables['fields']);
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->getCommonVar('header') ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="compare">
+	<div class="goods">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-xs-6"></div>
+				<?php foreach ($productList as $product): ?>
+					<?= $this->render($product, 'catalog/product/preview/index') ?>
+				<?php endforeach; ?>
+			</div>
+
+			<div class="row">
+				<h3>
+					<?= $this->translate('product_properties_header') ?>
+				</h3>
+
+				<div class="characteristics">
+					<?php foreach ($fieldDataList as $fieldData): ?>
+						<div class="characteristics_row">
+							<div class="compare_field">
+								<?= $fieldData['title'] ?>
+							</div>
+
+							<?php foreach ($this->getComparedValueList($fieldData) as $id => $value): ?>
+								<div class="compare_field">
+									<span data-id="<?= $id ?>">
+										<?= $value ?>
+									</span>
+								</div>
+							<?php endforeach; ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

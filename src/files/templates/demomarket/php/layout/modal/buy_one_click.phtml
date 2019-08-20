@@ -1,0 +1,51 @@
+<?php
+/**
+ * Всплывающее окно заказа в один клик:
+ *   - Выбор опционных свойств товара, если они у него есть
+ *   - Форма оформления заказа в один клик
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$orderForm = $this->macros('emarket', 'createForm', ['emarket-purchase-oneclick']);
+?>
+
+<div class="modal fade" id="oneclick_modal">
+	<div class="modal-dialog modal-xs">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title up">
+					<?= $this->translate('one_click_order') ?>
+				</h3>
+
+				<button class="close" data-dismiss="modal" aria-hidden="true">
+					<img src="img/close_form.png" alt="close">
+				</button>
+			</div>
+
+			<div class="modal-body">
+				<main>
+					<form>
+						<div id="one_click_order_optioned_properties">
+							<!-- Сюда будут динамически подставлены опционные свойства конкретного товара
+								 при нажатии на кнопку "Купить в один клик", если у товара есть такие свойства. -->
+						</div>
+
+						<?php foreach ($orderForm['groups'] as $group): ?>
+							<?php foreach ($group['fields'] as $field): ?>
+								<div class="<?= $this->getFormFieldClass($field) ?>">
+									<?= $this->render($field, "data/form_field/{$field['type']}") ?>
+								</div>
+							<?php endforeach; ?>
+						<?php endforeach; ?>
+
+						<input type="submit" value="<?= $this->translate('make_order') ?>" />
+
+						<?= $this->render('buy-one-click-152-federal-law', 'library/personalDataNotice') ?>
+					</form>
+				</main>
+			</div>
+		</div>
+	</div>
+</div>

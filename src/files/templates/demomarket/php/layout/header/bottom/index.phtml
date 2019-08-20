@@ -1,0 +1,19 @@
+<?php
+/**
+ * Нижний ряд в шапке сайта:
+ *   - Меню каталога товаров
+ *   - Форма поиска
+ *   - Блок с кнопкой сравнения товаров и кнопкой входа на сайт (или панели управления пользователя)
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="container search_row background_gray">
+	<div class="row">
+		<?= $this->render($variables, 'layout/header/bottom/catalog_menu') ?>
+		<?= $this->render($variables, 'layout/header/bottom/search') ?>
+		<?= $this->render($variables, 'layout/header/bottom/login') ?>
+	</div>
+</div>

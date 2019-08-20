@@ -1,0 +1,28 @@
+<?php
+/**
+ * Список постов блога.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $postList
+ */
+
+$data = $this->getBlogPosts($variables);
+$postList = $data['lines'];
+?>
+
+<?php if (umiCount($postList) > 0): ?>
+	<div class="grey_border">
+		<div class="blog_container">
+			<?php foreach ($postList as $post): ?>
+				<?= $this->render($post, 'blogs20/post/preview') ?>
+			<?php endforeach; ?>
+		</div>
+
+		<?= $this->render($data, 'library/pagination') ?>
+	</div>
+<?php else: ?>
+	<div class="container grey_border">
+		<p><?= $this->translate('this_blog_has_no_posts') ?></p>
+	</div>
+<?php endif; ?>

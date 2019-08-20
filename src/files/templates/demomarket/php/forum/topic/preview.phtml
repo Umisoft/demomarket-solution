@@ -1,0 +1,14 @@
+<?php
+/**
+ * Превью топика в конференции форума.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$topic = $variables;
+?>
+
+<?= $this->render($topic, 'forum/topic/preview/title') ?>
+<?= $this->render($topic, 'forum/topic/preview/message_count') ?>
+<?= $this->render($topic, 'forum/topic/preview/last_message') ?>

@@ -1,0 +1,23 @@
+<?php
+/**
+ * Средний ряд шапки сайта:
+ *   - Блок с логотипом сайта
+ *   - Форма "Заказать звонок"
+ *   - Режим работы
+ *   - Корзина товаров
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="header_middle_nav">
+	<div class="container">
+		<div class="row">
+			<?= $this->render($variables, 'layout/header/middle/logo') ?>
+			<?= $this->render($variables, 'layout/header/middle/contact') ?>
+			<?= $this->render($variables, 'layout/header/middle/work_time') ?>
+			<?= $this->render($variables, 'layout/header/middle/cart') ?>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+<?php
+/**
+ * Блок с новостями и опросом на главной.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$lastVote = $this->getLastVote();
+$lastNews = $this->getLastNewsForMainPage($lastVote);
+
+$page = $variables['page'];
+?>
+
+<div class="container news_container mobile_all_width">
+	<div class="text-field"
+	     umi:element-id="<?= $page->getId() ?>"
+	     umi:field-name="field_above_news"
+	     umi:empty="<?= $this->translate('empty_page_content') ?>"
+	>
+		<?= $page->getValue('field_above_news') ?>
+	</div>
+	<div class="row">
+		<div class="<?= $this->getLastNewsAdaptiveClassForMainPage($lastNews) ?> main_news background_gray">
+			<h3 class="block_capt up">
+				<?= $this->translate('news') ?>
+			</h3>
+
+			<?php if (count($lastNews['items']) > 0): ?>
+				<a href="<?= $this->getNewsLink() ?>" class="blue_link hidden-xs hidden-sm">
+					<?= $this->translate('all_news') ?>
+				</a>
+
+				<?= $this->render($lastNews, 'content/home/news/list') ?>
+			<?php endif; ?>
+		</div>
+
+		<?= $this->render($lastVote, 'vote/show_vote') ?>
+	</div>
+	<div class="text-field"
+	     umi:element-id="<?= $page->getId() ?>"
+	     umi:field-name="field_under_news"
+	     umi:empty="<?= $this->translate('empty_page_content') ?>"
+	>
+		<?= $page->getValue('field_under_news') ?>
+	</div>
+</div>

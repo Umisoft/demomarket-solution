@@ -1,0 +1,20 @@
+<?php
+/**
+ * Блок отзывов о товаре (пять звездочек).
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<?php foreach ($this->getVoteStars($variables) as $star): ?>
+	<li>
+		<a href="<?= $star['link'] ?>">
+			<i class="fa fa-star <?= $star['css_color_class'] ?>"></i>
+		</a>
+	</li>
+<?php endforeach; ?>
+
+<li>
+	<span class="gray_text"><?= $this->getVoteCountMessage($variables) ?></span>
+</li>

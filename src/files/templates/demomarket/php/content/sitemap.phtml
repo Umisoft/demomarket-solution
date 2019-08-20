@@ -1,0 +1,32 @@
+<?php
+/**
+ * Системная страница "Карта сайта":
+ *   - Двухуровневый список категорий каталога товаров
+ *   - Меню основных страниц сайта
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="site_map">
+	<div class="container">
+		<div class="grey_border clearfix">
+			<div class="col-md-6 col-sm-6">
+				<div class="products">
+					<?= $this->render($variables, 'content/sitemap/category/list') ?>
+				</div>
+			</div>
+
+			<?= $this->render($variables, 'content/sitemap/menu') ?>
+		</div>
+	</div>
+</div>

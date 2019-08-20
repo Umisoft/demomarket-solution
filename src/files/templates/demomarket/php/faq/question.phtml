@@ -1,0 +1,48 @@
+<?php
+/**
+ * Страница вопроса.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $page
+ */
+
+$page = $variables['page'];
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<?= $this->render($variables, 'layout/header/breadcrumbs') ?>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="one_question">
+		<h3 umi:element-id="<?= $page->getId() ?>"
+		    umi:field-name="h1"
+		    umi:empty="<?= $this->translate('empty_page_name') ?>"
+		>
+			<?= $this->escape($page->getValue('h1')) ?>
+		</h3>
+
+		<h4><?= $this->translate('comment_question') ?></h4>
+
+		<p umi:element-id="<?= $page->getId() ?>"
+		   umi:field-name="question"
+		   umi:empty="<?= $this->translate('comment_question') ?>"
+		>
+			<?= $this->escape($page->getValue('question')) ?>
+		</p>
+
+		<h4><?= $this->translate('comment_answer') ?></h4>
+
+		<p umi:element-id="<?= $page->getId() ?>"
+		   umi:field-name="answer"
+		   umi:empty="<?= $this->translate('comment_answer') ?>"
+		>
+			<?= $this->escape($page->getValue('answer')) ?>
+		</p>
+	</div>
+</div>

@@ -1,0 +1,49 @@
+<?php
+/**
+ * Способ оплаты "Деньги Online".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $paymentMethodList
+ */
+
+$data = $this->getDengiOnlineParams($variables);
+$paymentMethodList = $data['items'];
+?>
+
+<form action="<?= $data['formAction'] ?>" method="post">
+	<input type="hidden" name="project" value="<?= $data['project'] ?>" />
+	<input type="hidden" name="amount" value="<?= $data['amount'] ?>" />
+	<input type="hidden" name="nickname" value="<?= $data['nickname'] ?>" />
+	<input type="hidden" name="source" value="<?= $data['source'] ?>" />
+	<input type="hidden" name="order_id" value="<?= $data['order_id'] ?>" />
+	<input type="hidden" name="comment" value="<?= $data['comment'] ?>" />
+	<input type="hidden" name="paymentCurrency" value="<?= $data['paymentCurrency'] ?>" />
+
+	<?php foreach ($paymentMethodList as $method): ?>
+		<div>
+			<label>
+				<input
+					type="radio"
+					name="mode_type"
+					value="<?= $method['id'] ?>"
+					required
+				/>
+
+				<span></span>
+
+				<p>
+					<?= $method['label'] ?>
+				</p>
+			</label>
+		</div>
+	<?php endforeach; ?>
+
+	<div class="container grey_border">
+		<?= $this->translate('payment_redirect_text') ?> Деньги Online.
+	</div>
+
+	<div>
+		<input type="submit" value="<?= $this->translate('pay') ?>" class="button big" />
+	</div>
+</form>

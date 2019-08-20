@@ -1,0 +1,48 @@
+<?php
+/**
+ * Заголовок с названиями колонок.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$this->setCommonVar('priceHeader', $this->getPriceHeader($variables));
+$this->setCommonVar('discountHeader', $this->getDiscountHeader($variables));
+$this->setCommonVar('sumHeader', $this->getSumHeader($variables));
+?>
+
+<div class="row table_title hidden-xs hidden-sm">
+	<div class="col-md-2">
+		<p></p>
+	</div>
+
+	<div class="col-md-3">
+		<h5 class="gray_text title">
+			<?= $this->translate('cart_item') ?>
+		</h5>
+	</div>
+
+	<div class="col-md-3">
+		<h5 class="price gray_text">
+			<?= $this->getCommonVar('priceHeader') ?>
+		</h5>
+	</div>
+
+	<div class="col-md-1">
+		<h5 class="sale gray_text">
+			<?= $this->getCommonVar('discountHeader') ?>
+		</h5>
+	</div>
+
+	<div class="col-md-2">
+		<h5 class="gray_text order_sum pl65">
+			<?= $this->getCommonVar('sumHeader') ?>
+		</h5>
+	</div>
+
+	<div class="col-md-1" style="<?= $this->isCartPage() ? '' : 'display:none;' ?>">
+		<h5 class="gray_text order_delete">
+			<?= $this->translate('remove_from_cart') ?>
+		</h5>
+	</div>
+</div>

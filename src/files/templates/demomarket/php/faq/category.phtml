@@ -1,0 +1,37 @@
+<?php
+/**
+ * Страница категории в модуле "FAQ".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var iUmiHierarchyElement $page
+ */
+
+$page = $variables['page'];
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1 umi:element-id="<?= $page->getId() ?>"
+			    umi:field-name="h1"
+			    umi:empty="<?= $this->translate('empty_page_name') ?>"
+			>
+				<?= $this->escape($page->getValue('h1')) ?>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div class="container grey_border"
+     umi:element-id="<?= $page->getId() ?>"
+     umi:field-name="content"
+     umi:empty="<?= $this->translate('empty_page_content') ?>"
+>
+	<?= $page->getValue('content') ?>
+</div>
+
+<div class="support">
+	<?= $this->render($variables, 'faq/question/list') ?>
+	<?= $this->render($variables, 'faq/question/new') ?>
+</div>

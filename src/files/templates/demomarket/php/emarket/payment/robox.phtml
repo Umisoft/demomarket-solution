@@ -1,0 +1,34 @@
+<?php
+/**
+ * Способ оплаты Robokassa.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$variables = isset($variables['purchasing']) ? $variables['purchasing'] : [];
+?>
+
+<form action="<?= isset($variables['formAction']) ? $variables['formAction'] : '' ?>" method="post">
+	<input type="hidden" name="MerchantLogin" value="<?= isset($variables['MrchLogin']) ? $variables['MrchLogin'] : '' ?>" />
+	<input type="hidden" name="OutSum" value="<?= isset($variables['OutSum']) ? $variables['OutSum'] : '' ?>" />
+	<input type="hidden" name="Description" value="<?= isset($variables['Desc']) ? $variables['Desc'] : '' ?>" />
+	<input type="hidden" name="InvoiceID" value="<?= isset($variables['InvId']) ? $variables['InvId'] : '' ?>" />
+	<input type="hidden" name="SignatureValue" value="<?= isset($variables['SignatureValue']) ? $variables['SignatureValue'] : '' ?>" />
+	<input type="hidden" name="Culture" value="<?= isset($variables['Culture']) ? $variables['Culture'] : '' ?>" />
+	<input type="hidden" name="shp_orderId" value="<?= isset($variables['shp_orderId']) ? $variables['shp_orderId'] : '' ?>" />
+	<input type="hidden" name="IsTest" value="<?= isset($variables['IsTest']) ? $variables['IsTest'] : 0 ?>" />
+
+	<?php if (isset($variables['Receipt'])): ?>
+		<input type="hidden" name="Receipt" value='<?= $variables['Receipt'] ?>' />
+	<?php endif ?>
+
+	<div class="container grey_border">
+		<?= $this->translate('payment_redirect_text') . ' Robokassa.' ?>
+	</div>
+
+	<div>
+		<input type="submit" value="<?= $this->translate('pay') ?>" class="button big" />
+	</div>
+</form>
+
+<script src="js/payment/send_form_immediately.js"></script>

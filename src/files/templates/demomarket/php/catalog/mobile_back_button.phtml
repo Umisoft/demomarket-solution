@@ -1,0 +1,14 @@
+<?php
+/**
+ * Стрелочка "назад" в шапке мобильной версии товара и категории каталога.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="absolute back_mobile visible-xs visible-sm">
+	<a href="<?= $this->getPath($this->getImmediateParent($variables)) ?>">
+		<img src="img/back_arrow.png" alt="back_arrow">
+	</a>
+</div>

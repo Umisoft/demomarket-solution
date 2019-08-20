@@ -1,0 +1,40 @@
+<?php
+/**
+ * Форма добавления нового топика в форум.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<form method="post" action="<?= $this->getNewForumTopicUrl($variables) ?>">
+	<?php if ($this->isGuest()): ?>
+		<div class="important">
+			<input type="text" name="nickname" placeholder="<?= $this->translate('comment_author_name') ?>" required />
+			<span class="sub_text"><?= $this->translate('comment_author_name') ?></span>
+		</div>
+
+		<div class="important">
+			<input type="text" name="email" placeholder="<?= $this->translate('comment_author_email') ?>" required />
+			<span class="sub_text"><?= $this->translate('comment_author_email') ?></span>
+		</div>
+	<?php else: ?>
+		<input type="hidden" name="login" disabled="disabled" />
+	<?php endif; ?>
+
+	<div class="important">
+		<input type="text" name="title" placeholder="<?= $this->translate('comment_title') ?>" required />
+		<span class="sub_text"><?= $this->translate('comment_title') ?></span>
+	</div>
+
+	<div class="important">
+		<textarea name="body" placeholder="<?= $this->translate('post_message') ?>" required></textarea>
+		<span class="sub_text"><?= $this->translate('post_message') ?></span>
+	</div>
+
+	<?= $this->renderCaptcha() ?>
+
+	<input type="submit" value="<?= $this->translate('forum_topic_post') ?>" />
+
+	<?= $this->render('common-152-federal-law', 'library/personalDataNotice') ?>
+</form>

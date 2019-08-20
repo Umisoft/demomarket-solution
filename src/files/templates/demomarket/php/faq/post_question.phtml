@@ -1,0 +1,20 @@
+<?php
+/**
+ * Страница успешно заданного вопроса.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="container grey_border">
+	<p><?= $this->translate('question_was_sent_successfully') ?></p>
+</div>

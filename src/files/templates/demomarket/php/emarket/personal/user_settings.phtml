@@ -1,0 +1,60 @@
+<?php
+/**
+ * Вкладка "Личная информация".
+ *
+ * В рамках одной формы выводится два блока:
+ *   - Изменение пароля и электронной почты
+ *   - Изменение личных данных пользователя
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$user = $this->getCommonVar('user');
+?>
+
+<div class="tab-pane" id="personal">
+	<form id="userSettingsForm"
+	      enctype="multipart/form-data"
+	      method="post"
+	      action="<?= $this->getUserSettingsActionUrl() ?>"
+	>
+		<input type="hidden" name="csrf" value="<?= $variables['csrf'] ?>" />
+
+		<div class="clearfix">
+			<div class="col-md-6">
+				<h3><?= $this->translate('user_settings') ?></h3>
+
+				<div class="important">
+					<input type="password" name="current-password" placeholder="<?= $this->translate('current-password') ?>" required>
+					<span class="sub_text"><?= $this->translate('current-password') ?></span>
+				</div>
+
+				<div>
+					<input type="password" name="password" placeholder="<?= $this->translate('new_password') ?>">
+					<span class="sub_text"><?= $this->translate('password') ?></span>
+				</div>
+
+				<div>
+					<input type="password" name="password_confirm" placeholder="<?= $this->translate('password_confirm') ?>">
+					<span class="sub_text"><?= $this->translate('password_confirm') ?></span>
+				</div>
+
+				<div>
+					<input type="email" name="email" placeholder="<?= $this->translate('e-mail') ?>">
+					<span class="sub_text"><?= $this->translate('e-mail') ?></span>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<?= $this->render(['form' => $this->getEditForm($user['id'])], 'data/form') ?>
+			</div>
+		</div>
+
+		<div>
+			<input type="submit" value="<?= $this->translate('save_changes') ?>">
+		</div>
+
+		<?= $this->render('user-settings-152-federal-law', 'library/personalDataNotice') ?>
+	</form>
+</div>

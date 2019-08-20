@@ -1,0 +1,14 @@
+<?php
+/**
+ * Капча.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<?php if (isset($variables['url'])): ?>
+	<?= $this->render($variables, 'library/captcha/classic') ?>
+<?php elseif (isset($variables['recaptcha-url'])): ?>
+	<?= $this->render($variables, 'library/captcha/recaptcha') ?>
+<?php endif; ?>

@@ -1,0 +1,52 @@
+<?php
+/**
+ * Правый блок нижнего ряда шапки сайта. Содержит:
+ *   - Кнопку перехода на страницу сравнения товаров (иконка "пересечение множеств").
+ *   - Если пользователь гость - кнопку "Войти" со всплывающей формой логина.
+ *   - Если пользователь зарегистрирован - всплывающую панель управления пользователя.
+ *
+ * Верстка всплывающих окон находится в файле `layout/modal/index.phtml`
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$comparisonProductCount = $this->getComparisonProductCount();
+?>
+
+<div class="col-md-3 col-lg-3">
+	<div class="row">
+		<div class="col-md-2 col-lg-2">
+			<a href="<?= $this->getComparisonLink() ?>" class="comparison_goods">
+				<?php if ($comparisonProductCount > 0): ?>
+					<span><?= $comparisonProductCount ?></span>
+				<?php endif; ?>
+
+				<i class="sprite-header sprite-header_ring" title="<?= $this->translate('compare-title') ?>"></i>
+			</a>
+		</div>
+
+		<div class="col-md-10 col-lg-10">
+			<div class="media user_name">
+				<div class="media-left">
+					<i class="sprite-header sprite-header_user_icon"></i>
+				</div>
+
+				<div class="media-body">
+					<?php if ($this->isGuest()): ?>
+						<h4 class="media-heading gray_text">
+							<a href="#logModal" data-toggle="modal">
+								<?= $this->translate('log_in') ?>
+							</a>
+						</h4>
+					<?php else: ?>
+						<div class="media-heading gray_text">
+							<a><?= $this->getWelcomeMessage($variables) ?></a>
+							<?= $this->render($variables, 'layout/header/user_info') ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

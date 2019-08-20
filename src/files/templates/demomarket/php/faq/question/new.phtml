@@ -1,0 +1,45 @@
+<?php
+/**
+ * Форма добавления нового вопроса в модуле "FAQ".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="container form_container">
+	<div class="row">
+		<div class="col-md-6">
+			<form method="post" action="<?= $this->getNewFaqQuestionUrl($variables) ?>" class="support_form">
+
+				<h3><?= $this->translate('comment-ask-question') ?></h3>
+
+				<div class="important">
+					<input type="text" name="nick" required placeholder="<?= $this->translate('comment_author_name') ?>" />
+					<span class="sub_text"><?= $this->translate('comment_author_name') ?></span>
+				</div>
+
+				<div class="important">
+					<input type="email" name="email" required placeholder="<?= $this->translate('comment_author_email') ?>" />
+					<span class="sub_text"><?= $this->translate('comment_author_email') ?></span>
+				</div>
+
+				<div class="important">
+					<input type="text" name="title" required placeholder="<?= $this->translate('comment_title') ?>" />
+					<span class="sub_text"><?= $this->translate('comment_title') ?></span>
+				</div>
+
+				<div class="important">
+					<textarea name="question" cols="30" rows="8" placeholder="<?= $this->translate('comment_question') ?>" required></textarea>
+					<span class="sub_text"><?= $this->translate('comment_question') ?></span>
+				</div>
+
+				<?= $this->renderCaptcha() ?>
+
+				<input type="submit" value="<?= $this->translate('send_form') ?>">
+
+				<?= $this->render('common-152-federal-law', 'library/personalDataNotice') ?>
+			</form>
+		</div>
+	</div>
+</div>

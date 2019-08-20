@@ -1,0 +1,58 @@
+<?php
+/**
+ * Каталог товаров на главной странице. Включает в себя текстовое поле и две вкладки:
+ *   - Новинки
+ *   - Лучшие предложения
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$page = $variables['page'];
+
+$isShowNewItems = $this->isShowNewItems();
+$isShowBestOffers = $this->isShowBestProducts();
+
+$newItemsTabName = $this->getNewItemsTabName() ?: $this->translate('new_items');
+$bestItemsTabName = $this->getBestProductsTabName() ?: $this->translate('best_items');
+?>
+
+<div class="goods w100p">
+	<div class="container">
+		<div class="text-field"
+		     umi:element-id="<?= $page->getId() ?>"
+		     umi:field-name="field_under_slider"
+		     umi:empty="<?= $this->translate('empty_page_content') ?>"
+		>
+			<?= $page->getValue('field_under_slider') ?>
+		</div>
+		<div class="row">
+			<ul class="nav nav-tabs">
+				<?php if ($isShowNewItems): ?>
+					<li class="active">
+						<a href="#newItems" data-toggle="tab" class="up">
+							<?= $newItemsTabName ?>
+						</a>
+					</li>
+				<?php endif; ?>
+
+				<?php if ($isShowBestOffers): ?>
+					<li class="<?= $this->getActiveClass(!$isShowNewItems) ?>">
+						<a href="#bestItems" data-toggle="tab" class="up">
+							<?= $bestItemsTabName ?>
+						</a>
+					</li>
+				<?php endif; ?>
+			</ul>
+		</div>
+
+		<div class="tab-content">
+			<?php if ($isShowNewItems): ?>
+				<?= $this->render($variables, 'content/home/catalog/new_items') ?>
+			<?php endif; ?>
+			<?php if ($isShowBestOffers): ?>
+				<?= $this->render([$variables, $isShowNewItems], 'content/home/catalog/best_items') ?>
+			<?php endif; ?>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<?php
+/**
+ * Блок акции с таймером и слайдером.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension $this
+ * @var array $variables
+ */
+
+$data = $this->getSlides();
+?>
+
+<div class="container-fluid">
+	<?php if ($data['slides']): ?>
+		<?= $this->render($variables, 'content/home/slider/timer') ?>
+		<?= $this->render([$variables, $data], 'content/home/slider/slider') ?>
+	<?php endif; ?>
+</div>

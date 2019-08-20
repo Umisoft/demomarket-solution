@@ -1,0 +1,24 @@
+<?php
+/**
+ * Форма личной информации.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<form action="<?= $this->getPersonalFormUrl() ?>"
+      id="deliveryForm"
+      class="personal_data"
+      enctype="multipart/form-data" method="post"
+>
+	<div class="del_row order_img_3">
+		<div class="del_content">
+			<?= $this->render(['form' => $this->getEditForm($variables['purchasing']['customer-id'])], 'data/form') ?>
+
+			<input type="submit" value="<?= $this->translate('continue') ?>">
+
+			<?= $this->render('purchase-step-personal-152-federal-law', 'library/personalDataNotice') ?>
+		</div>
+	</div>
+</form>

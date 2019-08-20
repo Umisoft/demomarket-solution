@@ -1,0 +1,26 @@
+<?php
+/**
+ * Название товара в превью.
+ * Блок отзывов для вида превью списком.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var iUmiHierarchyElement $variables
+ */
+
+$product = $variables;
+?>
+
+<div class="title">
+	<h4>
+		<a href="<?= $this->getPath($product) ?>" umi:element-id="<?=$product->getId()?>" umi:field-name="name" umi:delete="delete">
+			<?= $this->escape($product->getName()) ?>
+		</a>
+	</h4>
+
+	<?php if ($this->isShowRatingOnProductPage()): ?>
+		<ul class="rate_star list_inline inline">
+			<?= $this->renderProductRating($product->getId()) ?>
+		</ul>
+	<?php endif;?>
+
+</div>

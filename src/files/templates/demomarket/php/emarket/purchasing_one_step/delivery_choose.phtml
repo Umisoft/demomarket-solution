@@ -1,0 +1,23 @@
+<?php
+/**
+ * Выбор способа доставки при оформлении заказа в один шаг.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$deliveryList = isset($variables['onestep']['delivery_choose']) ? $variables['onestep']['delivery_choose'] : [];
+?>
+
+<?php if ($deliveryList): ?>
+	<div class="delivery_choose onestep">
+		<div class="del_row">
+			<div class="del_content">
+				<h3 class="up input_capt">
+					<?= $this->translate('delivery_agent') ?>
+				</h3>
+				<?= $this->render($deliveryList, 'emarket/delivery/choose/list') ?>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>

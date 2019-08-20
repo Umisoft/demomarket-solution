@@ -1,0 +1,37 @@
+<?php
+/**
+ * Мобильная версия подвала сайта:
+ *   - Форма подписки на новости
+ *   - Социальные кнопки
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$settings = $this->getSettingsContainer();
+?>
+
+<div class="container mobile_footer visible-xs visible-sm">
+	<div class="row">
+		<h4 class="gray_text footer_capt"
+		    umi:object-id="<?= $settings->getId() ?>" umi:field-name="dispatches_text">
+			<?= $this->escape($settings->getValue('dispatches_text')) ?>
+		</h4>
+
+		<?= $this->renderSubscribe($variables['user']['id']) ?>
+	</div>
+
+	<div class="row bottom_footer">
+		<div class="col-xs-6">
+			<p umi:object-id="<?= $settings->getId() ?>" umi:field-name="copyright">
+				<?= $this->escape($settings->getValue('copyright')) ?> <?= $this->getCurrentYear() ?>
+			</p>
+		</div>
+
+		<div class="col-xs-6">
+			<ul class="mobile_social list_inline">
+				<?= $this->render($variables, 'layout/footer/social') ?>
+			</ul>
+		</div>
+	</div>
+</div>

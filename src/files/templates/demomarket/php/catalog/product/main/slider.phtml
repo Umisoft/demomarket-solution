@@ -1,0 +1,42 @@
+<?php
+/**
+ * Изображение и слайдер.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$imageList = $this->getProductImageList($variables['page']);
+/** @var iUmiHierarchyElement $page */
+$page = $variables['page'];
+?>
+
+<div class="col-md-5  main_carousel">
+	<div class="carousels_container">
+		<div class="slider-for">
+			<?php foreach ($imageList as $image): ?>
+				<div>
+					<a href="<?= $image ?>" rel="fancybox_group" class="fancybox">
+						<img class="img-responsive" src="<?= $image ?>"
+						     alt="<?= $this->escape($image->getAlt() ?: $page->getName()) ?>"
+						     title="<?= $this->escape($image->getTitle() ?: $page->getName()) ?>"
+						>
+					</a>
+				</div>
+			<?php endforeach; ?>
+		</div>
+
+		<div class="slider-nav hidden-xs hidden-sm">
+			<?php foreach ($imageList as $image): ?>
+				<div>
+					<a href="<?= $image ?>" rel="fancybox_group" class="fancybox">
+						<img class="img-responsive" src="<?= $image ?>"
+						     alt="<?= $this->escape($image->getAlt() ?: $page->getName()) ?>"
+						     title="<?= $this->escape($image->getTitle() ?: $page->getName()) ?>"
+						>
+					</a>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</div>

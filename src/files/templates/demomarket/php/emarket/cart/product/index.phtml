@@ -1,0 +1,24 @@
+<?php
+/**
+ * Товарное наименование в корзине.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables;
+?>
+
+<div class="goods_in_cart clearfix">
+	<a href="<?= $this->getPath($product['page']) ?>">
+		<?= $this->render($product, 'emarket/cart/product/image') ?>
+		<?= $this->render($product, 'emarket/cart/product/name') ?>
+	</a>
+
+	<?= $this->render($product, 'emarket/cart/product/price') ?>
+	<?= $this->render($product, 'emarket/cart/product/discount') ?>
+	<?= $this->render($product, 'emarket/cart/product/total') ?>
+	<?= $this->render($product, 'emarket/cart/product/remove') ?>
+</div>
+
+<?= $this->render($product['page'], 'emarket/cart/product/suggested_product_list') ?>

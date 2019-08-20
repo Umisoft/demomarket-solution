@@ -1,0 +1,41 @@
+<?php
+/**
+ * Способ оплаты бонусами.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+?>
+
+<form id="bonus_payment" method="post" action="<?= $this->getBonusPaymentAction() ?>">
+	<h4>
+		<?= $this->translate('pay-by-bonuses') ?>
+	</h4>
+
+	<div class="container grey_border">
+		<p><?= $this->translate('can-use-bonuses') ?></p>
+
+		<?= $this->translate('order_sum') ?>
+		<?= $this->render(['price' => $variables['purchasing']['actual_total_price']], 'emarket/price') ?>.
+		<br />
+		<?= $this->translate('available-bonuses') ?>
+		<?= $this->render(['price' => $variables['purchasing']['available_bonus']], 'emarket/price') ?>.
+	</div>
+
+	<div>
+		<input
+			type="text"
+			name="bonus"
+			placeholder="<?= $this->translate('spend_bonus') ?>"
+		/>
+
+		<span class="sub_text">
+			<?= $this->translate('spend_bonus') ?>
+		</span>
+	</div>
+
+	<div>
+		<input type="submit" value="<?= $this->translate('continue') ?>" />
+	</div>
+</form>

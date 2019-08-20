@@ -1,0 +1,65 @@
+<?php
+/**
+ * Страница "Контакты":
+ *   - блок информации о владельце сайта
+ *   - форма обратной связи
+ * 
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$settings = $this->getSettingsContainer();
+$settingsId = $settings->getId();
+?>
+
+<div class="contacts">
+	<div class="map" umi:object-id="<?= $settingsId ?>" umi:field-name="contacts-map">
+		<?= $settings->getValue('contacts-map') ?>
+	</div>
+
+	<div class="container">
+		<div class="contacts_container">
+			<div class="contacts_container_top">
+				<div>
+					<i class="bg_map"></i>
+					<p umi:object-id="<?= $settingsId ?>" umi:field-name="contacts-address">
+						<?= $this->escape($settings->getValue('contacts-address')) ?>
+					</p>
+				</div>
+
+				<div>
+					<i class="bg_tel"></i>
+					<h3 umi:object-id="<?= $settingsId ?>" umi:field-name="contacts-phone">
+						<?= $this->escape($settings->getValue('contacts-phone')) ?>
+					</h3>
+				</div>
+
+				<div>
+					<i class="bg_skype"></i>
+					<p umi:object-id="<?= $settingsId ?>" umi:field-name="contacts-skype">
+						<?= $this->escape($settings->getValue('contacts-skype')) ?>
+					</p>
+				</div>
+
+				<div>
+					<i class="bg_mail"></i>
+					<p umi:object-id="<?= $settingsId ?>" umi:field-name="contacts-email">
+						<?= $this->escape($settings->getValue('contacts-email')) ?>
+					</p>
+				</div>
+			</div>
+
+			<div class="contacts_container_bottom">
+				<div class="comment">
+					<div class="comment_add">
+						<h3 umi:object-id="<?= $settingsId ?>" umi:field-name="contacts-header">
+							<?= $this->escape($settings->getValue('contacts-header')) ?>
+						</h3>
+
+						<?= $this->render($variables, 'webforms/page/form') ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

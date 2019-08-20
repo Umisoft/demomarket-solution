@@ -1,0 +1,36 @@
+<?php
+/**
+ * Превью вопроса категории в модуле "FAQ".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+list($index, $question) = $variables;
+?>
+
+<div class="row">
+	<div>
+		<i class="sprite-hide sprite-hide_down" data-element="#block_<?= $index ?>"></i>
+
+		<span class="title_link"
+		      data-element="#block_<?= $index ?>"
+		      umi:element-id="<?= $question['id'] ?>"
+		      umi:field-name="question"
+		      umi:empty="<?= $this->translate('comment_question') ?>"
+		>
+			<?= $this->escape($question['question']) ?>
+		</span>
+	</div>
+
+	<?php if ($question['answer']): ?>
+		<span id="block_<?= $index ?>"
+		      class="hidden_text"
+		      umi:element-id="<?= $question['id'] ?>"
+		      umi:field-name="answer"
+		      umi:empty="<?= $this->translate('comment_answer') ?>"
+		>
+			<?= $this->escape($question['answer']) ?>
+		</span>
+	<?php endif; ?>
+</div>

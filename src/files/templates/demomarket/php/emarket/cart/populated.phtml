@@ -1,0 +1,20 @@
+<?php
+/**
+ * Непустая корзина:
+ *   - Заголовок с названиями колонок
+ *   - Список товаров
+ *   - Блок "Оформить заказ"
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="cart">
+	<div class="container">
+		<?= $this->render($variables, 'emarket/cart/table_title') ?>
+		<?= $this->render($variables, 'emarket/cart/product_list') ?>
+	</div>
+
+	<?= $this->render($variables, 'emarket/cart/result') ?>
+</div>

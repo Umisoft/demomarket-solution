@@ -1,0 +1,31 @@
+<?php
+/**
+ * Второй уровень меню каталога товаров в подвале десктопной версии.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $categoryList
+ */
+$categoryId = $variables['id'];
+$categoryList = $this->filterCategoryList($categoryId, 1);
+$categoryList = $this->sliceFooterMenuSubCategoryList($categoryList);
+?>
+
+<ul umi:element-id="<?= $categoryId ?>"
+	umi:region="list"
+	umi:module="catalog"
+	umi:sortable="sortable"
+	umi:button-position="top right"
+>
+	<?php foreach ($categoryList as $child): ?>
+		<li umi:element-id="<?= $child['id'] ?>" umi:region="row">
+			<a href="<?= $child['link'] ?>"
+			   umi:field-name="name"
+			   umi:delete="delete"
+			   umi:empty="<?= $this->translate('empty_section_name') ?>"
+			>
+				<?= $this->escape($child['text']) ?>
+			</a>
+		</li>
+	<?php endforeach; ?>
+</ul>

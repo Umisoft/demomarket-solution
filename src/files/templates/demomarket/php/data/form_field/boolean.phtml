@@ -1,0 +1,24 @@
+<?php
+/**
+ * Поле типа "Кнопка-флажок".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$field = $variables;
+?>
+
+<div>
+	<label>
+		<input
+			type="checkbox"
+			name="<?= $field['input_name'] ?>"
+			placeholder="<?= $this->escape($field['title']) ?>"
+			<?= (isset($field['required']) ? ' required ' : '') ?>
+			value="<?= isset($field['value']) ? $field['value'] : '' ?>"
+		/>
+		<span></span>
+		<?= $this->escape($field['title']) ?>
+	</label>
+</div>

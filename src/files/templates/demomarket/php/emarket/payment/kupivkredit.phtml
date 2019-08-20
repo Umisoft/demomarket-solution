@@ -1,0 +1,41 @@
+<?php
+/**
+ * Способ оплаты "Купи в кредит".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var array $data
+ */
+
+$data = $this->getKupiVKreditParams($variables);
+?>
+
+<script src="<?= $this->getKupiVKreditWidgetUrl($variables) ?>"></script>
+
+<script>
+	$(function() {
+		var vKredit = new VkreditWidget(1, "<?= $data['totalPrice'] ?>", {
+			order: "<?= $data['order'] ?>",
+			sig: "<?= $data['sig'] ?>",
+
+			onClose: function() {
+				window.location.assign("/emarket/purchase/payment/choose/");
+			},
+
+			onAccept: function(accepted) {
+				if (accepted == 1) {
+					window.location.assign("/emarket/purchase/payment/kupivkredit/?accepted=accepted");
+				} else {
+					window.location.assign("/emarket/purchase/payment/choose/");
+				}
+			}
+		});
+
+		vKredit.openWidget();
+	});
+</script>
+
+<div class="container grey_border">
+	<h4><?= $this->translate('in_progress') ?></h4>
+	<p><?= $this->translate('credit_request') ?></p>
+</div>

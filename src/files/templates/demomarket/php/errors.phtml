@@ -1,0 +1,30 @@
+<?php
+/**
+ * Страница вывода системных ошибок.
+ * @see umiTemplaterPHP::ERROR_TEMPLATE
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ * @var Exception $error
+ */
+?>
+
+<?php if (is_array($variables) && isset($variables['header'])): ?>
+	<div class="section_capt">
+		<div class="container">
+			<div class="row">
+				<h1><?= $this->escape($variables['header']) ?></h1>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
+
+<div class="container">
+	<div class="error">
+		<h3><?= $this->translate('errors') ?></h3>
+		<p><?= $error->getMessage() ?></p>
+		<?php if ($this->isDebug()): ?>
+			<p><?= $error->getTraceAsString() ?></p>
+		<?php endif; ?>
+	</div>
+</div>

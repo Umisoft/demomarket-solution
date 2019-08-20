@@ -1,0 +1,14 @@
+<?php
+/**
+ * Общая цена товарного наименования.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables;
+?>
+
+<span class="prefix"><?= $this->getTotalPricePrefix($product) ?></span>
+<span class="price"><?= $this->getTotalPrice($product) ?></span>
+<span class="suffix"><?= $this->getTotalPriceSuffix($product) ?></span>

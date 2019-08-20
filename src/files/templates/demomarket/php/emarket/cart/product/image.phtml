@@ -1,0 +1,25 @@
+<?php
+/**
+ * Картинка товарного наименования.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$product = $variables;
+?>
+
+<div class="col-md-2 col-sm-12 col-xs-12 order_img">
+	<?= $this->render(
+		[
+			'id' => $product['element_id'],
+			'field_name' => 'photo',
+			'src' => $this->getOrderItemPhotoPath($product),
+			'alt' => $this->getPhotoAlt($product['page']),
+			'title' => $this->getPhotoTitle($product['page']),
+			'width' => 215,
+			'height' => 150,
+		],
+		'library/thumbnail'
+	) ?>
+</div>

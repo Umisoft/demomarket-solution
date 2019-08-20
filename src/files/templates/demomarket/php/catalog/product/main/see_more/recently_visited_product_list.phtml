@@ -1,0 +1,32 @@
+<?php
+/**
+ * Блок "Вы недавно смотрели".
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$productList = $this->getRecentlyVisitedProducts();
+?>
+
+<?php if ($productList): ?>
+	<div class="container hidden-xs hidden-sm">
+		<div class="row">
+			<div class="sect_capt">
+				<h3 class="up">
+					<?= $this->translate('recent_pages_block') ?>
+				</h3>
+			</div>
+
+			<div class="row">
+				<div class="subCarousel goods w100p">
+					<?php foreach ($productList as $product): ?>
+						<div>
+							<?= $this->render($product, 'catalog/product/preview/index') ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>

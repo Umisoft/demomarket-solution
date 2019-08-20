@@ -1,0 +1,73 @@
+<?php
+/**
+ * Альбом с фотографиями.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$albumData = $this->macros('photoalbum', 'album', [$variables['pageId']]);
+$photoList = $this->getPhotoalbumPhotos($albumData);
+?>
+
+<div class="container mobile_all_width">
+	<div class="row">
+		<div class="section_capt">
+			<h1 umi:element-id="<?= $albumData['id'] ?>"
+			    umi:field-name="h1"
+			    umi:empty="<?= $this->translate('empty_page_name') ?>"
+			>
+				<?= $this->escape($variables['header']) ?>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div class="gallery">
+	<div class="container mobile_all_width">
+		<div class="row">
+			<?php foreach ($photoList as $photo): ?>
+				<div>
+					<a href="<?= $this->getPhotoPath($photo) ?>"
+					   rel="fancybox_group"
+					   title="<?= $this->escape($photo->getValue('title')) ?>"
+					   class="fancybox"
+					>
+						<?= $this->render(
+							[
+								'id' => $photo->getId(),
+								'field_name' => 'photo',
+								'src' => $this->getPhotoPath($photo),
+								'alt' => $this->getPhotoAlt($photo),
+								'title' => $this->getPhotoTitle($photo),
+								'width' => 280,
+								'height' => 200,
+							],
+							'library/thumbnail'
+						) ?>
+					</a>
+
+					<div class="title">
+						<h4 umi:delete="delete"
+						    umi:element-id="<?= $photo->getId() ?>"
+						    umi:field-name="h1"
+						    umi:empty="<?= $this->translate('empty_page_name') ?>"
+						>
+							<?= $this->escape($photo->getName()) ?>
+						</h4>
+
+						<div class="gray_text"
+						     umi:element-id="<?= $photo->getId() ?>"
+						     umi:field-name="descr"
+						     umi:empty="<?= $this->translate('empty_page_description') ?>"
+						>
+							<?= $photo->getValue('descr') ?>
+						</div>
+					</div>
+				</div>
+			<?php endforeach; ?>
+		</div>
+
+		<?= $this->render($albumData, 'library/pagination') ?>
+	</div>
+</div>

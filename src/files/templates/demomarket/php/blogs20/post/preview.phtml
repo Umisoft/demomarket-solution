@@ -1,0 +1,52 @@
+<?php
+/**
+ * Превью поста в блоге.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$postData = $variables;
+$post = $this->getPageById($postData['id']);
+?>
+
+<?php if ($post instanceof iUmiHierarchyElement): ?>
+	<div class="blog_box">
+		<div class="blog_date">
+			<div><?= $this->getPublishDay($post) ?></div>
+
+			<div class="up">
+				<p><?= $this->getPublishMonth($post) ?></p>
+				<p><?= $this->getPublishYear($post) ?></p>
+			</div>
+		</div>
+
+		<div class="blog_text">
+			<a href="<?= $postData['post_link'] ?>">
+				<h4 umi:element-id="<?= $postData['id'] ?>"
+				    umi:field-name="name"
+				    umi:delete="delete"
+				>
+					<?= $this->escape($postData['name']) ?>
+				</h4>
+			</a>
+
+			<div umi:element-id="<?= $postData['id'] ?>"
+			     umi:field-name="content"
+			     umi:delete="delete"
+			>
+				<?= $postData['cut'] ?>
+			</div>
+
+			<a href="<?= $postData['post_link'] ?>#comments">
+				<?= $this->translate('comments') ?> (<?= $postData['comments_count'] ?>)
+			</a>
+
+			<span>|</span>
+
+			<a href="<?= $postData['post_link'] ?>#add_comment">
+				<?= $this->translate('comment') ?>
+			</a>
+		</div>
+	</div>
+<?php endif; ?>

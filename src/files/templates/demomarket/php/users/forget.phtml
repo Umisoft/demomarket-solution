@@ -1,0 +1,53 @@
+<?php
+/**
+ * Системная страница восстановления пароля.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$action = $this->getCommonVar('pre_lang') . '/users/forget_do/';
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="feedback">
+	<div class="container">
+		<div class="grey_border">
+			<form id="forget" method="post" action="<?= $action ?>">
+				<div>
+					<label>
+						<input type="radio" id="forget_login" name="choose_forget" required />
+						<span></span>
+						<?= $this->translate('restore_by_login') ?>
+					</label>
+				</div>
+
+				<div>
+					<label>
+						<input type="radio" id="forget_email" name="choose_forget" required />
+						<span></span>
+						<p>
+							<?= $this->translate('restore_by_email') ?>
+						</p>
+					</label>
+				</div>
+
+				<div class="important">
+					<input type="text" name="forget_login" placeholder="<?= $this->translate('enter_login_or_email') ?>" required />
+					<span class="sub_text"><?= $this->translate('enter_login_or_email') ?></span>
+				</div>
+
+				<input type="submit" value="<?= $this->translate('send_password') ?>" />
+
+				<?= $this->render('common-152-federal-law', 'library/personalDataNotice') ?>
+			</form>
+		</div>
+	</div>
+</div>

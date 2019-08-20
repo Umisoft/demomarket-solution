@@ -1,0 +1,24 @@
+<?php
+/**
+ * Страница с результатами поиска.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$data = $this->getSearchResult();
+?>
+
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1>
+				<?= $this->getSearchResultHeader($data) ?>
+			</h1>
+		</div>
+	</div>
+</div>
+
+<?php if (umiCount($data['lines']) > 0): ?>
+	<?= $this->render($data, "search/result") ?>
+<?php endif; ?>

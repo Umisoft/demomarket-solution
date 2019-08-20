@@ -1,0 +1,28 @@
+<?php
+/**
+ * Форма умных фильтров в десктопной версии.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$filters = $this->getCommonVar('smart_filters');
+$fieldList = $this->getFilterFields($filters);
+?>
+
+<?php if (umiCount($fieldList) > 0): ?>
+	<div class="col-md-3 sidebar hidden-xs hidden-sm">
+		<div class="row">
+			<form class="productForm desktop_filters" data-category="<?= $filters['category-id'] ?>">
+				<?php foreach ($fieldList as $field): ?>
+					<?= $this->render($field, 'catalog/category/filters/field') ?>
+				<?php endforeach; ?>
+
+				<div class="col-md-12">
+					<input type="submit" value="<?= $this->translate('apply') ?>" class="show_result" />
+					<input type="reset" value="<?= $this->translate('reset') ?>" class="reset" />
+				</div>
+			</form>
+		</div>
+	</div>
+<?php endif; ?>

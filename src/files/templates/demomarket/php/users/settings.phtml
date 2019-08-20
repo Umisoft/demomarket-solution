@@ -1,0 +1,12 @@
+<?php
+/**
+ * Системная страница настроек пользователя.
+ * В шаблоне Demomarket отдельно не используется - настройки пользователя выводятся
+ * вместе с его заказами на странице личного кабинета `emarket/personal.phtml`.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+
+$url = $this->getCommonVar('pre_lang') . '/emarket/personal/';
+$this->redirect($url);

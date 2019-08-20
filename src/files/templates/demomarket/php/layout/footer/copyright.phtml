@@ -1,0 +1,19 @@
+<?php
+/**
+ * Блок с копирайтом на десктопной версии.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$settings = $this->getSettingsContainer();
+?>
+
+<div class="copyright align_left">
+	<p class="up" umi:object-id="<?= $settings->getId() ?>" umi:field-name="copyright">
+		<?= $this->escape($settings->getValue('copyright')) ?> <?= $this->getCurrentYear() ?>
+	</p>
+
+	<div class="footer_payment" umi:object-id="<?= $settings->getId() ?>" umi:field-name="after_copyright_text">
+		<?= $settings->getValue('after_copyright_text') ?>
+	</div>
+</div>

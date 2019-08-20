@@ -1,0 +1,1215 @@
+/** APPOINTMENTS **/
+
+.appointments.main-container {
+    min-width: 700px;
+}
+.appointments #wrapper .online-entry__wrapper * {
+    box-sizing: border-box;
+}
+.appointments #wrapper .online-entry__wrapper input {
+    margin: 0;
+    border: 0;
+    outline: none;
+}
+.appointments #wrapper .online-entry__wrapper ::-ms-clear {
+    display: none;
+}
+.appointments #wrapper .online-entry__wrapper input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    opacity: 1;
+    font-size: 11px;
+    color: #606060;
+}
+.appointments #wrapper .online-entry__wrapper input::-moz-placeholder, textarea:-moz-placeholder {
+    opacity: 1;
+    font-size: 11px;
+    color: #606060;
+}
+.appointments #wrapper .online-entry__wrapper input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    opacity: 1;
+    font-size: 11px;
+    color: #606060;
+}
+.appointments #wrapper .online-entry__wrapper {
+    padding: 10px;
+    font-size: 11px;
+    min-width: 888px;
+}
+.appointments #wrapper .online-entry__step + .online-entry__step {
+    margin-top: 10px;
+}
+.appointments #wrapper .online-entry__title {
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #cfcfcf;
+    font-size: 18px;
+    color: #fe8d00;
+    border-radius: 25px 0 0 25px;
+    position: relative;
+}
+.appointments #wrapper .online-entry__title:before {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    vertical-align: middle;
+    background: #fe8d00;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    border-radius: 25px;
+}
+.appointments #wrapper .online-entry__step.selected .online-entry__title {
+    border: 1px solid #4e86b1;
+    color: #4e86b1;
+}
+.appointments #wrapper .online-entry__step.selected .online-entry__title:before  {
+    background: #4e86b1;
+}
+.appointments #wrapper .online-entry__step:nth-child(1) .online-entry__title:before {
+    content: '1';
+}
+.appointments #wrapper .online-entry__step:nth-child(2) .online-entry__title:before {
+    content: '2';
+}
+.appointments #wrapper .online-entry__step:nth-child(3) .online-entry__title:before {
+    content: '3';
+}
+.appointments #wrapper .online-entry__step:nth-child(4) .online-entry__title:before {
+    content: '4';
+}
+.appointments #wrapper .online-entry__content {
+    padding-left: 60px;
+    position: relative;
+    display: none;
+    top: -1px;
+}
+.appointments #wrapper .online-entry__step.selected .online-entry__content {
+    display: block;
+}
+.appointments #wrapper .online-entry__content div[class^=column-] {
+    background: #fff;
+    float: left;
+}
+.appointments #wrapper .online-entry__content div[class^=column-]:first-child {
+    border-left: 1px solid #4e86b1;
+    border-bottom: 1px solid #4e86b1;
+    border-top: 1px solid #ccc;
+}
+.appointments #wrapper .online-entry__content div[class^=column-]:last-child {
+    border-right: 1px solid #4e86b1;
+    border-bottom: 1px solid #4e86b1;
+    border-top: 1px solid #ccc;
+    position: relative;
+}
+.appointments #wrapper .final-registration__error {
+    position: absolute;
+    bottom: 20px;
+    color: red;
+    font-weight: bold;
+}
+.appointments #wrapper .online-entry__content:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.appointments #wrapper .column-30pct {
+    width: 30%;
+}
+.appointments #wrapper .column-40pct {
+    width: 40%;
+}
+.appointments #wrapper .column-50pct {
+    width: 50%;
+}
+.appointments #wrapper .column-60pct {
+    width: 60%;
+}
+.appointments #wrapper .column-70pct {
+    width: 70%;
+}
+.appointments #wrapper .service-choose {
+    height: 340px;
+    padding-top: 10px;
+    overflow-y: auto;
+    border-right: 1px solid #cacaca;
+}
+.appointments #wrapper .service-type {
+    padding-left: 15px;
+    margin-bottom: 5px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.appointments #wrapper .service-choose ul {
+    margin: 0 0 10px 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+}
+.appointments #wrapper .service-choose li {
+    padding: 3px 15px 3px 35px !important;
+    background-image: url(/templates/demomarket/img/appointments/list_marker.png);
+    background-repeat: no-repeat;
+    background-position: 16px 50%;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0 !important;
+}
+.appointments #wrapper .service-choose li:hover {
+    background-color: #e0edff;
+}
+.appointments #wrapper .service-choose .service-item {
+    display: block;
+    width: 85%;
+    float: left;
+    overflow: hidden;
+    color: #333;
+}
+.appointments #wrapper .service-choose li .service-item span {
+    cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.appointments #wrapper .service-choose .service-price  {
+    display: block;
+    width: 15%;
+    float: left;
+    text-align: right;
+}
+.appointments #wrapper .service-choose li.selected {
+    background-image: url(/templates/demomarket/img/appointments/list_marker_selected.png);
+    background-color: #4a8aba;
+    color: #fff;
+}
+.appointments #wrapper .service-choose li.selected .service-item {
+    color: #fff;
+}
+.appointments #wrapper .hint-step {
+    height: 340px;
+    padding: 130px 15px 0 50px;
+    background: url(/templates/demomarket/img/appointments/arrow_prev.png) no-repeat 15px 50%;
+    line-height: 20px;
+    color: #333;
+}
+.appointments #wrapper .recording-time {
+    height: 340px;
+    padding-top: 15px;
+}
+.appointments #wrapper .recording-time__title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    position: relative;
+}
+.appointments #wrapper .recording-time__selection {
+    display: table;
+    width: 100%;
+    margin-bottom: 5px;
+    border: 1px solid #cdcdcd;
+    border-radius: 5px;
+}
+.appointments #wrapper .recording-time__item {
+    display: table-cell;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #333;
+}
+.appointments #wrapper .recording-time__item:first-child {
+    width: 140px;
+    padding: 0 10px;
+}
+.appointments #wrapper .recording-time__item + .recording-time__item {
+    text-align: center;
+    border-left: 1px solid #cdcdcd;
+}
+.appointments #wrapper .recording-time__item span {
+    float: right;
+    text-transform: uppercase;
+}
+.appointments #wrapper .recording-time__item.passed {
+    background: #cdcdcd;
+}
+.appointments #wrapper .recording-time__item.closed {
+    background: #f47d85;
+    color: white;
+}
+.appointments #wrapper .recording-time__item.free {
+    /* font-weight: bold; */
+    background: #89e6a3;
+    cursor: pointer;
+}
+.appointments #wrapper .free-days {
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    color: #333;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+.appointments #wrapper .recording-time ul {
+    margin: 0 0 0 10px;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    color: #333;
+}
+.appointments #wrapper .recording-time li {
+    padding: 1px 0 1px 15px !important;
+    background-image: url(/templates/demomarket/img/appointments/list_marker.png);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    font-size: 12px;
+}
+.appointments #wrapper .recording-time-selection__wrapper {
+    padding: 0 10px;
+}
+.appointments #wrapper .recording-time__note {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    font-size: 12px;
+    color: #333;
+}
+.appointments #wrapper .recording-time__note:before {
+    content: '';
+    display: block;
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    background: #89e6a3;
+    border-radius: 3px;
+}
+.appointments #wrapper .selection-specialist {
+    position: relative;
+    background: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc #4e86b1 #4e86b1 #4e86b1;
+}
+.appointments #wrapper .online-entry__btn {
+    display: inline-block;
+    height: 30px;
+    padding: 0 25px;
+    border: 1px solid #4e86b1;
+    border-radius: 8px;
+    background: #fff;
+    line-height: 27px;
+    font-size: 16px;
+    color: #4e86b1;
+    cursor: pointer;
+}
+.appointments #wrapper .online-entry__btn:hover {
+    background: #4e86b1;
+    color: #fff;
+}
+.appointments #wrapper .selection-specialist_hint {
+    position: absolute;
+    top: -38px;
+    right: 98px;
+}
+.appointments #wrapper .masters-list {
+    font-size: 14px;
+    font-weight: bold;
+}
+.appointments #wrapper .operator-prompt {
+    padding-left: 30px;
+    background: url(/templates/demomarket/img/appointments/arrow_prev.png) no-repeat 5px 50%;
+    color: #333;
+}
+.appointments #wrapper .master-list {
+    height: 340px;
+    overflow-y: auto;
+}
+.appointments #wrapper .master-item {
+    width: 46%;
+    float: left;
+    padding: 20px 0 !important;
+    margin: 0 2%;
+    border-top: 1px solid #ccc;
+}
+.appointments #wrapper .master-item.selected,
+.appointments #wrapper .master-item:hover {
+    border-bottom: 5px solid #4e86b1;
+    padding-bottom: 15px;
+}
+.appointments #wrapper .master-item:nth-child(1), .master-item:nth-child(2) {
+    border-top: 0;
+}
+.appointments #wrapper .master-photo {
+    width: 115px;
+    height: 120px;
+    overflow: hidden;
+    float: left;
+}
+.appointments #wrapper .master-photo img {
+    width: 115px;
+}
+.appointments #wrapper .master-info {
+    width: 100%;
+    height: 120px;
+    position: relative;
+    float: left;
+    margin-left: -115px;
+    padding: 0 15px 0 130px;
+}
+.appointments #wrapper .master-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.appointments #wrapper .master-description {
+    height: 55px;
+    overflow: hidden;
+    line-height: 18px;
+    color: #333;
+}
+.appointments #wrapper .master-info .online-entry__btn {
+    position: absolute;
+    bottom: 0;
+    left: 130px;
+}
+.appointments #wrapper .online-entry__step.step-passed .online-entry__title {
+    border: 1px solid #d2d2d2;
+    color: #606060;
+}
+.appointments #wrapper .online-entry__step.step-passed .online-entry__title:before  {
+    background: #cacaca;
+}
+.appointments #wrapper .online-entry__title .online-entry__btn {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+}
+.appointments #wrapper .step-done__wrapper {
+    display: inline-block;
+}
+.appointments #wrapper .step-done {
+    height: 12px;
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 15px;
+    background: url(/templates/demomarket/img/appointments/step-done.png) no-repeat 0 50%;
+    line-height: 12px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #60e060;
+}
+.appointments #wrapper .online-entry__wrapper input[type='text'] {
+    width: 100%;
+    height: 28px;
+    display: block;
+    margin-bottom: 8px;
+    padding: 0 15px;
+    border: 1px solid #797979;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #606060;
+}
+.appointments #wrapper .online-entry__wrapper textarea {
+    width: 100%;
+    display: block;
+    margin-bottom: 8px;
+    padding: 11px 15px 0 15px;
+    border: 1px solid #797979;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #606060;
+}
+
+.appointments #wrapper .online-entry__wrapper input[type='submit'],
+.appointments #wrapper .online-entry__ordering button{
+    width: 100%;
+    height: 36px;
+    display: block;
+    margin-bottom: 8px;
+    padding: 0 15px;
+    border: 1px solid #4e86b1;
+    border-radius: 4px;
+    background: #4e86b1;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+}
+.appointments #wrapper .online-entry__ordering {
+    height: 280px;
+    padding: 20px 35px;
+}
+.appointments #wrapper .final-registration {
+    position: relative;
+    border-left: 1px solid #4e86b1;
+    border-top: 1px solid #ccc;
+}
+.appointments #wrapper .online-entry__content .final-registration div.column-50pct {
+    border-bottom: none;
+    border-top: none;
+}
+.appointments #wrapper .final-registration ul {
+    margin: 0 0 15px 10px;
+    padding: 0;
+    list-style: none;
+    font-size: 16px;
+}
+.appointments #wrapper .final-registration li {
+    padding: 3px 0 3px 15px !important;
+    background-image: url(/templates/demomarket/img/appointments/list_marker.png) !important;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+
+.appointments #wrapper li {
+    list-style-image: none !important;
+}
+
+.appointments #wrapper .final-registration__title {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.appointments #wrapper .final-registration__hint {
+    text-align: left;
+    color: #333;
+}
+.appointments #wrapper .communication-admin {
+    width: 100%;
+    /*padding-left: 60px;*/
+    /*position: absolute;*/
+    bottom: 0;
+    left: 0;
+    color: #333;
+    clear: both;
+}
+.appointments #wrapper .communication-admin__content {
+    padding: 20px 35px;
+    line-height: 24px;
+    background: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc #4e86b1 #4e86b1 #4e86b1;
+}
+.appointments #wrapper .ui-datepicker-group {
+    float: left;
+    width: auto;
+    max-width: 48%;
+}
+.appointments #wrapper .ui-state-default {
+    position: relative;
+    display: block;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+    background: #60e060;
+    border-radius: 4px;
+    border: 0;
+    padding: 0;
+}
+.appointments #wrapper .ui-weekend .ui-state-default {
+    background: #ccc;
+    color: rgba(0,0,0,0.2);
+}
+.appointments #wrapper .ui-disabled .ui-state-default {
+    background: #eee;
+    color: rgba(0,0,0,0.2);
+}
+.appointments #wrapper .ui-datepicker-calendar th span {
+    font-size: 12px;
+    color: #a2a2a2;
+    font-weight: normal;
+}
+.appointments #wrapper .ui-datepicker-calendar td {
+    padding: 1px;
+}
+.appointments #wrapper .ui-datepicker-title {
+    color: #555;
+    text-align: center;
+}
+.appointments #wrapper .ui-datepicker-inline {
+    width: auto !important;
+}
+.appointments #wrapper .ui-state-active {
+    background: #709bec;
+    color: #000;
+    border: 1px solid #709bec;
+    box-shadow: inset 0 0 2px #fff;
+}
+.appointments #wrapper .date-visit__wrapper {
+    height: 290px;
+    padding: 15px;
+    overflow: hidden;
+}
+.appointments #wrapper .ui-datepicker-group-first {
+    margin-right: 15px;
+}
+.appointments #wrapper .ui-datepicker-group-last {
+    float: right;
+}
+.appointments #wrapper .description-step {
+    height: 290px;
+    padding: 110px 0 0 50px;
+    border-left: 1px solid #ccc;
+    color: #333;
+}
+.appointments #wrapper .online-entry__wrapper div[class^=status-] {
+    margin-bottom: 3px;
+}
+.appointments #wrapper .online-entry__wrapper div[class^=status-]:before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+.appointments #wrapper .online-entry__wrapper .status-busy:before {
+    background: #f47d85;
+}
+.appointments #wrapper .online-entry__wrapper .status-free:before {
+    background: #60e060;
+}
+.appointments #wrapper .online-entry__wrapper .status-output:before {
+    background: #ccc;
+}
+.appointments #wrapper .ui-datepicker-header {
+    position: relative;
+    margin-bottom: 10px;
+    background: transparent;
+    border: none;
+}
+.appointments #wrapper .ui-icon-circle-triangle-w {
+    background: url(/templates/demomarket/img/appointments/arrow_prev.png) no-repeat 0 50%;
+    color: transparent;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+}
+.appointments #wrapper .ui-icon-circle-triangle-e {
+    background: url(/templates/demomarket/img/appointments/arrow_next.png) no-repeat 100% 50%;
+    color: transparent;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.appointments #wrapper .choose-time {
+    position: relative;
+    height: 290px;
+    padding: 15px;
+    border-left: 1px solid #ccc;
+}
+.appointments #wrapper .choose-time .description-step__status {
+    position: absolute;
+    bottom: 12px;
+    left: 15px;
+    color: #333;
+}
+.appointments #wrapper .choose-time__title {
+    font-size: 18px;
+    color: #4e86b1;
+    margin-bottom: 13px;
+}
+.appointments #wrapper .choose-time_selection {
+    overflow-y: auto;
+    max-height: 160px;
+}
+.appointments #wrapper .choose-time_item {
+    width: 48px;
+    height: 30px;
+    float: left;
+    margin: 0 6px 6px 0;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    color: #333;
+    border-radius: 5px;
+}
+.appointments #wrapper .choose-time_item.selected {
+    background: #709bec;
+    color: #000;
+    border: 1px solid #709bec;
+    box-shadow: inset 0 0 2px #fff;
+}
+.appointments #wrapper .time-busy {
+    background: #e2e6e3;
+}
+.appointments #wrapper .time-free {
+    background: #89e6a3;
+    cursor: pointer;
+}
+.appointments #wrapper .time-output {
+    background: #f47d85;
+}
+.appointments #wrapper .calendar-availability__busy {
+    background: #f47d85;
+    color: #000;
+}
+.appointments #wrapper .calendar-availability__free-75pct {
+    background: url('/templates/demomarket/img/appointments/calendar_availability.png') repeat-y;
+    color: #000;
+}
+.appointments #wrapper .calendar-availability__free-50pct {
+    background: url('/templates/demomarket/img/appointments/calendar_availability.png') repeat-y -32px 0;
+    color: #000;
+}
+.appointments #wrapper .calendar-availability__free-25pct {
+    background: url('/templates/demomarket/img/appointments/calendar_availability.png') repeat-y -64px 0;
+    color: #000;
+}
+
+.appointments #wrapper .online-entry__current {
+    display: none;
+}
+.appointments #wrapper .online-entry__step .online-entry__nonactive {
+    display: inline-block;
+}
+.appointments #wrapper .online-entry__step.selected .online-entry__nonactive,
+.appointments #wrapper .online-entry__step.step-passed .online-entry__nonactive {
+    display: none;
+}
+.appointments #wrapper .online-entry__step.selected .online-entry__current,
+.appointments #wrapper .online-entry__step.step-passed .online-entry__current {
+    display: inline-block;
+}
+.appointments #wrapper .online-entry__step.selected .online-entry__choice {
+    display: none;
+}
+
+.adaptive .appointments #wrapper * {
+    text-shadow: none;
+}
+.appointments #wrapper table,
+.appointments #wrapper table td,
+.appointments #wrapper table th {
+    border: 0;
+}
+
+.appointments.small #wrapper .online-entry__wrapper {
+    min-width: inherit;
+    font-size: 11px;
+}
+.appointments.small #wrapper .hint-step,
+.appointments.small #wrapper .recording-time__title,
+.appointments.small #wrapper .recording-time__item,
+.appointments.small #wrapper .online-entry__btn {
+    font-size: 11px;
+}
+.appointments.small #wrapper .online-entry__title,
+.appointments.small #wrapper .final-registration__title,
+.appointments.small #wrapper .final-registration ul {
+    font-size: 11px;
+}
+.appointments.small #wrapper .choose-time__title {
+    font-size: 16px;
+}
+
+.appointments.small #wrapper .ui-state-default {
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 11px;
+}
+.appointments.small #wrapper .choose-time_item {
+    width: 42px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 11px;
+}
+.appointments.small table.ui-datepicker-calendar {
+    table-layout: fixed;
+    width: 100%;
+}
+.appointments.small #wrapper .master-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+.appointments.small #wrapper .choose-time_selection {
+    max-height: 130px;
+}
+
+.appointments .hidden {
+    display: none;
+}
+
+.appointments #service-loader {
+    position: relative;
+    top: 48%;
+    left: 48%;
+}
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* media
+*/
+@media screen and (max-width: 700px) {
+    .mobile_no_padd {
+        padding: 0 !important;
+    }
+    .hidden_mobile {
+        display: none !important;
+    }
+    .mobile_visible {
+        display: block;
+    }
+    .mobile_no_bord {
+        border: none !important;
+    }
+    .appointments.main-container {
+        min-width: 320px;
+        max-width: 600px;
+    }
+    .appointments #wrapper {
+        background: #eeeeee;
+    }
+    .mobile_full_width {
+        width: 100% !important;
+        padding: 0 30px;
+    }
+    .appointments #wrapper .online-entry__content div[class^="column-"]:first-child {
+        border-top: none;
+    }
+    .mobile_next_step {
+        display: block;
+    }
+    .appointments #wrapper .online-entry__title,
+    .appointments.small #wrapper .online-entry__title {
+        padding: 15px;
+        border-radius: 45px 0 0 45px;
+        font-size: 24px;
+        height: 90px;
+        overflow: hidden;
+    }
+    .appointments #wrapper .online-entry__step.selected .online-entry__title {
+        border-color: #3976ca;
+        color: #3976ca;
+    }
+    .appointments #wrapper .online-entry__content {
+        padding-left: 65px;
+        border-right: 1px solid #4e86b1;
+    }
+    .appointments #wrapper .online-entry__title::before {
+        width: 60px;
+        height: 60px;
+        border-radius: 60px;
+        font-size: 30px;
+        line-height: 55px;
+        background: #d23c3c;
+        margin-right: 17px;
+    }
+    .appointments #wrapper .online-entry__step.selected .online-entry__title::before {
+        background: #3976ca;
+    }
+    .appointments #wrapper .hint-step {
+        font-size: 15px;
+        line-height: 25px;
+        color: #a9a9a9;
+        margin-bottom: 20px;
+        font-weight: 100;
+        height: auto;
+        padding: 0;
+        background: none;
+
+    }
+    .appointments #wrapper .service-choose {
+        height: auto;
+        padding-bottom: 20px;
+    }
+    .appointments #wrapper .service-type {
+        padding-left: 0;
+        font-size: 25px;
+        color: #242424;
+        font-weight: 100;
+        text-transform: capitalize;
+    }
+    .appointments #wrapper .service-choose ul {
+        font-size: 20px;
+    }
+    .appointments #wrapper .service-choose li {
+        background-position: 0 50%;
+        padding-left: 20px !important;
+    }
+    .appointments #wrapper .service-choose .service-price {
+        color: #242424;
+        font-weight: bold;
+    }
+    .appointments.small #wrapper .online-entry__btn {
+        border-color: #3976ca;
+        color: #3976ca;
+        font-size: 20px;
+        line-height: 35px;
+        height: 40px;
+        padding: 0 30px;
+    }
+    .appointments #wrapper .online-entry__step.step-passed .online-entry__title {
+        color: #999999;
+    }
+    .appointments #wrapper .step-done {
+        background-image: url(/templates/demomarket/img/appointments/step_done_mobile.png);
+        height: 30px;
+        width: 35px;
+        position: absolute;
+        top: 25px;
+        right: 50px;
+    }
+    .appointments #wrapper .step-done + span {
+        background: url('/templates/demomarket/img/appointments/step_edit.png') no-repeat 0 50%;
+        border: none;
+        height: 30px;
+    }
+    .appointments #wrapper .step-done + span:hover {
+        background: transparent;
+    }
+    .appointments #wrapper .online-entry__title .online-entry__btn {
+        width: 30px;
+        padding: 0;
+        top: 20px;
+        right: 20px;
+    }
+    .appointments #wrapper .selection-specialist {
+        border-top: none;
+        border-right: none;
+        border-color: #3976ca;
+    }
+    .appointments #wrapper .master-item {
+        width: 95%;
+        border: none;
+        padding-left: 27px !important;
+    }
+    .appointments.small #wrapper .master-name {
+        font-size: 20px;
+        color: #242424;
+        font-weight: 100;
+    }
+    .appointments #wrapper .master-description {
+        font-size: 16px;
+    }
+    .appointments #wrapper .online-entry__title {
+        color: #d23c3c;
+    }
+    .appointments #wrapper .selection-specialist_hint {
+        position: relative;
+        top: auto;
+        right: auto;
+        height: 110px;
+        border-top: 1px solid #cbcbcb;
+        padding: 20px;
+    }
+    .appointments #wrapper .selection-specialist_hint span {
+        display: block;
+        float: left;
+    }
+    .appointments #wrapper .selection-specialist_hint span:first-of-type {
+        background: none;
+        color: #c2c2c2;
+        font-size: 16px;
+        width: 45%;
+    }
+    .appointments #wrapper .selection-specialist_hint span:last-of-type {
+        margin-top: 20px;
+    }
+    .appointments #wrapper .master-item:hover {
+        border-bottom: none !important;
+        padding-bottom: 0;
+    }
+    .appointments #wrapper .operator-prompt {
+        padding-left: 14px;
+    }
+    .appointments #wrapper .master-info {
+        padding-left: 200px;
+    }
+    .appointments #wrapper .master-info .online-entry__btn {
+        left: 200px;
+    }
+    .appointments #wrapper .ui-datepicker-group-first {
+        max-width: 100%;
+    }
+    .appointments #wrapper .ui-datepicker-calendar td {
+        background: #f9f9f9;
+    }
+    .appointments.small #wrapper .ui-state-default {
+        width: 100%;
+        height: 60px;
+        font-size: 16px;
+        border-radius: 0;
+        font-weight: normal;
+        line-height: 60px;
+        background: #89e6a3;
+    }
+    .appointments #wrapper .ui-state-active {
+        background: #3976ca !important;
+        border: none;
+        box-shadow: none;
+    }
+    .appointments #wrapper .ui-weekend .ui-state-default {
+        background: #dadada;
+    }
+    .ui-datepicker-unselectable .ui-state-disabled .ui-disabled {
+        background: none;
+    }
+    .appointments #wrapper .ui-datepicker-title {
+        color: #242424;
+        font-size: 16px;
+    }
+    .appointments #wrapper .ui-datepicker-header {
+        background: #f7f7f7;
+        border-bottom: 1px solid #cfcfcf;
+        margin-bottom: 0;
+        padding: 15px;
+    }
+    .ui-datepicker .ui-datepicker-next {
+        top: -385px;
+        right: 20px;
+    }
+    .appointments #wrapper .ui-datepicker-group {
+        margin-right: 0;
+    }
+    .ui-datepicker-calendar {
+        border-bottom: 1px solid #cfcfcf !important;
+    }
+    .ui-datepicker .ui-datepicker-prev {
+        left: 20px;
+        top: 20px;
+    }
+    .appointments #wrapper .ui-icon-circle-triangle-e {
+        background-image: url('/templates/demomarket/img/appointments/arr_next_mobile.png');
+    }
+    .appointments #wrapper .ui-icon-circle-triangle-w {
+        background-image: url('/templates/demomarket/img/appointments/arr_prev_mobile.png');
+    }
+    .appointments #wrapper .date-visit__wrapper {
+        height: 420px;
+        padding-left: 35px;
+    }
+    .ui-corner-all {
+        border-radius: 0;
+    }
+    .ui-widget-content {
+        background: none;
+    }
+    .ui-datepicker {
+        padding: 0;
+    }
+    .mobile_full_width.mobile_calendar {
+        border-bottom: none !important;
+    }
+    .mobile_full_width.mobile_choose_time {
+        border-top: none !important;
+        padding: 0;
+        border-left: 1px solid #3976ca;
+    }
+    .appointments #wrapper .choose-time {
+        border: none !important;
+        padding-left: 35px;
+    }
+    .appointments #wrapper .choose-time__title,
+    .appointments.small #wrapper .choose-time__title {
+        font-size: 20px;
+        color: #3976ca;
+    }
+    .appointments #wrapper .choose-time_item {
+        border-radius: 0;
+        width: 25% !important;
+        margin: 0 0 5px 1px;
+        height: 55px !important;
+        font-size: 20px !important;
+        line-height: 55px !important;
+        background: #dadada;
+    }
+    .appointments #wrapper .time-free {
+        background: #89e6a3;
+    }
+    .appointments #wrapper .choose-time .description-step__status {
+        border-top: 1px solid #cfcfcf;
+        width: 100%;
+        height: 70px;
+        left: 0;
+        padding: 20px 0 20px 35px;
+    }
+    .appointments #wrapper .choose-time .description-step__status div {
+        float: left;
+        width: 30%;
+        font-size: 16px;
+        color: #c2c2c2;
+    }
+    .appointments #wrapper .online-entry__wrapper div[class^="status-"]::before {
+        width: 20px;
+        height: 20px;
+        border-radius: 0;
+        vertical-align: top;
+    }
+    .appointments #wrapper .online-entry__wrapper .status-free::before {
+        background: #89e6a3;
+    }
+    .appointments #wrapper .final-registration__title,
+    .appointments.small #wrapper .final-registration__title {
+        font-size: 16px;
+        color: #999999;
+    }
+    .appointments #wrapper .final-registration {
+        background: #ffffff;
+        border-left: 1px solid #3976ca;
+    }
+    .appointments #wrapper .final-registration li {
+        font-size: 16px;
+        color: #999999;
+        margin-left: 0;
+    }
+    .appointments #wrapper .final-registration__hint {
+        font-size: 14px;
+        color: #999999;
+    }
+    .appointments #wrapper .online-entry__ordering {
+        height: auto;
+    }
+    .appointments #wrapper .online-entry__ordering form {
+        width: 100%;
+    }
+    .appointments #wrapper .online-entry__ordering form input:not([type="submit"]),
+    .appointments #wrapper .online-entry__ordering form textarea {
+        background: #f8f8f8;
+        border: 1px solid #d0d0d0;
+        border-bottom: none;
+        border-right: none;
+        height: 55px;
+        border-radius: 12px;
+    }
+    .appointments #wrapper .online-entry__ordering form input[type="submit"] {
+        background: #3976ca;
+        border-radius: 12px;
+        height: 55px;
+        font-size: 20px;
+    }
+    .appointments #wrapper .online-entry__ordering form textarea {
+        height: 230px;
+    }
+    .appointments #wrapper .communication-admin__content {
+        border-top: none;
+    }
+    .appointments #wrapper .communication-admin__content span {
+        font-size: 14px;
+        color: #a9a9a9;
+    }
+    #appointment_post_success {
+        width: 300px !important;
+    }
+    .text_overflow {
+        width: 70%;
+        text-overflow: ellipsis;
+    }
+}
+@media screen and (max-width: 600px) {
+    .appointments #wrapper .online-entry__title,
+    .appointments.small #wrapper .online-entry__title{
+        font-size: 18px;
+    }
+    .appointments.main-container {
+        max-width: 500px;
+    }
+    .appointments #wrapper .online-entry__content {
+        padding-left: 40px;
+    }
+    .appointments #wrapper .service-type {
+        font-size: 16px;
+    }
+    .appointments #wrapper .service-choose ul {
+        font-size: 16px;
+    }
+    .appointments #wrapper .recording-time__note {
+        top: -20px;
+        left: 10px;
+    }
+    .appointments #wrapper .selection-specialist_hint {
+        height: auto;
+    }
+    .appointments #wrapper .selection-specialist_hint span:first-of-type {
+        width: auto;
+    }
+}
+@media screen and (max-width: 500px) {
+    .appointments.main-container {
+        max-width: 400px;
+    }
+    .appointments #wrapper .online-entry__title::before {
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        font-size: 20px;
+        line-height: 35px;
+    }
+    .appointments #wrapper .online-entry__title,
+    .appointments.small #wrapper .online-entry__title{
+        font-size: 14px;
+        height: 75px;
+    }
+    .appointments #wrapper .master-info {
+        padding-left: 0;
+        margin-left: 0;
+    }
+    .appointments #wrapper .master-info .online-entry__btn {
+        left: 0;
+    }
+    .appointments #wrapper .master-list {
+        height: auto;
+    }
+    .appointments.small #wrapper .ui-state-default {
+        height: 27px;
+        line-height: 26px;
+    }
+    .appointments #wrapper .date-visit__wrapper {
+        height: 269px;
+    }
+    .appointments #wrapper .master-photo {
+        float: none;
+    }
+    .appointments #wrapper .choose-time .description-step__status div {
+        font-size: 14px;
+    }
+    .ui-datepicker .ui-datepicker-next {
+        top: -220px;
+    }
+    .appointments #wrapper .recording-time__item {
+
+    }
+    .appointments #wrapper .choose-time_item {
+        width: 30%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .appointments.main-container {
+        max-width: 320px;
+    }
+    .appointments #wrapper .online-entry__step .online-entry__title::before {
+        display: block;
+        float: left;
+    }
+    .appointments #wrapper .online-entry__step .online-entry__title {
+        padding-right: 50px;
+    }
+    .appointments #wrapper .service-choose ul {
+        font-size: 14px;
+    }
+    .appointments #wrapper .online-entry__step .online-entry__nonactive {
+        display: inline;
+    }
+    .appointments #wrapper .step-done {
+        right: 30px;
+    }
+    .appointments #wrapper .online-entry__title .online-entry__btn {
+        right: 10px;
+    }
+    .appointments #wrapper .online-entry__ordering {
+        padding: 20px 10px;
+    }
+}
+@media screen and (min-width: 701px) {
+    .mobile_visible {
+        display: none !important;
+    }
+}
+
+div.online-entry__ordering div.personal_data_wrapper label[for="common-152-federal-law"] p a[href] {
+    font-size: 11px;
+}

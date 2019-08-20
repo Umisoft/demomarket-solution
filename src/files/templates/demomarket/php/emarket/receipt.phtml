@@ -1,0 +1,16 @@
+<?php
+/**
+ * Системная страница `emarket/receipt`. Обычно при запросе этого макроса шаблон не отображается,
+ * но если мы сюда зашли - выводим сообщение об ошибке.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+
+<div class="container">
+	<div class="error">
+		<h3><?= $this->translate('errors') ?></h3>
+		<p><?= $this->translate('receipt_not_found') ?></p>
+	</div>
+</div>
