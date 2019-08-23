@@ -16,7 +16,6 @@ var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
 var jsmin = require('gulp-minify');
 var rimraf = require('gulp-rimraf');
-var runSequence = require('run-sequence');
 
 var jsLibraries = 'js/lib/**/*.js';
 var jsCommon = 'js/*.js';
@@ -124,38 +123,22 @@ gulp.task('watch', function() {
 	gulp.watch(cssLibraries, ['build-css-libraries']);
 });
 
-gulp.task('clean', [
-	'cleanjs',
-	'cleancss'
-]);
+gulp.task('clean', gulp.series('cleanjs', 'cleancss', function(done) {
+	done();
+}));
 
-gulp.task('minify', [
-	'minjs',
-	'mincss'
-]);
+gulp.task('minify', gulp.series('minjs', 'mincss', function(done) {
+	done();
+}));
 
-gulp.task('compile', function(callback) {
-	runSequence('cleanjs',
-				'cleancss',
-				'minjs',
-				'mincss',
-				callback);
-});
+gulp.task('compile', gulp.series('cleanjs', 'cleancss', 'minjs', 'mincss', function(done) {
+	done();
+}));
 
-// gulp.task('build', [
-// 	'build-js-libraries',
-// 	'build-js-common',
-// 	'build-less',
-// 	'build-css-libraries'
-// ]);
+gulp.task('build', gulp.series('build-js-libraries', 'build-js-common', 'build-less', 'build-css-libraries', 'compile', function(done) {
+	done();
+}));
 
-gulp.task('build', function(callback) {
-	runSequence('build-js-libraries',
-				'build-js-common',
-				'build-less',
-				'build-css-libraries',
-				'compile',
-		callback);
-});
-
-gulp.task('default', ['build']);
+gulp.task('default', gulp.series('build-js-libraries', 'build-js-common', 'build-less', 'build-css-libraries', 'compile', function(done) {
+	done();
+}));
