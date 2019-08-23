@@ -2262,8 +2262,8 @@ main .catalog_list .col-md-3 .tab_container .tab_item .additional .buy_one_click
   margin-top: 7px;
   cursor: pointer;
   width: 100%;
-  -moz-transition: color .2s;
-  transition: color .2s;
+  -moz-transition: color 0.2s;
+  transition: color 0.2s;
 }
 main .catalog_list .col-md-3 .tab_container .tab_item .additional .buy_one_click_button:hover {
   color: #fff;
@@ -2291,7 +2291,7 @@ main .catalog_list .col-md-3 .tab_container .tab_item .price h3 {
   padding: 0;
   margin: 0;
   font-family: 'open_sans_med';
-  line-height: .7;
+  line-height: 0.7;
 }
 main .catalog_list .col-md-3 .tab_container .tab_item .goods_btn {
   margin: 0;
@@ -2304,8 +2304,8 @@ main .catalog_list .col-md-3 .tab_container .tab_item .goods_btn {
   font-size: 14px;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
-  -moz-transition: color .2s;
-  transition: color .2s;
+  -moz-transition: color 0.2s;
+  transition: color 0.2s;
   cursor: pointer;
   vertical-align: super;
 }
@@ -2447,8 +2447,8 @@ main .catalog_inline .col-md-3 .tab_container .tab_item .additional .buy_one_cli
   color: #33b5cb;
   text-align: center;
   font-size: 14px;
-  -moz-transition: color .2s;
-  transition: color .2s;
+  -moz-transition: color 0.2s;
+  transition: color 0.2s;
   cursor: pointer;
   vertical-align: super;
   margin: auto;
@@ -2479,7 +2479,7 @@ main .catalog_inline .col-md-3 .tab_container .tab_item .price h3 {
   padding: 0;
   margin: 0;
   font-family: 'open_sans_med';
-  line-height: .7;
+  line-height: 0.7;
   margin-left: 75px;
 }
 main .catalog_inline .col-md-3 .tab_container .tab_item .goods_btn {
@@ -3252,7 +3252,7 @@ header .header_middle_nav .header_logo h2 {
   margin: 0;
 }
 header .header_middle_nav .header_logo span {
-  line-height: .3;
+  line-height: 0.3;
 }
 header .header_middle_nav .header_contact {
   margin-left: 78px;
@@ -3555,7 +3555,7 @@ main #mainCarousel .carousel-control i {
   font-size: 75px;
 }
 main #mainCarousel:hover .carousel-control {
-  opacity: .7;
+  opacity: 0.7;
 }
 main #mainCarousel:hover .carousel-control:hover {
   opacity: 1;
@@ -4163,10 +4163,10 @@ main .order_data .sub_group div {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-basis: calc(49%);
-  -ms-flex-preferred-size: calc(49%);
-  flex-basis: -moz-calc(49%);
-  flex-basis: calc(49%);
+  -webkit-flex-basis: calc(50% - 1px);
+  -ms-flex-preferred-size: calc(50% - 1px);
+  flex-basis: -moz-calc(50% - 1px);
+  flex-basis: calc(50% - 1px);
   margin-bottom: 12px;
   box-shadow: 0 0 8px 2px rgba(196, 196, 196, 0.15);
 }
@@ -4265,10 +4265,10 @@ main .order_data .payment .del_content {
   justify-content: space-between;
 }
 main .order_data .payment .del_content div {
-  -webkit-flex-basis: calc(23.75%);
-  -ms-flex-preferred-size: calc(23.75%);
-  flex-basis: -moz-calc(23.75%);
-  flex-basis: calc(23.75%);
+  -webkit-flex-basis: calc((100% - 5px) / 4);
+  -ms-flex-preferred-size: calc((100% - 5px) / 4);
+  flex-basis: -moz-calc((100% - 5px) / 4);
+  flex-basis: calc((100% - 5px) / 4);
   height: 120px;
   display: -webkit-flex;
   display: -moz-box;
@@ -4286,25 +4286,25 @@ main .order_data .delivery_address .sub_group_inline div {
   margin-bottom: 12px;
 }
 main .order_data .delivery_address .sub_group_inline div:first-of-type {
-  -webkit-flex-basis: calc(19%);
-  -ms-flex-preferred-size: calc(19%);
-  flex-basis: -moz-calc(19%);
-  flex-basis: calc(19%);
+  -webkit-flex-basis: calc(25% - 6px);
+  -ms-flex-preferred-size: calc(25% - 6px);
+  flex-basis: -moz-calc(25% - 6px);
+  flex-basis: calc(25% - 6px);
   margin-right: 6px;
 }
 main .order_data .delivery_address .sub_group_inline div:nth-of-type(2) {
-  -webkit-flex-basis: calc(13%);
-  -ms-flex-preferred-size: calc(13%);
-  flex-basis: -moz-calc(13%);
-  flex-basis: calc(13%);
+  -webkit-flex-basis: calc(25% - 12px);
+  -ms-flex-preferred-size: calc(25% - 12px);
+  flex-basis: -moz-calc(25% - 12px);
+  flex-basis: calc(25% - 12px);
   margin-left: 6px;
   margin-right: 6px;
 }
 main .order_data .delivery_address .sub_group_inline div:last-of-type {
-  -webkit-flex-basis: calc(18%);
-  -ms-flex-preferred-size: calc(18%);
-  flex-basis: -moz-calc(18%);
-  flex-basis: calc(18%);
+  -webkit-flex-basis: calc(30% - 12px);
+  -ms-flex-preferred-size: calc(30% - 12px);
+  flex-basis: -moz-calc(30% - 12px);
+  flex-basis: calc(30% - 12px);
   margin-left: 10px;
 }
 main .order_data label {
@@ -4312,8 +4312,8 @@ main .order_data label {
   width: 100%;
 }
 main .order_data label p {
-  max-width: -moz-calc(60%);
-  max-width: calc(60%);
+  max-width: -moz-calc(100% - 40px);
+  max-width: calc(100% - 40px);
 }
 main .order_data #orderComment .sub_group div {
   -webkit-flex-basis: 100%;
@@ -4365,8 +4365,8 @@ main .order_bill .promo_code label:before {
   -moz-transform: translateY(-50%) rotate(-45deg);
   -ms-transform: translateY(-50%) rotate(-45deg);
   transform: translateY(-50%) rotate(-45deg);
-  -moz-transition: all .2s;
-  transition: all .2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
 }
 main .order_bill .promo_code label:after {
   content: '';
@@ -4380,8 +4380,8 @@ main .order_bill .promo_code label:after {
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -moz-transition: all .2s;
-  transition: all .2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
 }
 main .order_bill .promo_code label:hover:before {
   border-bottom-color: #1c9eb4;
@@ -4592,10 +4592,10 @@ main div.personal_data_wrapper label[for=purchase-step-address-152-federal-law] 
 }
 @media (max-width: 767px) {
   main .order_data #payment_choose .del_content div {
-    -webkit-flex-basis: calc(44%);
-    -ms-flex-preferred-size: calc(44%);
-    flex-basis: -moz-calc(44%);
-    flex-basis: calc(44%);
+    -webkit-flex-basis: calc((100% - 12px) / 2);
+    -ms-flex-preferred-size: calc((100% - 12px) / 2);
+    flex-basis: -moz-calc((100% - 12px) / 2);
+    flex-basis: calc((100% - 12px) / 2);
     margin-bottom: 12px;
   }
   main .order #payment_choose .del_row .del_content {
@@ -4621,18 +4621,18 @@ main div.personal_data_wrapper label[for=purchase-step-address-152-federal-law] 
     margin-right: 0;
   }
   main .order_data .delivery_address .sub_group_inline div:nth-of-type(2) {
-    -webkit-flex-basis: calc(38%);
-    -ms-flex-preferred-size: calc(38%);
-    flex-basis: -moz-calc(38%);
-    flex-basis: calc(38%);
+    -webkit-flex-basis: calc(50% - 12px);
+    -ms-flex-preferred-size: calc(50% - 12px);
+    flex-basis: -moz-calc(50% - 12px);
+    flex-basis: calc(50% - 12px);
     margin-right: 6px;
     margin-left: 0;
   }
   main .order_data .delivery_address .sub_group_inline div:last-of-type {
-    -webkit-flex-basis: calc(38%);
-    -ms-flex-preferred-size: calc(38%);
-    flex-basis: -moz-calc(38%);
-    flex-basis: calc(38%);
+    -webkit-flex-basis: calc(50% - 12px);
+    -ms-flex-preferred-size: calc(50% - 12px);
+    flex-basis: -moz-calc(50% - 12px);
+    flex-basis: calc(50% - 12px);
     margin-left: 6px;
   }
   main form .sub_group_inline {
@@ -8127,7 +8127,7 @@ a:active {
     padding: 0;
     margin: 0;
     font-family: 'open_sans_med', sans-serif;
-    line-height: .7;
+    line-height: 0.7;
   }
   main .catalog_inline .col-md-3 .tab_container .tab_item .info p {
     display: none;
