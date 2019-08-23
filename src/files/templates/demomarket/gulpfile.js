@@ -1,14 +1,18 @@
 /**
  * Сборщик css и js.
  *
- * - Сборка всех ресурсов:
+ * 1) Сборка всех ресурсов:
  * $ npm install
  * $ gulp
  *
  * 2) Режим разработки, ресурсы автоматически пересобираются при сохранении исходных файлов:
  * $ gulp watch
+ *
+ * Требования:
+ * node: 10.15.3
+ * npm: 6.4.1
+ * gulp-cli: 2.2.0
  */
-
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var plugins = require('gulp-load-plugins')();
