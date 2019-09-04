@@ -1,6 +1,6 @@
 /**
  * Инициализация виджета выбора способа доставки у ApiShip.
- * Сам виджет находится в файле /js/widget.Delivery.js.
+ * Сам виджет находится в файле /styles/common/js/widget.Delivery.js.
  */
 (function () {
 	var infoBuilder,
