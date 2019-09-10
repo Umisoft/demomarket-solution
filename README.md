@@ -12,5 +12,7 @@
 
 (Настройки пакера подробнее описаны в файле `libs/packer/config.sample.php`)
 
-Результат сборки: файл `libs/packer/out/demomarket/demomarket.tar`. 
-Чтобы обновить версию решения, нужно добавить этот файл в репозиторий партнерских решений `umi.cms2-builder/partner/solutions` и сделать деплой.
+Чтобы задеплоить решение нужно:
+ * Забрать файл из `libs/packer/out/demomarket/demomarket.tar`;
+ * Загрузить его в директорию /solutions репозитория market-solutions (https://github.com/Umisoft/market-solutions);
+ * Запустить сценарий "market-solutions" в teamcity (http://ci.srv32.megaserver.umisoft.ru/project.html?projectId=MarketSolutions&tab=projectOverview);
