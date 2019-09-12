@@ -6,7 +6,7 @@
 
  * Установить umi.cms актуальной версии (https://github.com/Umisoft/umi.cms.2/blob/master/INSTALLATION.md);
  * Импортировать дамп базы данных `dump/dump.sql`;
- * Загрузить файлы из src/ поверх установленной umi.cms;
+ * Загрузить файлы из `src` поверх установленной umi.cms;
  * Загрузить конфигурацию упаковщика `packer/config`.php в `/sys-temp/packer/config/`;
  * Выполнить команду из корня проекта: `php packer.php /sys-temp/packer/config/config.php`;
 
