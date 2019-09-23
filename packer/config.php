@@ -2,7 +2,7 @@
 
 	return [
 		'package' => 'demomarket',
-		'destination' => './libs/packer/out/demomarket/',
+		'destination' => './sys-temp/packer/out/demomarket/',
 		'directories' => [
 			'./templates/demomarket/',
 			'./images/cms/data/slides/',
