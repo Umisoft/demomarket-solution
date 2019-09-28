@@ -86,7 +86,7 @@
 				<xsl:text>Using autothumbs rewrite</xsl:text>
 			</strong>
 			<br />
-			<img src="/images/autothumbs{value/@folder}/{value/@name}_100_.{value/@ext}"
+			<img src="/autothumbs.php?img={value/@folder}/{value/@name}_100_.{value/@ext}"
 				umi:element-id="{$page-id}"
 				umi:field-name="{@name}"
 			/>
