@@ -4605,11 +4605,7 @@
 			$offerCollection = $this->getTradeOfferCollection($product);
 
 			if ($this->isCheckStock()) {
-				$offerCollection->filter([
-					iMapper::TOTAL_COUNT => [
-						iCollection::COMPARE_TYPE_NOT_EQUALS => 0
-					]
-				]);
+				$offerCollection->filterByNonZeroTotalCount();
 			}
 
 			if ($offerCollection->getCount() === 0) {
@@ -4638,12 +4634,14 @@
 			}
 
 			$currency = Service::CurrencyFacade()->getCurrent();
+			/** @var itemDiscount $discount */
+			$discount = itemDiscount::search($product);
 
 			foreach ($offerCollection as $tradeOffer) {
-				$mainPrice = $tradeOffer->getPriceCollection()
-					->getMain();
-				$mainPriceValue = $mainPrice instanceof iPrice ? $mainPrice->getValue() : 0.0;
-				$formattedValue = $this->formatTradeOfferPrice($mainPriceValue, $currency);
+				$price = $tradeOffer->getPriceCollection()->getMain();
+				$priceValue = $price instanceof iPrice ? $price->getValue() : 0.0;
+				$priceValue = ($priceValue > 0 && $discount instanceof itemDiscount) ? $discount->recalcPrice($priceValue) : $priceValue;
+				$formattedValue = $this->formatTradeOfferPrice($priceValue, $currency);
 				$result[getLabel('js-trade-offer-price')][$formattedValue][] = $tradeOffer->getId();
 			}
 
