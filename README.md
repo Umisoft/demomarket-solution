@@ -8,7 +8,7 @@
  * Импортировать дамп базы данных `dump/dump.sql`;
  * Загрузить файлы из `src` поверх установленной umi.cms;
  * Загрузить конфигурацию упаковщика `packer/config`.php в `/sys-temp/packer/config/`;
- * Выполнить команду из корня проекта: `php packer.php /sys-temp/packer/config/config.php`;
+ * Выполнить команду из корня проекта: `php classes/system/commands/Packer.php sys-temp/packer/config/config.php`;
 
 (Настройки пакера подробнее описаны в файле `/sys-temp/packer/config/config.sample.php`)
 
