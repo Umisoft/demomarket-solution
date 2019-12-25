@@ -19,7 +19,7 @@ $groupList = $variables['form']['groups'];
 	<?php endif; ?>
 
 	<?php foreach ($this->getSubGroupList($group) as $subGroup): ?>
-		<div class="<?= $this->getSubGroupClass($subGroup) ?>">
+		<div class="sub_group">
 			<?php foreach ($subGroup as $field): ?>
 				<div class="<?= $this->getFormFieldClass($field) ?>">
 					<?= $this->render($field, "data/form_field/{$field['type']}") ?>

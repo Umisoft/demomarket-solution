@@ -42,7 +42,7 @@
 				<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 				<title>Квитанция для физических лиц</title>
 
-				<script src="/js/emarket_receipt.js" />
+				<script src="/styles/common/js/emarket_receipt.js" />
 				<link rel="stylesheet" href="/styles/common/css/emarket_receipt.css" />
 			</head>
 

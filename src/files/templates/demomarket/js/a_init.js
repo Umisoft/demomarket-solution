@@ -44,6 +44,7 @@ site.common = {
 		registerProductPreviewCallback();
 		registerProductSortingCallback();
 		registerSubmitPaymentCallback();
+		registerSelectPayment();
 		registerCategoryMenuCallback();
 		registerSubscribeFormCallback();
 		registerLazyCommentCountCallback();
@@ -252,7 +253,16 @@ site.common = {
 				win.document.write(html);
 				win.focus();
 
-				return false;
+				return true;
+			});
+		}
+
+		/** Регистрирует обработчик выбора способа оплаты при оформлении заказа в 1 шаг */
+		function registerSelectPayment() {
+			$('input:radio[name=payment-id]').change(function () {
+				$('#payment_choose label').removeClass('checked');
+				var $label = $(this).parent();
+				$label.addClass('checked');
 			});
 		}
 

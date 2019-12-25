@@ -2297,7 +2297,8 @@
 		 * @return string
 		 */
 		public function getFormFieldClass($field) {
-			return isset($field['required']) ? 'important' : '';
+			$important = isset($field['required']) ? 'important' : '';
+			return $important ? $important . ' ' . $field['name'] : $field['name'];
 		}
 
 		/**
@@ -4406,82 +4407,25 @@
 
 		/**
 		 * Возвращает подгруппы группы полей.
-		 *
-		 * Разбиение на подгруппы нужно для вывода полей "Дом" и "Квартира" на одной строке
-		 * на странице выбора адреса доставки.
-		 *
 		 * @param array $group данные группы полей
 		 * @return array
 		 */
 		public function getSubGroupList(array $group) {
 			/** @var array $fieldList */
 			$fieldList = $group['fields'];
-
-			$houseFieldIndex = $this->getHouseFieldIndex($fieldList);
-			if ($houseFieldIndex === null) {
-				return [$group['fields']];
-			}
-
 			$first = [];
-			$middle = [];
 			$last = [];
 
-			foreach ($fieldList as $i => $field) {
-				if ($i < $houseFieldIndex) {
+			foreach ($fieldList as $field) {
+				if (in_array($field['name'], ['country', 'index', 'region', 'city', 'street', 'house', 'flat'])) {
 					$first[] = $field;
-				} elseif ($i >= $houseFieldIndex && $i <= $houseFieldIndex + 1) {
-					$middle[] = $field;
-				} else {
-					$last[] = $field;
+					continue;
 				}
+
+				$last[] = $field;
 			}
 
-			return [$first, $middle, $last];
-		}
-
-		/**
-		 * Возвращает индекс поля "Дом" в списке полей.
-		 * @param array $fieldList список полей группы
-		 * @return int|null
-		 */
-		private function getHouseFieldIndex(array $fieldList) {
-			foreach ($fieldList as $i => $field) {
-				if ($field['name'] === 'house') {
-					$nextField = isset($fieldList[$i + 1]) ? $fieldList[$i + 1] : [];
-
-					if (isset($nextField['name']) && $nextField['name'] === 'flat') {
-						return $i;
-					}
-				}
-			}
-
-			return null;
-		}
-
-		/**
-		 * Возвращает css-класс подгруппы полей.
-		 *
-		 * @param array $subGroup данные подгруппы
-		 * @return string
-		 */
-		public function getSubGroupClass(array $subGroup) {
-			if ($this->isInlineSubGroup($subGroup)) {
-				return 'sub_group_inline';
-			}
-
-			return 'sub_group';
-		}
-
-		/**
-		 * Определяет, нужно ли выводить все поля подгруппы на одной строке
-		 * @param array $subGroup подгруппа
-		 * @return bool
-		 */
-		private function isInlineSubGroup($subGroup) {
-			return
-				umiCount($subGroup) === 2 &&
-				$subGroup[0]['name'] === 'house' &&
-				$subGroup[1]['name'] === 'flat';
+			return [$first, $last];
 		}
 
 		/**

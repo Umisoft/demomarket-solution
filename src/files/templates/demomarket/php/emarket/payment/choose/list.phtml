@@ -12,7 +12,7 @@ $isOneStep = isset($variables["isOneStep"]) ? $variables["isOneStep"] : false;
 
 <?php foreach ($paymentList as $payment): ?>
 	<div>
-		<label>
+		<label class="<?= $this->getRadioStatusByActivity($payment) ? 'checked' : '' ?>">
 			<input
 				type="radio"
 				name="payment-id"
