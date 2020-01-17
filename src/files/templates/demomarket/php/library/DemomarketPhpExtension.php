@@ -4795,4 +4795,19 @@
 		public function isBannerExists($banner) {
 			return isset($banner['id']) && $banner['id'];
 		}
+
+		/**
+		 * Возвращает список идентификаторов платежных систем запрещенных для данного способа доставки
+		 * @param int $deliveryId идентификатор доставки
+		 * @return array
+		 */
+		public function getDisabledPaymentIdList($deliveryId) {
+			try {
+				$delivery = delivery::get($deliveryId);
+			} catch (coreException $exception) {
+				return [];
+			}
+
+			return $delivery->getDisabledPaymentIdList();
+		}
 	}

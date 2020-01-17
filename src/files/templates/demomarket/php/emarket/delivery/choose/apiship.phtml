@@ -13,6 +13,7 @@ if ($this->getCommonVar('apiship_delivery_is_rendered')) {
 
 $this->setCommonVar('apiship_delivery_is_rendered', true);
 $delivery = $variables;
+$disabledPaymentIdList = implode(',', $this->getDisabledPaymentIdList($delivery['id']));
 ?>
 
 <div>
@@ -22,6 +23,7 @@ $delivery = $variables;
 			data-api="api-ship"
 			name="delivery-id"
 			value="<?= $delivery['id'] ?>"
+			data-disabledpayments="<?=$disabledPaymentIdList?>"
 			required
 			<?= $this->getRadioStatusByActivity($delivery) ?>
 		/>
