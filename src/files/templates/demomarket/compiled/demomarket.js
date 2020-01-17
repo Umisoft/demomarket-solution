@@ -2340,6 +2340,16 @@ site.forms = {
 					if ($delivery.data('api') !== 'api-ship') {
 						purchasing.setPriceInCart(price);
 					}
+
+					$('div.choose-payment').show();
+					var disabledPayment = String($delivery.data('disabledpayments'));
+					if (disabledPayment) {
+						disabledPayment = disabledPayment.split(',');
+
+						for (let paymentId of disabledPayment) {
+							$('input[name="payment-id"][value="' + paymentId + '"]').closest('div.choose-payment').hide();
+						}
+					}
 				});
 
 				$form.on('submit', function(e) {
