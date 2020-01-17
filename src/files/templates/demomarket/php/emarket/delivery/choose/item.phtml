@@ -9,7 +9,7 @@
 $delivery = $variables;
 $price = isset($delivery['price']) ? $delivery['price'] : 0;
 $type = isset($delivery['type-class-name']) ? $delivery['type-class-name'] : '';
-$disabledPaymentIdList = join($this->getDisabledPaymentIdList($delivery['id']), ',');
+$disabledPaymentIdList = implode(',', $this->getDisabledPaymentIdList($delivery['id']));
 ?>
 
 <div>
