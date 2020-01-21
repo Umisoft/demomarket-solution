@@ -6,6 +6,7 @@
 		'directories' => [
 			'./templates/demomarket/',
 			'./images/cms/data/slides/',
+			'./files/filesToImport/',
 		],
 		'files' => [
 			'./images/cms/data/employee.jpg',
