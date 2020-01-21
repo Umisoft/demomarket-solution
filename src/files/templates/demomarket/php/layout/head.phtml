@@ -5,23 +5,32 @@
  * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
  * @var array $variables
  */
+$description = $this->escape($this->getMetaDescription($variables));
+$title = $this->escape($this->getMetaTitle($variables));
 ?>
 
 <base href="<?= $this->macros('umiTemplates', 'getResourceDirectory') ?>">
-<title><?= $this->escape($variables['title']) ?></title>
+<title><?= $title ?></title>
+<meta property="og:title" content="<?= $title ?>">
 
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="<?= $this->escape($variables['meta']['description']) ?>">
-<meta name="keywords" content="<?= $this->escape($variables['meta']['keywords']) ?>">
+<meta name="description" content="<?= $description ?>">
+<meta property="og:description" content="<?= $description ?>">
+<meta name="keywords" content="<?= $this->escape($this->getMetaKeywords($variables)) ?>">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:type" content="website">
+<meta property="og:url" content="<?= $this->escape($variables['request-url']) ?>">
+
 <meta name="author" content="Umisoft">
+<?= $this->getCanonicalLinkTag($variables) ?>
+<?= $this->getMetaRobots($variables) ?>
+<link rel="shortcut icon" href="<?= $this->escape($this->getFaviconPath()) ?>" />
 
 <?= $this->macros('content', 'includeFrontendResources') ?>
 
 <link rel="stylesheet" href="compiled/demomarket.lib.min.css">
 <link rel="stylesheet" href="compiled/demomarket.min.css">
-
-<?= $this->getCanonicalLinkTag($variables) ?>
 
 <script type="text/javascript" src="/ulang/<?= $variables['lang'] ?>/common/emarket/?js" charset="utf-8"></script>
 <script src="compiled/demomarket.lib-min.js"></script>
