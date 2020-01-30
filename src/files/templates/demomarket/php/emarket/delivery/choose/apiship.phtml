@@ -50,7 +50,7 @@ $disabledPaymentIdList = implode(',', $this->getDisabledPaymentIdList($delivery[
 <link rel="stylesheet" href="/styles/common/css/jquery.mCustomScrollbar.css" />
 <link type="text/css" rel="stylesheet" href="/styles/common/css/widget.Delivery.css" />
 
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=<?= $this->getYandexMapApiKeyByDeliveryId($delivery['id']) ?>" type="text/javascript"></script>
 <script src="/styles/common/js/jquery.mCustomScrollbar.js" type="text/javascript"></script>
 <script src="/styles/common/js/widget.Delivery.js" type="text/javascript"></script>
 <script src="/templates/demomarket/js/apiship/initialize_widget.js" type="text/javascript"></script>
