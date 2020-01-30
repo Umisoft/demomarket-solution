@@ -19676,7 +19676,7 @@ INSERT INTO `cms3_object_field_groups` (`id`, `name`, `title`, `type_id`, `is_ac
 (221,	'delivery_description_props',	'i18n::fields-group-delivery_description',	95,	1,	1,	5,	0,	'Если установлено - не будет отображаться на сайте'),
 (222,	'settings',	'i18n::fields-group-settings',	95,	1,	1,	10,	0,	'Настройки этого способа доставки Почтой России'),
 (223,	'delivery_description_props',	'i18n::fields-group-delivery_description',	96,	1,	1,	5,	0,	'Общие настройки способа доставки'),
-(224,	'settings',	'i18n::fields-group-settings',	96,	1,	1,	10,	1,	'Если установлено - не будет отображаться на сайте'),
+(224,	'settings',	'i18n::fields-group-settings',	96,	1,	1,	10,	1,	'<p>Настройки способа доставки ApiShip.<br />API Key Яндекс.Карт можно получить на странице: <br /><a href="https://developer.tech.yandex.ru/services">https://developer.tech.yandex.ru/services</a><br />Нужно выбрать API Карты, JavaScript API и HTTP Геокодер</p>'),
 (225,	'payment_props',	'i18n::fields-group-payment_props',	97,	1,	1,	5,	0,	'Если установлено - не будет отображаться на сайте'),
 (226,	'settings',	'i18n::fields-group-parameters',	97,	1,	1,	10,	0,	''),
 (227,	'payment_props',	'i18n::fields-group-payment_props',	98,	1,	1,	5,	0,	'Если установлено - не будет отображаться на сайте'),

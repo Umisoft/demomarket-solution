@@ -4874,4 +4874,14 @@
 
 			return $delivery->getDisabledPaymentIdList();
 		}
+
+		/**
+		 * Возвращает API Key Яндекс.Карт виджета ApiShip для данного способа доставки
+		 * @param int $deliveryId идентификатор доставки
+		 * @return string
+		 */
+		public function getYandexMapApiKeyByDeliveryId($deliveryId) {
+			$deliveryObject = delivery::get($deliveryId);
+			return $deliveryObject->getSavedApiKeyYandexMap();
+		}
 	}
