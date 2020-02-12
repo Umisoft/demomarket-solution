@@ -8279,6 +8279,9 @@ a:active {
     width: 90%;
     margin: 10px auto 20px auto;
   }
+  main .goods .tab_container .tab_item .additional .compare_link {
+    display: none;
+  }
   main .goods .tab_container .tab_item .info {
     display: block;
   }
