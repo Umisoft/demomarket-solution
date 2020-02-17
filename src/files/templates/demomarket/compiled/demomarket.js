@@ -2222,6 +2222,7 @@ site.forms = {
 				if ($('input[type=radio]:checked', container).val() !== 'new') {
 					block.hide();
 					$form.attr('novalidate', 'novalidate');
+					$form.find('.personal_data_wrapper').hide();
 				}
 			}
 
@@ -2229,9 +2230,11 @@ site.forms = {
 				if ($(this).val() !== 'new') {
 					block.hide();
 					$form.attr('novalidate', 'novalidate');
+					$form.find('.personal_data_wrapper').hide();
 				} else {
 					block.show();
 					$form.removeAttr('novalidate');
+					$form.find('.personal_data_wrapper').show();
 				}
 			});
 		},
