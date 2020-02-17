@@ -627,11 +627,13 @@ var Appointment = (function () {
 
 						submit_array[name] = value;
 					}
+					submit_array['lang_id'] = window.pageData.lang_id;
 
 					create_button.hide();
 
 					$.ajax({
-						url: '/udata/appointment/postAppointment/' + '?lang_id=' + window.pageData.lang_id,
+						type: 'POST',
+						url: '/udata/appointment/postAppointment/',
 						data: submit_array,
 						dataType: 'json',
 						success: function (result) {

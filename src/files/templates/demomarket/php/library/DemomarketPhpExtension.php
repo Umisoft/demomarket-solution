@@ -4884,4 +4884,8 @@
 			$deliveryObject = delivery::get($deliveryId);
 			return $deliveryObject->getSavedApiKeyYandexMap();
 		}
+
+		public function isUseAppointmentsCaptcha() {
+			return (bool) Service::Registry()->get('//modules/appointment/use-captcha');
+		}
 	}

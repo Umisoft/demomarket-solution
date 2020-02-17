@@ -431,7 +431,7 @@
     cursor: pointer;
 }
 .appointments #wrapper .online-entry__ordering {
-    height: 280px;
+    height: 410px;
     padding: 20px 35px;
 }
 .appointments #wrapper .final-registration {
@@ -1212,4 +1212,12 @@
 
 div.online-entry__ordering div.personal_data_wrapper label[for="common-152-federal-law"] p a[href] {
     font-size: 11px;
+}
+
+.appointments #wrapper form div.important:after {
+	top: 5px;
+}
+
+.appointments #wrapper form span.sub_text {
+	display: none;
 }
