@@ -357,14 +357,15 @@ site.forms = {
 			 * @param {int} deliveryPrice цена доставки
 			 */
 			setPriceInCart: function(deliveryPrice) {
+				var formatPrice = site.helpers.formatPrice;
 				var $orderPrice = $('#order_price');
 				var discount = parseFloat($('#discount').data('price'));
 				deliveryPrice = $.isNumeric(deliveryPrice) ? deliveryPrice : 0;
 
-				$('#delivery_price').text(deliveryPrice);
+				$('#delivery_price').text(formatPrice(deliveryPrice));
 
 				var totalPrice = parseFloat($orderPrice.data('price')) + parseFloat(deliveryPrice) - discount;
-				$orderPrice.text(totalPrice);
+				$orderPrice.text(formatPrice(totalPrice));
 			},
 
 			/** Сохраняет адрес доставки в заказ */
