@@ -4884,4 +4884,12 @@
 			$deliveryObject = delivery::get($deliveryId);
 			return $deliveryObject->getSavedApiKeyYandexMap();
 		}
+
+		/**
+		 * Проверяет необходимость использования Сaptcha в форме записи на прием
+		 * @return bool
+		 */
+		public function isUseAppointmentsCaptcha() {
+			return (bool) Service::Registry()->get('//modules/appointment/use-captcha');
+		}
 	}

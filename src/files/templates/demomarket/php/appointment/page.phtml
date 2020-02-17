@@ -313,6 +313,8 @@ HTML;
 										}
 										?>
 
+										<?= $this->isUseAppointmentsCaptcha() ? $this->renderCaptcha() : '' ?>
+
 										<input type="submit" id="create-appointment" value="<?= $submitValue ?>">
 
 										<?= $this->render('common-152-federal-law', 'library/personalDataNotice') ?>
