@@ -2137,7 +2137,8 @@ INSERT INTO `cms3_fields_controller` (`ord`, `field_id`, `group_id`) VALUES
 (20,	688,	720),
 (25,	689,	720),
 (20,	688,	744),
-(25,	689,	744);
+(25,	689,	744),
+(65,	767,	61);
 
 DROP TABLE IF EXISTS `cms3_filter_index_52_pages_4`;
 CREATE TABLE `cms3_filter_index_52_pages_4` (
@@ -20248,7 +20249,8 @@ INSERT INTO `cms3_object_fields` (`id`, `name`, `title`, `is_locked`, `field_typ
 (763,	'advertising_type',	'i18n::field-channel-advertising-type',	0,	16,	0,	1,	NULL,	1,	1,	'',	0,	NULL,	0,	0,	0),
 (764,	'advertising_block_id',	'i18n::field-channel-advertising-block-id',	0,	16,	0,	1,	NULL,	1,	1,	'',	0,	NULL,	0,	0,	0),
 (765,	'advertising_place_id',	'i18n::field-channel-advertising-place-id',	0,	16,	0,	1,	NULL,	1,	1,	'',	0,	NULL,	0,	0,	0),
-(766,	'advertising_code',	'i18n::field-channel-advertising-code',	0,	16,	0,	1,	NULL,	1,	1,	'',	0,	NULL,	0,	0,	0);
+(766,	'advertising_code',	'i18n::field-channel-advertising-code',	0,	16,	0,	1,	NULL,	1,	1,	'',	0,	NULL,	0,	0,	0),
+(767,	'auth_token',	'i18n::field-auth-token',	0,	16,	0,	0,	NULL,	0,	0,	'',	0,	NULL,	0,	1,	0);
 
 DROP TABLE IF EXISTS `cms3_object_fields_restrictions`;
 CREATE TABLE `cms3_object_fields_restrictions` (
