@@ -253,7 +253,7 @@ site.common = {
 				win.document.write(html);
 				win.focus();
 
-				return true;
+				return false;
 			});
 		}
 
