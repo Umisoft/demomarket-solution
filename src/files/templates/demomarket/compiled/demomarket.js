@@ -35,6 +35,7 @@ site.common = {
 		initToolTips();
 		initFaqQuestions();
 		initCompareLinkClickHandler();
+		initBasket();
 		stylizeSelects();
 		site.common.stylizeVoteResults();
 
@@ -551,6 +552,14 @@ site.common = {
 		function getComparisonSticker() {
 			return $('.comparison_goods:eq(0) > span');
 		}
+
+		/** Обновляет информацию о количестве товаров в корзине в шапке сайта */
+		function initBasket() {
+			basket.get(function(data) {
+				site.Cart.updateOrderItemCount(data.summary.amount);
+			});
+		}
+		
 	},
 };
 
@@ -1327,6 +1336,10 @@ site.Cart = {
 	 */
 	updateOrderItemCount: function (count) {
 		var $itemCount = $('.order_item_count');
+		if (count < 1 && $itemCount.hasClass('not_show')) {
+			return;
+		}
+
 		$itemCount.text(count);
 		$itemCount.removeClass('not_show');
 

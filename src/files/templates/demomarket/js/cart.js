@@ -301,6 +301,10 @@ site.Cart = {
 	 */
 	updateOrderItemCount: function (count) {
 		var $itemCount = $('.order_item_count');
+		if (count < 1 && $itemCount.hasClass('not_show')) {
+			return;
+		}
+
 		$itemCount.text(count);
 		$itemCount.removeClass('not_show');
 
