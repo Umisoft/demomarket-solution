@@ -24,7 +24,7 @@ $variables = $this->macros('emarket', 'purchasing_one_step');
 
 <div class="order">
 	<div class="container">
-		<form action="<?= $this->getPurchasingOneStepUrl() ?>" method="post" id="oneStepForm" class="without-steps" novalidate>
+		<form action="<?= $this->getPurchasingOneStepUrl() ?>" method="post" id="oneStepForm" class="without-steps">
 			<div class="order_data">
 				<?= $this->render($variables, 'emarket/purchasing_one_step/customer_info') ?>
 				<?= $this->render($variables, 'emarket/purchasing_one_step/delivery_address') ?>
