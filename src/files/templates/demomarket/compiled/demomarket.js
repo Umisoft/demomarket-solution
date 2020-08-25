@@ -2369,6 +2369,15 @@ site.forms = {
 				});
 
 				$form.on('submit', function(e) {
+					let isAgreeWidthProcessingPersonalData = $form.find('#purchase-step-address-152-federal-law').prop('checked');
+
+					if (!isAgreeWidthProcessingPersonalData) {
+						e.preventDefault();
+						let personalDataError = $form.find('.personal_data_error');
+						personalDataError.css('display', 'block');
+						personalDataError.text(getLabel('js-personal-data-error'));
+					}
+
 					if (purchasing.showErrors()) {
 						e.preventDefault();
 					}

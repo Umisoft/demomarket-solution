@@ -29,4 +29,5 @@
 		'js-add-to-comparison' => 'Сравнить',
 		'js-remove-from-comparison' => 'Удалить из сравнения',
 		'js-empty-comparison-list' => 'Список сравнения товаров пуст',
+		'js-personal-data-error' => 'Необходимо дать согласие на обработку персональных данных',
 	];

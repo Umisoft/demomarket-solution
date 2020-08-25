@@ -4582,6 +4582,14 @@ main div.personal_data_wrapper label[for=purchase-step-address-152-federal-law] 
   font-size: 11px;
   padding-left: 38px;
 }
+main div.personal_data_error {
+  background: #f05242;
+  padding: 14px 40px 14px;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+  display: none;
+}
 @media (max-width: 1500px) {
   main .order .container #oneStepForm {
     -webkit-flex-direction: column;
