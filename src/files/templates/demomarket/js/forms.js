@@ -301,14 +301,23 @@ site.forms = {
 					}
 				});
 
+				let personalDataAgreement = $form.find('#purchase-step-address-152-federal-law');
+				let personalDataErrorBlock = $form.find('.personal_data_error');
+
+				personalDataAgreement.click(function() {
+					let isAgreeWidthProcessingPersonalData = $form.find('#purchase-step-address-152-federal-law').prop('checked');
+					if (isAgreeWidthProcessingPersonalData) {
+						personalDataErrorBlock.css('display', 'none');
+					}
+				});
+
 				$form.on('submit', function(e) {
 					let isAgreeWidthProcessingPersonalData = $form.find('#purchase-step-address-152-federal-law').prop('checked');
 
 					if (!isAgreeWidthProcessingPersonalData) {
 						e.preventDefault();
-						let personalDataError = $form.find('.personal_data_error');
-						personalDataError.css('display', 'block');
-						personalDataError.text(getLabel('js-personal-data-error'));
+						personalDataErrorBlock.css('display', 'block');
+						personalDataErrorBlock.text(getLabel('js-personal-data-error'));
 					}
 
 					if (purchasing.showErrors()) {
