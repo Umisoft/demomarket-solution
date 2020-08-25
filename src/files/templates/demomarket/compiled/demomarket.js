@@ -2368,7 +2368,25 @@ site.forms = {
 					}
 				});
 
+				let personalDataAgreement = $form.find('#purchase-step-address-152-federal-law');
+				let personalDataErrorBlock = $form.find('.personal_data_error');
+
+				personalDataAgreement.click(function() {
+					let isAgreeWidthProcessingPersonalData = personalDataAgreement.prop('checked');
+					if (isAgreeWidthProcessingPersonalData) {
+						personalDataErrorBlock.css('display', 'none');
+					}
+				});
+
 				$form.on('submit', function(e) {
+					let isAgreeWidthProcessingPersonalData = personalDataAgreement.prop('checked');
+
+					if (!isAgreeWidthProcessingPersonalData) {
+						e.preventDefault();
+						personalDataErrorBlock.css('display', 'block');
+						personalDataErrorBlock.text(getLabel('js-personal-data-error'));
+					}
+
 					if (purchasing.showErrors()) {
 						e.preventDefault();
 					}

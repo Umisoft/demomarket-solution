@@ -29,4 +29,5 @@
 		'js-add-to-comparison' => 'Compare',
 		'js-remove-from-comparison' => 'Remove from comparison',
 		'js-empty-comparison-list' => 'Comparison list is empty',
+		'js-personal-data-error' => 'You must give your agreement to the processing of personal data',
 	];
