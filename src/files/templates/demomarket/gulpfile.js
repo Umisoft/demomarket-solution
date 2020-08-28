@@ -13,24 +13,27 @@
  * npm: 6.4.1
  * gulp-cli: 2.2.0
  */
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var plugins = require('gulp-load-plugins')();
-var cssmin = require('gulp-cssmin');
-var rename = require('gulp-rename');
-var jsmin = require('gulp-minify');
-var rimraf = require('gulp-rimraf');
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const plugins = require('gulp-load-plugins')();
+const cssmin = require('gulp-cssmin');
+const rename = require('gulp-rename');
+const jsmin = require('gulp-minify');
+const rimraf = require('gulp-rimraf');
 
-var jsLibraries = 'js/lib/**/*.js';
-var jsCommon = 'js/*.js';
-var less = 'less/*.less';
-var cssLibraries = 'css/lib/*.css';
-var compiledCss = 'compiled/*.css';
-var compiledJs = 'compiled/*.js';
-var rimrafCss = 'compiled/*.min.css';
-var rimrafJs = 'compiled/*-min.js';
+const jsLibraries = [
+	'js/lib/**/*.js',
+	'../../styles/skins/modern/data/modules/umiPushNotification/js/gen/site-push.min.js'
+];
+const jsCommon = 'js/*.js';
+const less = 'less/*.less';
+const cssLibraries = 'css/lib/*.css';
+const compiledCss = 'compiled/*.css';
+const compiledJs = 'compiled/*.js';
+const rimrafCss = 'compiled/*.min.css';
+const rimrafJs = 'compiled/*-min.js';
 
-var destination = 'compiled';
+const destination = 'compiled';
 
 gulp.task('build-js-libraries', function() {
 	return gulp.src(jsLibraries)

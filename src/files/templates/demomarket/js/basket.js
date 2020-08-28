@@ -23,7 +23,7 @@ var basket = {
 	},
 	__cleanupHash : function(input) {
 		return {
-			customer : input.customer.object.id,
+			customer : (input.customer) ? input.customer.object.id : null,
 			items    : input.items,
 			summary  : input.summary,
 			id	:input.id

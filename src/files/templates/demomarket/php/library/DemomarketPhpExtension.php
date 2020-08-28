@@ -3071,6 +3071,14 @@
 		}
 
 		/**
+		 * Определяет существует ли модуль "Push уведомления"
+		 * @return bool
+		 */
+		public function isPushNotificationModuleExists() {
+			return (bool) $this->isModuleExists('umiPushNotification');
+		}
+
+		/**
 		 * Определяет существует ли модуль "Конструктор форм"
 		 * @return bool
 		 */

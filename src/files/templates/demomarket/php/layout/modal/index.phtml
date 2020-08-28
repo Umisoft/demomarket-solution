@@ -6,6 +6,10 @@
  */
 ?>
 
+<?php if ($this->isPushNotificationModuleExists()) : ?>
+	<?= $this->render($variables, 'layout/modal/push') ?>
+<?php endif; ?>
+
 <?= $this->renderWebform($this->getCallbackId(), 'layout/modal/callback') ?>
 
 <?= $this->render($variables, 'layout/modal/buy') ?>
