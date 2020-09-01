@@ -195,7 +195,6 @@
 		.goods {
 			width: 100%;
 			.tab-content {
-				margin-bottom: 0;
 				.tab_container {
 					.tab_item {
 						.price {
@@ -364,6 +363,17 @@
 					}
 				}
 			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.basket_tooltip {
+		left: auto;
+		right: 0;
+		&:before {
+			left: auto;
+			right: 125px;
 		}
 	}
 }
@@ -1368,19 +1378,26 @@
 		}
 	}
 
-	main .gallery .container .row .col-md-2 {
-		width: 100%;
-		text-align: center;
-		img {
-			width: auto;
-			max-height: 205px;
-			max-width: 100%;
-			margin: 0 auto;
+	main {
+		.gallery .container .row .col-md-2 {
+			width: 100%;
+			text-align: center;
+			img {
+				width: auto;
+				max-height: 205px;
+				max-width: 100%;
+				margin: 0 auto;
+			}
 		}
-	}
-
-	main #mainCarousel .carousel-inner{
-		height: 210px;
+		#mainCarousel .carousel-inner{
+			height: 210px;
+		}
+		.goods .tab-content {
+			margin-bottom: 50px;
+		}
+		.news_container {
+			margin-top: 50px;
+		}
 	}
 }
 @media screen and (max-width: 650px){
