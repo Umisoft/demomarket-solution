@@ -47,8 +47,6 @@ $FORMS['registrate_block'] = <<<REGISTRATE
 			<input type="text" name="email" value="" />
 		</td>
 	</tr>
-
-	%eshop discountCardEditForm('default')%
 </table>
 	%system captcha()%
 <!-- this field determines what template will be used for e-mail sending -->
