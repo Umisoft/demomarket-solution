@@ -20,7 +20,7 @@ END;
 
 
 $FORMS['compare_list_block_line'] = <<<END
-<li><a href="%link%">%h1%</a> <a href="%pre_lang%/eshop/removeFromCompare/%id%/" class="cancel_link">X</a></li>
+<li><a href="%link%">%h1%</a></li>
 
 END;
 
@@ -32,7 +32,7 @@ END;
 
 $FORMS['compare_list_block_link'] = <<<END
 
-<br /><p><a href="%pre_lang%/eshop/compare/"><b>Сравнить товары</b></a></p>
+<br /><p><b>Сравнить товары</b></p>
 END;
 
 ?>

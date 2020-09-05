@@ -103,7 +103,6 @@
 		'in_progress' => 'Processing',
 		'select-payment' => 'Choose payment method',
 		'credit_request' => 'Create credit request',
-		'credit-canceled' => 'Your credit request was rejected',
 		'order-error' => 'Your order was not created due to error',
 		'order-comment' => 'Comment to the order',
 		'submit-order' => 'Submit the order',

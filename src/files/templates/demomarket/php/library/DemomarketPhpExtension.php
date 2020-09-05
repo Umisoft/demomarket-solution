@@ -3979,60 +3979,6 @@
 		}
 
 		/**
-		 * Возвращает данные для способа оплаты "КупиВКредит"
-		 * @param array $variables глобальные переменные запроса
-		 *
-		 * [
-		 *   'purchasing' => [
-		 *       'totalPrice' => float Стоимость заказа
-		 *       'order' => mixed Элементы заказа
-		 *       'sig' => string Подпись запроса
-		 *    ]
-		 * ]
-		 *
-		 * @return array
-		 *
-		 * [
-		 *   'totalPrice' => float Стоимость заказа
-		 *   'order' => mixed Элементы заказа
-		 *   'sig' => string Подпись запроса
-		 * ]
-		 */
-		public function getKupiVKreditParams(array $variables) {
-			$price = isset($variables['purchasing']['totalPrice']) ? $variables['purchasing']['totalPrice'] : 0;
-			$order = isset($variables['purchasing']['order']) ? $variables['purchasing']['order'] : '';
-			$signature = isset($variables['purchasing']['sig']) ? $variables['purchasing']['sig'] : '';
-
-			return [
-				'totalPrice' => $price,
-				'order' => $order,
-				'sig' => $signature,
-			];
-		}
-
-		/**
-		 * Возвращает url js-виджета "КупиВКредит"
-		 * @param array $variables глобальные переменные запроса
-		 *
-		 * [
-		 *   'purchasing' => [
-		 *       'test-mode' => bool Работает ли способ оплаты в тестовом режиме
-		 *    ]
-		 * ]
-		 *
-		 * @return string
-		 */
-		public function getKupiVKreditWidgetUrl(array $variables) {
-			$testMode = isset($variables['purchasing']['test-mode']) ? (bool) $variables['purchasing']['test-mode'] : false;
-
-			if ($testMode) {
-				return kupivkreditPayment::getTestWidgetUrl();
-			}
-
-			return kupivkreditPayment::getProductionWidgetUrl();
-		}
-
-		/**
 		 * Возвращает список категорий проекта в модуле FAQ
 		 * @param array $variables глобальные переменные запроса
 		 *

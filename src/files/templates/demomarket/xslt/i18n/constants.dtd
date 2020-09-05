@@ -114,8 +114,6 @@
 <!ENTITY new-legal-person "Новое юридическое лицо">
 <!ENTITY in-progress "В процессе">
 <!ENTITY select-payment "К выбору оплаты">
-<!ENTITY credit-request "Оформление заявки на получение кредита">
-<!ENTITY credit-canceled "Заявка на кредит была отклонена">
 <!ENTITY order-error "Произошла ошибка при создании заказа">
 <!ENTITY make-bill "Выписать счет">
 
