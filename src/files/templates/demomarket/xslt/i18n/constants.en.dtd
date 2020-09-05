@@ -115,8 +115,6 @@
 <!ENTITY new-legal-person "New legal person">
 <!ENTITY in-progress "In progress">
 <!ENTITY select-payment "Select payment variant">
-<!ENTITY credit-request "Preparation of credit request">
-<!ENTITY credit-canceled "Credit request is canceled">
 <!ENTITY order-error "Order creation error">
 <!ENTITY make-bill "Make out a bill">
 
