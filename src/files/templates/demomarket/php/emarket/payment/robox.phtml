@@ -11,6 +11,7 @@ $variables = isset($variables['purchasing']) ? $variables['purchasing'] : [];
 <form action="<?= isset($variables['formAction']) ? $variables['formAction'] : '' ?>" method="post">
 	<input type="hidden" name="MerchantLogin" value="<?= isset($variables['MrchLogin']) ? $variables['MrchLogin'] : '' ?>" />
 	<input type="hidden" name="OutSum" value="<?= isset($variables['OutSum']) ? $variables['OutSum'] : '' ?>" />
+	<input type="hidden" name="OutSumCurrency" value="<?= isset($variables['OutSumCurrency']) ? $variables['OutSumCurrency'] : '' ?>" />
 	<input type="hidden" name="Description" value="<?= isset($variables['Desc']) ? $variables['Desc'] : '' ?>" />
 	<input type="hidden" name="InvoiceID" value="<?= isset($variables['InvId']) ? $variables['InvId'] : '' ?>" />
 	<input type="hidden" name="SignatureValue" value="<?= isset($variables['SignatureValue']) ? $variables['SignatureValue'] : '' ?>" />
