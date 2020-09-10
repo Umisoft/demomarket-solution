@@ -30,7 +30,17 @@ $action = $this->getCurrentPath() . 'do/';
 						/>
                         <span></span>
 						<p>
+							<?= $this->translate('organization_name') ?>:
 							<?= (isset($item['name']) ? $item['name'] : '') ?>
+							<br>
+							<?= $this->translate('INN') ?>:
+							<?= (isset($item['inn']) ? $item['inn'] : '') ?>
+							<br>
+							<?= $this->translate('KPP') ?>:
+							<?= (isset($item['kpp']) ? $item['kpp'] : '') ?>
+							<br>
+							<?= $this->translate('legal_person_email') ?>:
+							<?= (isset($item['email']) ? $item['email'] : '') ?>
 						</p>
                     </label>
                 </div>
