@@ -28,6 +28,7 @@
     "package.json": "^2.0.1",
     "run": "^1.4.0",
     "sequence": "^3.0.0",
-    "minimist": ">=1.2.2"
+    "minimist": ">=1.2.2",
+    "yargs-parser": ">=13.1.2"
   }
 }
