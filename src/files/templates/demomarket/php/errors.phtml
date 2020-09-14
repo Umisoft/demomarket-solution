@@ -24,7 +24,7 @@
 		<h3><?= $this->translate('error') ?></h3>
 		<p><?= $error->getMessage() ?></p>
 		<?php if ($this->isDebug()): ?>
-			<p><?= str_replace("\n", '<br/>', $error->getTraceAsString()) ?></p>
+			<p><?= $this->textReplaceLineBreaks($error->getTraceAsString()) ?></p>
 		<?php endif; ?>
 	</div>
 </div>
