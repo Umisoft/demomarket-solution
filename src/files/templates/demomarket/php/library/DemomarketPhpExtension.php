@@ -4846,4 +4846,13 @@
 		public function isUseAppointmentsCaptcha() {
 			return (bool) Service::Registry()->get('//modules/appointment/use-captcha');
 		}
+
+		/**
+		 * Заменяет переносы в переданном тексте с '\n' на HTML переносы '<br/>'
+		 * @param string $text текст с переносами '\n'
+		 * @return string
+		 */
+		public function textReplaceLineBreaks($text) {
+			return str_replace("\n", '<br/>', $text);
+		}
 	}
