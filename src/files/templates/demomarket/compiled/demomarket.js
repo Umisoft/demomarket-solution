@@ -2475,6 +2475,7 @@ site.forms = {
 						var data = $fieldList.serialize() + '&replace-address=1&delivery-address=' + id;
 
 						if ($form.data("changed")) {
+							$form.data("send", true);
 							purchasing.updateDeliveryPrice(data);
 						}
 
@@ -2483,6 +2484,42 @@ site.forms = {
 						purchasing.highlightFieldList($emptyRequiredFieldList);
 					}
 				});
+			},
+
+			/**
+			 * Добавляет адрес доставки в форму
+			 * @param {int} addressId идетификатор адреса
+			 */
+			addDeliveryAddress: function(addressId) {
+				let form = $('#new-address');
+				form.data('id', addressId);
+				form.hide();
+
+				let fieldList = $('input,select', form);
+				let address = [];
+				fieldList.each(function(i,e) {
+					if (e.type == 'submit') {
+						return;
+					}
+
+					let val = '';
+					let field = $(e);
+					if (e.tagName == "SELECT") {
+						val = field.find('option:selected').text();
+					} else {
+						val = field.val();
+					}
+
+					address.push(val);
+					field.val(null);
+				});
+
+				var templateElement = $('#add_address_template');
+				var template = _.template(templateElement.html());
+				var resultHtml = template({addressId: addressId, address: address});
+				$('.delivery_address .del_content:first-child div:last-child')
+					.before(resultHtml);
+				form.data("send", false);
 			},
 
 			/**
@@ -2549,12 +2586,22 @@ site.forms = {
 
 				$.ajax({
 					type: 'POST',
-					url: '/udata://emarket/saveInfo/0/0/0/0',
+					url: '/udata://emarket/saveInfo/0/0/0/0/0',
 					data: data,
 
 					success: function(data) {
-						var $addressId = $(data).find('address-id').first().text();
-						$('#new-address').data('id', $addressId);
+						let error = $(data).find('error');
+						let form = $('#new-address');
+						if (error.length) {
+							alert(getLabel('js-error') + ': ' + error.first().text());
+							form.data("changed", true);
+							return;
+						}
+
+						if (form.data("send")) {
+							let addressId = $(data).find('address-id').first().text();
+							purchasing.addDeliveryAddress(addressId);
+						}
 
 						purchasing.updateRussianPostDeliveryPrice();
 					}
@@ -2585,7 +2632,7 @@ site.forms = {
 			updateDeliveryInOrder: function($deliveryId) {
 				$.ajax({
 					type: 'POST',
-					url: '/udata://emarket/saveInfo/0/0/0/0',
+					url: '/udata://emarket/saveInfo/0/0/0/0/0',
 					data: {'delivery-id' : $deliveryId},
 					async: false,
 				});
