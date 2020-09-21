@@ -27,7 +27,7 @@
 #### Чтобы установить production версию, нужно:
  * Через gui: на этапе выбора шаблона при установке cms надо выбрать "Адаптивный интернет-магазин" (http://help.docs.umi-cms.ru/vvedenie/ustanovka_i_nastrojka/vybor_sajta/);
  * Через cli: указать в install.ini [DEMOSITE] name = "demomarket" (https://github.com/Umisoft/umi.cms.2/blob/master/install.ini.original);
- * Через репозиторий: загрузить файлы из `src/files/` поверх установленной umi.cms;
+ * Через репозиторий: импортировать дамп базы данных `dump/dump.sql` и загрузить файлы из `src/files/` поверх установленной production версии umi.cms;
  
 #### Чтобы собрать dev версию, нужно:
  * Установить umi.cms dev версии (https://github.com/Umisoft/umi.cms.2/blob/master/INSTALLATION.md);
@@ -40,12 +40,12 @@
  * Поменять в конфигурации упаковщика, в ключах 'package' и 'destination' слово 'demomarket' на 'demomarket-dev';
  * Выполнить команду из корня проекта: `php classes/system/commands/Packer.php sys-temp/packer/config/config.php`;
  
- #### Чтобы задеплоить dev версию, нужно:
-  * Забрать файл из `/sys-temp/packer/out/demomarket-dev/demomarket-dev.tar`;
-  * Загрузить его в директорию `solutions` репозитория market-solutions (https://github.com/Umisoft/market-solutions);
-  * Запустить сценарий "market-solutions" в teamcity (http://ci.srv32.megaserver.umisoft.ru/project.html?projectId=MarketSolutions&tab=projectOverview);
+#### Чтобы задеплоить dev версию, нужно:
+ * Забрать файл из `/sys-temp/packer/out/demomarket-dev/demomarket-dev.tar`;
+ * Загрузить его в директорию `solutions` репозитория market-solutions (https://github.com/Umisoft/market-solutions);
+ * Запустить сценарий "market-solutions" в teamcity (http://ci.srv32.megaserver.umisoft.ru/project.html?projectId=MarketSolutions&tab=projectOverview);
   
-  #### Чтобы установить dev версию, нужно:
-   * Через gui: нужно указать в объекте лицензии в поле "Оплаченные решения" = "demomarket-dev" и выбрать его в разделе "Мои покупки" на этапе выбора шаблона (http://help.docs.umi-cms.ru/vvedenie/ustanovka_i_nastrojka/vybor_sajta/);
-   * Через cli: нужно указать в объекте лицензии "Оплаченные решения" = "demomarket-dev" и указать в install.ini [DEMOSITE] name = "demomarket-dev" (https://github.com/Umisoft/umi.cms.2/blob/dev/install.ini.original);
-   * Через репозиторий: импортировать дамп базы данных `dump/dump.sql` и загрузить файлы из `src/files/` поверх установленной umi.cms;
+#### Чтобы установить dev версию, нужно:
+ * Через gui: нужно указать в объекте лицензии в поле "Оплаченные решения" = "demomarket-dev" и выбрать его в разделе "Мои покупки" на этапе выбора шаблона (http://help.docs.umi-cms.ru/vvedenie/ustanovka_i_nastrojka/vybor_sajta/);
+ * Через cli: нужно указать в объекте лицензии "Оплаченные решения" = "demomarket-dev" и указать в install.ini [DEMOSITE] name = "demomarket-dev" (https://github.com/Umisoft/umi.cms.2/blob/dev/install.ini.original);
+ * Через репозиторий: импортировать дамп базы данных `dump/dump.sql` и загрузить файлы из `src/files/` поверх установленной dev версии umi.cms;
