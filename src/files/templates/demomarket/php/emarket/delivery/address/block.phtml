@@ -56,5 +56,15 @@ $selfDeliveryList = $this->getSelfDeliveryList($variables);
 				<?php endif; ?>
 			</div>
 		</div>
+
+		<script id="add_address_template" type="text/template">
+			<div class="form_element">
+				<label>
+					<input type="radio" name="delivery-address" value="<%= addressId %>" required checked="checked">
+					<span></span>
+					<p><%= address.join(', ') %></p>
+				</label>
+			</div>
+		</script>
 	<?php endif; ?>
 </div>
