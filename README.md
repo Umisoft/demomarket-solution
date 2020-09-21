@@ -7,6 +7,7 @@
  * Объект решения dev версии: (http://udod.umihost.ru/admin/updatesrv/edit/496771/);
  * Настройки конфигурации упаковщика подробнее описаны в файле (https://github.com/Umisoft/umi.cms.2/blob/dev/sys-temp/packer/config/config.sample.php);
  * Инструкция по установке системы: (https://github.com/Umisoft/umi.cms.2/blob/dev/INSTALLATION.md);
+ * При любой сборке не забывает ставить заглушку на сайт через config.ini [stub], чтобы во время сборки боты не добавили вам в бд спама;
 
 #### Чтобы собрать production версию, нужно:
  * Установить umi.cms production версии (https://github.com/Umisoft/umi.cms.2/blob/master/INSTALLATION.md);
