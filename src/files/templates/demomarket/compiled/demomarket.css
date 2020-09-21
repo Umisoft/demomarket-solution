@@ -430,6 +430,11 @@
   top: -3px;
   left: 50%;
 }
+.basket_tooltip .basket_tooltip-list {
+  max-height: -moz-calc(100vh - 330px);
+  max-height: calc(100vh - 330px);
+  overflow-x: auto;
+}
 .basket_tooltip .basket_tooltip-list li a {
   display: -webkit-flex;
   display: -moz-box;
@@ -1901,6 +1906,7 @@ main .advantage {
   background: #33b5cb;
 }
 main .advantage .container {
+  max-width: 100%;
   background: transparent;
 }
 main .advantage .container .row {
@@ -1949,7 +1955,7 @@ main .goods .sort_row .ui-selectmenu-button.ui-button {
 }
 main .goods .tab_container {
   position: relative;
-  height: 548px;
+  height: 549px;
   margin-right: -1px;
   margin-top: -1px;
   border: 1px solid #ebebeb;
@@ -2830,7 +2836,7 @@ main .catalog_item .goods_bottom {
     padding: 0;
     margin: 0;
     background: #33b5cb;
-    padding: 50px 70px 50px 26%;
+    padding: 50px 25px;
   }
   main .advantage .container {
     background: transparent;
@@ -7405,6 +7411,9 @@ a:active {
   font-size: 14px;
   color: #3b3b3b;
 }
+main .desktop_filters .show_result {
+  margin: 10px 0 20px;
+}
 .filter_mobile .check_container {
   margin-left: -moz-calc(50% - 110px);
   margin-left: calc(50% - 110px);
@@ -7492,9 +7501,6 @@ a:active {
   }
   main .goods {
     width: 100%;
-  }
-  main .goods .tab-content {
-    margin-bottom: 0;
   }
   main .goods .tab-content .tab_container .tab_item .price h3 {
     font-size: 21px;
@@ -7596,6 +7602,16 @@ a:active {
   }
   main .catalog_item .price_block .top_block h2 {
     font-size: 32px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .basket_tooltip {
+    left: auto;
+    right: 0;
+  }
+  .basket_tooltip:before {
+    left: auto;
+    right: 125px;
   }
 }
 @media (min-width: 991px) and (max-width: 1500px) {
@@ -8484,6 +8500,12 @@ a:active {
   }
   main #mainCarousel .carousel-inner {
     height: 210px;
+  }
+  main .goods .tab-content {
+    margin-bottom: 50px;
+  }
+  main .news_container {
+    margin-top: 50px;
   }
 }
 @media screen and (max-width: 650px) {
