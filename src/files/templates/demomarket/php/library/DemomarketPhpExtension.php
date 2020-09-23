@@ -2133,7 +2133,7 @@
 			$data = is_array($data) ? $data : [];
 			$data['lines'] = isset($data['lines']) ? $data['lines'] : [];
 			$data['per_page'] = isset($data['per_page']) ? $data['per_page'] : 0;
-			$currentPage = Service::Request()->getPageNavigationNumber();
+			$currentPage = Service::Request()->pageNumber();
 
 			foreach ($data['lines'] as $index => &$item) {
 				$item['id'] = isset($item['id']) ? $item['id'] : '';
