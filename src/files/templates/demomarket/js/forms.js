@@ -543,14 +543,18 @@ site.forms = {
 
 			/** Обновляет цену доставок типа "Почта России" */
 			updateRussianPostDeliveryPrice: function() {
-				var purchasing = this;
-				var $russianPostList = $('input[data-type="russianpost"]', '.delivery_choose.onestep');
+				let purchasing = this;
+				let $russianPostList = $('input[data-type="russianpost"]', '.delivery_choose.onestep');
 
 				if ($russianPostList.length > 0) {
 					$.each($russianPostList, function(index, russianPost) {
-						var $russianPost = $(russianPost);
-						purchasing.updateDeliveryInOrder($russianPost.attr('value'));
-						var price = purchasing.getDeliveryPrice();
+						let $russianPost = $(russianPost);
+
+						if ($russianPost.prop('checked')) {
+							purchasing.updateDeliveryInOrder($russianPost.attr('value'));
+						}
+
+						let price = purchasing.getDeliveryPrice();
 
 						purchasing.updatePriceInChooseList($russianPost, price);
 						purchasing.setPriceOfChosenDeliveryInCart()
