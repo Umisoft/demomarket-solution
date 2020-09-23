@@ -240,6 +240,14 @@ site.common = {
 					return true;
 				}
 
+				let personalDataAgreement = $form.find('#purchase-step-address-152-federal-law');
+				let isAgreeWidthProcessingPersonalData = personalDataAgreement.prop('checked');
+
+				if (!isAgreeWidthProcessingPersonalData) {
+					e.preventDefault();
+					return false;
+				}
+
 				if (site.forms.emarket.purchasingOneStep.showErrors()) {
 					e.preventDefault();
 					return false;
