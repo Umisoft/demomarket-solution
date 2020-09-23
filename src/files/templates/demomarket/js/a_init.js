@@ -233,8 +233,8 @@ site.common = {
 		 */
 		function registerSubmitPaymentCallback() {
 			$('form#payment_choose, form#oneStepForm').on('submit', function(e) {
-				var $form = $(this);
-				var $payment = $("input[name='payment-id']:checked", $form);
+				let $form = $(this);
+				let $payment = $("input[name='payment-id']:checked", $form);
 
 				if ($payment.attr('class') !== 'receipt') {
 					return true;
@@ -253,11 +253,11 @@ site.common = {
 					return false;
 				}
 
-				var params = $form.serialize();
-				var url = $form.attr('action');
+				let params = $form.serialize();
+				let url = $form.attr('action');
 
-				var win = window.open("", "_blank", "width=710,height=620,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no");
-				var html = "<html><head><" + "script" + ">location.href = '" + url + "?" + params + "'</" + "script" + "></head><body></body></html>";
+				let win = window.open("", "_blank", "width=710,height=620,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no");
+				let html = "<html><head><" + "script" + ">location.href = '" + url + "?" + params + "'</" + "script" + "></head><body></body></html>";
 
 				win.document.write(html);
 				win.focus();
