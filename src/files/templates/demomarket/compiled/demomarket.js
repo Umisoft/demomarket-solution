@@ -2649,11 +2649,11 @@ site.forms = {
 			 */
 			getDeliveryPrice: function($deliveryId) {
 				let price = 0;
+				let url = '/udata://emarket/getDeliveryPriceByDeliveryId/' + $deliveryId;
 
 				$.ajax({
 					type: 'POST',
-					url: '/udata://emarket/getDeliveryPriceByDeliveryId',
-					data: {'delivery-id' : $deliveryId},
+					url: url,
 					async: false,
 
 					success: function(data) {
