@@ -2624,14 +2624,14 @@ site.forms = {
 				if ($russianPostList.length > 0) {
 					$.each($russianPostList, function(index, russianPost) {
 						let $russianPost = $(russianPost);
+						let $deliveryId = $russianPost.attr('value');
+						let $price = purchasing.getDeliveryPrice($deliveryId);
 
 						if ($russianPost.prop('checked')) {
-							purchasing.updateDeliveryInOrder($russianPost.attr('value'));
+							purchasing.updateDeliveryInOrder($deliveryId)
 						}
 
-						let price = purchasing.getDeliveryPrice();
-
-						purchasing.updatePriceInChooseList($russianPost, price);
+						purchasing.updatePriceInChooseList($russianPost, $price);
 						purchasing.setPriceOfChosenDeliveryInCart()
 					});
 				}
@@ -2652,14 +2652,16 @@ site.forms = {
 
 			/**
 			 * Возвращает цену доставки
+			 * @param {int} $deliveryId идентификатор доставки
 			 * @returns {int}
 			 */
-			getDeliveryPrice: function() {
-				var price = 0;
+			getDeliveryPrice: function($deliveryId) {
+				let price = 0;
+				let url = '/udata://emarket/getDeliveryPriceByDeliveryId/' + $deliveryId;
 
 				$.ajax({
 					type: 'POST',
-					url: '/udata://emarket/getDeliveryPrice',
+					url: url,
 					async: false,
 
 					success: function(data) {
