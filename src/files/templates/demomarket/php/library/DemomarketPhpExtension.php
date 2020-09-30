@@ -294,6 +294,28 @@
 		}
 
 		/**
+		 * Возвращает хеш пути до файла фотографии товара для файлового менеджера 
+		 * @param iUmiHierarchyElement $product товар (страница)
+		 * @return string
+		 */
+		public function getPhotoDirHash(iUmiHierarchyElement $product) {
+			/** @var iUmiImageFile $photo */
+			$photo = $product->getValue('photo');
+			return ($photo instanceof iUmiImageFile) ? $photo->getDirHash() : '';
+		}
+
+		/**
+		 * Возвращает хеш пути фотографии товара до директории для файлового менеджера
+		 * @param iUmiHierarchyElement $product товар (страница)
+		 * @return string
+		 */
+		public function getPhotoPathHash(iUmiHierarchyElement $product) {
+			/** @var iUmiImageFile $photo */
+			$photo = $product->getValue('photo');
+			return ($photo instanceof iUmiImageFile) ? $photo->getPathHash() : '';
+		}
+
+		/**
 		 * Возвращает цену товара с учетом скидок
 		 * @param iUmiHierarchyElement $product страница (товар)
 		 * @return string
@@ -625,6 +647,9 @@
 			$thumbnail['object'] = isset($variables['object']) ? $variables['object'] : '';
 			$thumbnail['id'] = $variables['id'];
 			$thumbnail['field_name'] = $variables['field_name'];
+			$thumbnail['object-id'] = isset($variables['objectId']) ? $variables['objectId'] : '';
+			$thumbnail['folderHash'] = isset($variables['folderHash']) ? $variables['folderHash'] : '';
+			$thumbnail['fileHash'] = isset($variables['fileHash']) ? $variables['fileHash'] : '';
 			return $thumbnail;
 		}
 
@@ -1184,11 +1209,11 @@
 		 * @return iUmiImageFile[]
 		 */
 		public function getProductImageList(iUmiHierarchyElement $product) {
-			$mainPhotoPath = $this->getPhotoPath($product);
-			$imageList = [new umiImageFile($mainPhotoPath)];
+			$mainPhoto = $product->getValue('photo');
+			$imageList = [$mainPhoto];
 
-			if ($mainPhotoPath === $this->noPhotoPath) {
-				return $imageList;
+			if (!$mainPhoto) {
+				$imageList = [new umiImageFile($this->noPhotoPath)];
 			}
 
 			$additionalPhotos = is_array($product->getValue('photos')) ? $product->getValue('photos') : [];
@@ -2207,6 +2232,28 @@
 			$photo = $newsItem->getValue('publish_pic');
 			$title = ($photo instanceof iUmiImageFile) ? $photo->getTitle() : '';
 			return $title ?: $newsItem->getValue('title');
+		}
+
+		/**
+		 * Возвращает хеш пути до файла картинки для публикации новости для файлового менеджера
+		 * @param iUmiHierarchyElement $newsItem
+		 * @return string|null
+		 */
+		public function getNewsItemPhotoDirHash(iUmiHierarchyElement $newsItem) {
+			/** @var iUmiImageFile $photo */
+			$photo = $newsItem->getValue('publish_pic');
+			return ($photo instanceof iUmiImageFile) ? $photo->getDirHash() : '';
+		}
+
+		/**
+		 * Возвращает Возвращает хеш пути картинки для публикации новости до директории для файлового менеджера
+		 * @param iUmiHierarchyElement $newsItem
+		 * @return string|null
+		 */
+		public function getNewsItemPhotoPathHash(iUmiHierarchyElement $newsItem) {
+			/** @var iUmiImageFile $photo */
+			$photo = $newsItem->getValue('publish_pic');
+			return ($photo instanceof iUmiImageFile) ? $photo->getPathHash() : '';
 		}
 
 		/**

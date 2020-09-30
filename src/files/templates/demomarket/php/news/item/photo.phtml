@@ -20,7 +20,10 @@ $photoPath = $this->getNewsItemPhotoPath($newsItem);
 				'field_name' => 'publish_pic',
 				'src' => $photoPath,
 				'alt' => $this->getNewsItemPhotoAlt($newsItem),
-				'title' => $this->getNewsItemPhotoTitle($newsItem)
+				'title' => $this->getNewsItemPhotoTitle($newsItem),
+				'objectId' => $newsItem->getObjectId(),
+				'folderHash' => $this->getNewsItemPhotoDirHash($newsItem),
+				'fileHash' => $this->getNewsItemPhotoPathHash($newsItem),
 			],
 			'library/thumbnail'
 		) ?>

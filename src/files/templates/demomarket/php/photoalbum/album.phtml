@@ -42,6 +42,9 @@ $photoList = $this->getPhotoalbumPhotos($albumData);
 								'title' => $this->getPhotoTitle($photo),
 								'width' => 280,
 								'height' => 200,
+								'objectId' => $photo->getObjectId(),
+								'folderHash' => $this->getPhotoDirHash($photo),
+								'fileHash' => $this->getPhotoPathHash($photo),
 							],
 							'library/thumbnail'
 						) ?>

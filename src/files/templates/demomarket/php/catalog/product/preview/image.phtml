@@ -22,6 +22,9 @@ $product = $variables;
 				'title' => $this->getPhotoTitle($product),
 				'width' => 'auto',
 				'height' => 150,
+				'objectId' => $product->getObjectId(),
+				'folderHash' => $this->getPhotoDirHash($product),
+				'fileHash' => $this->getPhotoPathHash($product),
 			],
 			'library/thumbnail'
 		) ?>
