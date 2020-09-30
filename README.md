@@ -3,8 +3,8 @@
 #### Общая информация:
 
  * Решение предназначено для редакции Commerce, но может работать на всех редакциях, вплоть до Lite;
- * Объект решения production версии: (http://udod.umihost.ru/admin/updatesrv/edit/483994/);
- * Объект решения dev версии: (http://udod.umihost.ru/admin/updatesrv/edit/496936/);
+ * Объект решения production версии: (http://udod.umihost.ru/admin/updatesrv/edit/420641/);
+ * Объект решения dev версии: (http://udod.umihost.ru/admin/updatesrv/edit/496771/);
  * Настройки конфигурации упаковщика подробнее описаны в файле (https://github.com/Umisoft/umi.cms.2/blob/dev/sys-temp/packer/config/config.sample.php);
  * Инструкция по установке системы: (https://github.com/Umisoft/umi.cms.2/blob/dev/INSTALLATION.md);
  * При любой сборке надо ставить ставить заглушку на сайт через config.ini [stub], чтобы во время сборки боты не добавили вам в бд спама;
