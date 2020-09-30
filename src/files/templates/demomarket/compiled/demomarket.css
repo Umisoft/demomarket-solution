@@ -4554,7 +4554,7 @@ main .order_bill .text {
   -moz-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  max-width: 60%;
+  max-width: 50%;
   line-height: 1.57em;
 }
 main .order_bill .price {
