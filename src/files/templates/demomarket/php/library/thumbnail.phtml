@@ -19,6 +19,9 @@ $canShowEIP = $thumbnail['field_name'] && $thumbnail['id'];
 	height="<?= $thumbnail['height'] ?>"
 	<?php if ($canShowEIP): ?>
 		<?= $this->getUmiIdAttributeName($thumbnail['object']) . '="' . $thumbnail['id'] . '"' ?>
+		<?= !$thumbnail['object'] ? 'umi:object-id="' . $thumbnail['object-id'] . '"' : '' ?>
+		<?= $thumbnail['folderHash'] ? 'umi:folder-hash="' . $thumbnail['folderHash'] . '"' : '' ?>
+		<?= $thumbnail['fileHash'] ? 'umi:file-hash="' . $thumbnail['fileHash'] . '"' : '' ?>
 		<?= 'umi:field-name="' . $thumbnail['field_name'] . '" ' ?>
 	<?php endif; ?>
 />

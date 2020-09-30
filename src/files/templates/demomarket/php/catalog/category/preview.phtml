@@ -21,6 +21,9 @@ $name = $this->escape($category->getName());
 				'title' => $this->getPhotoTitle($category),
 				'width' => 'auto',
 				'height' => 150,
+				'objectId' => $category->getObjectId(),
+				'folderHash' => $this->getPhotoDirHash($category),
+				'fileHash' => $this->getPhotoPathHash($category),
 			],
 			'library/thumbnail'
 		) ?>

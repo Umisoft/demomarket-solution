@@ -23,6 +23,9 @@ $productList = $this->getOrderItems($cart);
 							'title' => $this->getPhotoTitle($product['page']),
 							'width' => 75,
 							'height' => 50,
+							'objectId' => $product['page']->getObjectId(),
+							'folderHash' => $this->getPhotoDirHash($product['page']),
+							'fileHash' => $this->getPhotoPathHash($product['page']),
 						],
 						'library/thumbnail'
 					) ?>
