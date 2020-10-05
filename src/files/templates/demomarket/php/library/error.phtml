@@ -1,0 +1,20 @@
+<?php
+/**
+ * Сообщение об ошибке.
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var Exception $variables
+ */
+ 
+ $error = $variables;
+?>
+
+<div class="container">
+	<div class="error">
+		<h3><?= $this->translate('error') ?></h3>
+		<p><?= $error->getMessage() ?></p>
+		<?php if ($this->isDebug()): ?>
+			<p><?= $this->textReplaceLineBreaks($error->getTraceAsString()) ?></p>
+		<?php endif; ?>
+	</div>
+</div>
+

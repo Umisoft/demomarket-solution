@@ -1,0 +1,16 @@
+<?php
+/**
+ * Страница с сообщением об успешно отправленной форме или ошибками.
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+ 
+ $error = $variables['data'];
+?>
+
+<?php if ($error instanceof Exception): ?>
+	<?= $this->render($error, 'library/error') ?>
+<?php else: ?>
+	<?= $this->render($variables, 'webforms/posted') ?>
+<?php endif; ?>
+
