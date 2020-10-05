@@ -19,12 +19,4 @@
 	</div>
 <?php endif; ?>
 
-<div class="container">
-	<div class="error">
-		<h3><?= $this->translate('error') ?></h3>
-		<p><?= $error->getMessage() ?></p>
-		<?php if ($this->isDebug()): ?>
-			<p><?= $this->textReplaceLineBreaks($error->getTraceAsString()) ?></p>
-		<?php endif; ?>
-	</div>
-</div>
+<?= $this->render($error, 'library/error') ?>
