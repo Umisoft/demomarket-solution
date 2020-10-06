@@ -242,8 +242,9 @@ site.common = {
 
 				let personalDataAgreement = $form.find('#purchase-step-address-152-federal-law');
 				let isAgreeWidthProcessingPersonalData = personalDataAgreement.prop('checked');
+				let isOneStepForm = $form.is('#oneStepForm');
 
-				if (!isAgreeWidthProcessingPersonalData) {
+				if (isOneStepForm && !isAgreeWidthProcessingPersonalData) {
 					e.preventDefault();
 					return false;
 				}
