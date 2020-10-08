@@ -51,7 +51,7 @@ $params = $this->getLoginParams($variables);
 					<?= $this->translate('login_social_header') ?>
 				</h5>
 
-				<div id="uLogin" data-ulogin="display=panel;theme=flat;fields=first_name,last_name,network,email,nickname;providers=vkontakte,facebook,twitter;hidden=google,mailru,odnoklassniki,yandex,googleplus,instagram;redirect_uri=<?= $this->getULoginRedirectUrl() ?>;mobilebuttons=0;"></div>
+				<div id="uLogin" data-ulogin="display=panel;theme=flat;fields=first_name,last_name,network,email,nickname;providers=vkontakte,facebook,google;hidden=mailru,odnoklassniki,yandex,googleplus;redirect_uri=<?= $this->getULoginRedirectUrl() ?>;mobilebuttons=0;"></div>
 
 				<p>
 					<?= $this->translate('not_a_member_yet?') ?>
