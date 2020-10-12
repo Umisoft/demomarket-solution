@@ -7004,7 +7004,7 @@ main .subCarousel.goods.w100p .slick-list .col-md-3 {
     padding: 20px 0;
     background: #ffffff;
     width: 99%;
-    top: 100px;
+    top: 110px;
     left: 0;
     right: 0;
     position: absolute;
@@ -7061,6 +7061,7 @@ main .subCarousel.goods.w100p .slick-list .col-md-3 {
     -ms-flex-align: center;
     align-items: center;
     height: 100%;
+    position: relative;
   }
   .header_mobile .container .mobile_top_logo {
     display: -webkit-flex;
@@ -7107,9 +7108,14 @@ main .subCarousel.goods.w100p .slick-list .col-md-3 {
   .header_mobile .container .icon_search form {
     position: absolute;
     background: #fff;
-    top: 60px;
+    bottom: 0;
     left: 0;
     right: 0;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    border-radius: 100px;
     z-index: 1000;
     display: none;
   }
@@ -7779,10 +7785,6 @@ main .desktop_filters .show_result {
     /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color=#252525);
     /*IE 5.5-7*/
-  }
-  .header_mobile .search_content {
-    padding: 0;
-    box-shadow: none;
   }
   main .advantage .container .row > div .media .media-body {
     width: 100%;
