@@ -17488,7 +17488,7 @@ INSERT INTO `cms3_object_content` (`obj_id`, `field_id`, `int_val`, `varchar_val
 (2581,	30,	NULL,	'SS',	NULL,	NULL,	NULL,	NULL),
 (2582,	30,	NULL,	'JM',	NULL,	NULL,	NULL,	NULL),
 (2583,	30,	NULL,	'JP',	NULL,	NULL,	NULL,	NULL),
-(1441,	622,	NULL,	NULL,	'<p><iframe frameborder=\"0\" src=\"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5649.050962275806!2d30.29193921665407!3d59.96132370485773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1507539270320\" width=\"600\" height=\"450\"></iframe></p>\r\n<p>&nbsp;</p>',	NULL,	NULL,	NULL),
+(1441,	622,	NULL,	NULL,	'<p><iframe frameborder=\"0\" src=\"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5649.050962275806!2d30.29193921665407!3d59.96132370485773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1507539270320\" width=\"600\" height=\"450\"></iframe></p>',	NULL,	NULL,	NULL),
 (685,	393,	NULL,	'/shop/sport-i-turizm/velosipedy-i-aksessuary/vzroslye-velosipedy/velosiped-carrera-virtuoso-road-bike',	NULL,	NULL,	NULL,	NULL),
 (2331,	4,	NULL,	NULL,	'',	NULL,	NULL,	NULL),
 (372,	211,	1515754800,	NULL,	NULL,	NULL,	NULL,	NULL),
