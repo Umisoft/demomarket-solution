@@ -3736,10 +3736,8 @@ main {
 
 			.icon_search {
 				cursor: pointer;
-				&:hover form {
-					display: block;
-				}
 				form {
+					display: block;
 					position: absolute;
 					background: #fff;
 					bottom: 0;
@@ -3748,7 +3746,9 @@ main {
 					transform: translateY(100%);
 					border-radius: 100px;
 					z-index: 1000;
-					display: none;
+					&.hide {
+						display: none;
+					}
 					input {
 						border-radius: 100px;
 						border: 1px solid @bord_color;
