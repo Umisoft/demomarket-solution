@@ -18,7 +18,7 @@
 	var maxResultsCount = 15;
 	var template = null;
 	var beforeCloseInterval = 200;
-    var icon_search = '.icon_search img';
+	var icon_search = '.icon_search img';
 
 	var canShowMobileSearch = function() {
 		return $.viewportW() < 992;
