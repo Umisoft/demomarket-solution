@@ -30,6 +30,7 @@ $photoList = $this->getPhotoalbumPhotos($albumData);
 				<div>
 					<a href="<?= $this->getPhotoPath($photo) ?>"
 					   rel="fancybox_group"
+					   data-fancybox="gallery"
 					   title="<?= $this->escape($photo->getValue('title')) ?>"
 					   class="fancybox"
 					>
