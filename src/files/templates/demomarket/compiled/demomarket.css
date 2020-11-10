@@ -7102,10 +7102,8 @@ main .subCarousel.goods.w100p .slick-list .col-md-3 {
   .header_mobile .container .icon_search {
     cursor: pointer;
   }
-  .header_mobile .container .icon_search:hover form {
-    display: block;
-  }
   .header_mobile .container .icon_search form {
+    display: block;
     position: absolute;
     background: #fff;
     bottom: 0;
@@ -7117,6 +7115,8 @@ main .subCarousel.goods.w100p .slick-list .col-md-3 {
     transform: translateY(100%);
     border-radius: 100px;
     z-index: 1000;
+  }
+  .header_mobile .container .icon_search form.hide {
     display: none;
   }
   .header_mobile .container .icon_search form input {
@@ -7225,6 +7225,9 @@ main .subCarousel.goods.w100p .slick-list .col-md-3 {
 }
 .contacts .contacts_container .contacts_container_bottom .comment .comment_add form {
   width: 100%;
+}
+.contacts .map.u-eip-edit-box iframe {
+  pointer-events: none;
 }
 @media screen and (max-width: 767px) {
   main .delivery #deliveryForm .del_row {
