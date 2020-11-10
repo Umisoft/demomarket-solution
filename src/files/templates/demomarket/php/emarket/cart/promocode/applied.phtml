@@ -1,0 +1,20 @@
+<?php
+/**
+ * Блок с информацией о примененном промокоде.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$isPromoCodeCorrect = $this->macros('emarket', 'isCorrectPromoCode');
+$promoCode = $this->macros('emarket', 'getAppliedPromoCode');
+?>
+<?php if($isPromoCodeCorrect): ?>
+	<div class="right_promocode">
+		<?= $this->translate('promocode-applied') ?><?= $promoCode ?>
+	</div>
+<?php else: ?>
+	<?= $this->render($variables, 'emarket/cart/promocode/form') ?>
+	<div class="wrong_promocode">
+		<?= $this->translate('wrong-promocode') ?><?= $promoCode ?>
+	</div>
+<?php endif; ?>

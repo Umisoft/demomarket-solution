@@ -201,6 +201,12 @@
 		'available-bonuses' => 'Доступно бонусов на сумму',
 		'spend_bonus' => 'Оплатить бонусами',
 
+		'apply-promocode' => 'Применить',
+		'enter-promocode' => 'Введите промокод',
+		'wrong-promocode' => 'Неверный промокод: ',
+		'promocode-applied' => 'Использован промокод: ',
+		'promocode' => 'Промокод',
+
 		'slab-view' => 'Плиткой',
 		'list-view' => 'Списком',
 

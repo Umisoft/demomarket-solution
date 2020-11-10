@@ -1486,3 +1486,45 @@ main {
 .ui-selectmenu-menu .ui-menu {
 	max-height: 300px;
 }
+//--------------------------------------------------- promocode-form ------------------------------------------------------//
+form#promocode {
+	h4 {
+		margin-bottom: 20px;
+	}
+	.col-sm-5 {
+		:first-of-type {
+			padding-right: 20px;
+		}
+		:last-of-type input[type="submit"] {
+			margin: 0;
+		}
+	}
+}
+
+.wrong_promocode {
+	margin-top: 20px;
+	color: #F05242;
+}
+
+@media (max-width: 1499px) {
+	main .cart .order_result {
+		p {
+			text-align: left;
+		}
+		.transparent_btn {
+			float: left;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	form#promocode .col-sm-5 {
+		:first-of-type {
+			padding-right: 0;
+		}
+		:last-of-type input[type="submit"] {
+			margin-top: 20px;
+			width: 100%;
+		}
+	}
+}

@@ -1,0 +1,16 @@
+<?php
+/**
+ * Блок для использования промокода.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$promoCodeApplied = $this->macros('emarket', 'getAppliedPromoCode') != '';
+?>
+<div class="col-sm-12 col-lg-6">
+	<?php if($promoCodeApplied): ?>
+		<?= $this->render($variables, 'emarket/cart/promocode/applied') ?>
+	<?php else: ?>
+		<?= $this->render($variables, 'emarket/cart/promocode/form') ?>
+	<?php endif; ?>
+</div>

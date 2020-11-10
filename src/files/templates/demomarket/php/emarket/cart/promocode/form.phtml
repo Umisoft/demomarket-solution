@@ -1,0 +1,29 @@
+<?php
+/**
+ * Форма для использования промокода.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+<form id="promocode" class="clearfix" method="post" action="<?= $this->getPromoCodeAction() ?>">
+	<h4>
+		<?= $this->translate('promocode') ?>
+	</h4>
+
+	<div class="col-sm-5">
+		<input
+			type="text"
+			name="promocode"
+			placeholder="<?= $this->translate('enter-promocode') ?>"
+		/>
+
+		<span class="sub_text">
+			<?= $this->translate('promocode') ?>
+		</span>
+	</div>
+
+	<div class="col-sm-5">
+		<input type="submit" value="<?= $this->translate('apply-promocode') ?>" />
+	</div>
+</form>
