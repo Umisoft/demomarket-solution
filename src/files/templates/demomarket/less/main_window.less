@@ -1677,7 +1677,7 @@ main {
 			.align(left);
 			& > .container {
 				& > .row {
-					padding: 35px 65px;
+					padding: 25px 65px 55px;
 					border: 1px solid @bord_color;
 				}
 			}
@@ -1693,19 +1693,16 @@ main {
 					}
 				}
 			}
-			.transparent_btn {
-				color: @color-base;
+			.blue_btn {
+				color: @white;
+				background: @color-base;
+				border: 2px solid @color-base;
+				align-self: flex-end;
 				width: 265px;
-				float: right;
-				padding: 20px;
+				padding: 16px;
 				font-size: @baseFontSize;
 				.align();
 				.img_hover();
-				&:hover {
-					background: @color-base;
-					color: @white;
-					cursor: pointer;
-				}
 			}
 		}
 	}
