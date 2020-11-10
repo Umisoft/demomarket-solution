@@ -5,10 +5,10 @@
  * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
  * @var array $variables
  */
-$isPromoCodeCorrect = $this->macros('emarket', 'isCorrectPromoCode');
-$promoCode = $this->macros('emarket', 'getAppliedPromoCode');
+$promoCode = $this->macros('emarket', 'getSavedPromoCode');
+$isSavedPromoCodeApplied = $this->macros('emarket', 'isSavedPromoCodeApplied');
 ?>
-<?php if($isPromoCodeCorrect): ?>
+<?php if($isSavedPromoCodeApplied): ?>
 	<div class="right_promocode">
 		<?= $this->translate('promocode-applied') ?><?= $promoCode ?>
 	</div>

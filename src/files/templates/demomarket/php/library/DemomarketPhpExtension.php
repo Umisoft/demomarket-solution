@@ -2983,7 +2983,7 @@
 		 * @return string
 		 */
 		public function getPromoCodeAction() {
-			return $this->getTemplateEngine()->getCommonVar('pre_lang') . '/emarket/applyPromoCode/';
+			return $this->getTemplateEngine()->getCommonVar('pre_lang') . '/emarket/savePromoCode/';
 		}
 
 		/**

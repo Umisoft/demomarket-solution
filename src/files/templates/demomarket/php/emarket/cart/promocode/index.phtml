@@ -5,7 +5,7 @@
  * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
  * @var array $variables
  */
-$promoCodeApplied = $this->macros('emarket', 'getAppliedPromoCode') != '';
+$promoCodeApplied = $this->macros('emarket', 'getSavedPromoCode') != '';
 ?>
 <div class="col-sm-12 col-lg-6">
 	<?php if($promoCodeApplied): ?>
