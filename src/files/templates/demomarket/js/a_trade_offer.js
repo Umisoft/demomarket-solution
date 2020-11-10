@@ -284,7 +284,9 @@ site.TradeOffers = {
 		var $imageContainer = $('div.main_carousel div.slick-slide.slick-current.slick-active a');
 		$imageContainer.attr('href', value);
 		$('img', $imageContainer).attr('src', value);
-		$("a[rel=fancybox_group]").fancybox();
+		$("a[rel=fancybox_group]").fancybox({
+			loop: true,
+		});
 	},
 
 	/**

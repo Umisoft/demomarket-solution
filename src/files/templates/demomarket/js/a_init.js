@@ -306,7 +306,9 @@ site.common = {
 
 		/** Инициализирует fancybox */
 		function initFancybox() {
-			$("a[rel=fancybox_group]").fancybox();
+			$("a[rel=fancybox_group]").fancybox({
+				loop: true,
+			});
 		}
 
 		/**
