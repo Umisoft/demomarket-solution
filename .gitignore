@@ -1,3 +1,4 @@
 .idea
+.vscode
 src/files/templates/demomarket/node_modules
 src/styles/skins/modern/data/modules/umiPushNotification/js/gen/
