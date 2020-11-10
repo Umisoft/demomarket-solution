@@ -1209,6 +1209,23 @@ site.Cart = {
 			quantityNode.val(newQuantity);
 			site.Cart.modify(orderItemId, newQuantity, oldQuantity);
 		});
+
+		/** Применение промокода */
+		$('form#promocode').on('submit', function(e) {
+			e.preventDefault();
+			let $form = $(this);
+
+			let url = $form.attr('action');
+			$.ajax({
+				type: 'POST',
+				url: url,
+				data: $form.serialize(),
+
+				success: function() {
+					window.location.reload();
+				}
+			});
+		});
 	},
 
 	/**
