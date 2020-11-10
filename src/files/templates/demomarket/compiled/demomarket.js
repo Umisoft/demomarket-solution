@@ -2801,6 +2801,7 @@ $(function() {
 	var maxResultsCount = 15;
 	var template = null;
 	var beforeCloseInterval = 200;
+	var icon_search = '.icon_search img';
 
 	var canShowMobileSearch = function() {
 		return $.viewportW() < 992;
@@ -2812,6 +2813,10 @@ $(function() {
 		$element = $('input[name=search_string]', $form).first();
 		$templateElement = $('#search_result_template');
 		$resultElement = $('.search_content', $form.parent());
+
+		$(icon_search).on('click touch', function () {
+			$form.toggleClass('hide');
+		});
 
 		$resultElement.hide();
 

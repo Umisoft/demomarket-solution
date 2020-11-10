@@ -2,3 +2,4 @@
 .vscode
 src/files/templates/demomarket/node_modules
 src/styles/skins/modern/data/modules/umiPushNotification/js/gen/
+src/files/styles/skins/modern/data/modules/umiPushNotification/js/gen/site-push.min.js
