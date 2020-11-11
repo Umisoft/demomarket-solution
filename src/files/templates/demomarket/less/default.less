@@ -1486,3 +1486,64 @@ main {
 .ui-selectmenu-menu .ui-menu {
 	max-height: 300px;
 }
+//--------------------------------------------------- promocode-form ------------------------------------------------------//
+form#promocode {
+	position: relative;
+	h4 {
+		margin-bottom: 20px;
+	}
+	.col-sm-5 {
+		&:first-of-type {
+			padding-right: 20px;
+		}
+		&:last-of-type input[type="submit"] {
+			margin: 0;
+		}
+	}
+}
+
+.wrong_promocode {
+	color: #F05242;
+	position: absolute;
+	bottom: -30px;
+}
+
+.order_result .promocode, .order_result .order_pricing {
+	height: 230px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.order_result .order_pricing {
+	align-items: flex-end;
+}
+
+@media (max-width: 1499px) {
+	.order_result .order_pricing {
+		align-items: flex-start;
+	}
+	body main .cart .order_result {
+		p {
+			text-align: left;
+		}
+		.blue_btn {
+			align-self: flex-start;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	form#promocode .col-sm-5 {
+		&:first-of-type {
+			padding-right: 0;
+		}
+		&:last-of-type input[type="submit"] {
+			margin-top: 20px;
+			width: 100%;
+		}
+	}
+	body main .cart .order_result .blue_btn {
+		width: 100%;
+	}
+}

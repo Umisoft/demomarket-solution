@@ -2964,6 +2964,14 @@
 		}
 
 		/**
+		 * Возвращает action для формы применения промокода
+		 * @return string
+		 */
+		public function getPromoCodeAction() {
+			return $this->getTemplateEngine()->getCommonVar('pre_lang') . '/emarket/savePromoCode/';
+		}
+
+		/**
 		 * Определяет оформился ли заказ
 		 * @param array $variables данные макроса оформления заказа
 		 *

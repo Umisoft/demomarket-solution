@@ -161,6 +161,26 @@ site.Cart = {
 			quantityNode.val(newQuantity);
 			site.Cart.modify(orderItemId, newQuantity, oldQuantity);
 		});
+
+		/** Применение промокода */
+		$('form#promocode').on('submit', function(e) {
+			e.preventDefault();
+
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url: '/udata/emarket/savePromoCode/.json',
+				data: $(this).serialize(),
+
+				success: function(data) {
+					if (data.result) {
+						window.location.reload();
+					} else {
+						$('.wrong_promocode').show();
+					}
+				}
+			});
+		});
 	},
 
 	/**

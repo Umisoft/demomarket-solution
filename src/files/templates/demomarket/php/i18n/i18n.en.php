@@ -200,6 +200,12 @@
 		'available-bonuses' => 'Available bonuses of',
 		'spend_bonus' => 'Use bonuses',
 
+		'apply-promocode' => 'Apply',
+		'use-promocode' => 'Enter your promocode',
+		'wrong-promocode' => 'Wrong promocode',
+		'promocode-applied' => 'Promocode applied',
+		'promocode' => 'Promocode',
+
 		'slab-view' => 'Slab',
 		'list-view' => 'List',
 
