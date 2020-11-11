@@ -13,7 +13,7 @@ $isPromoCodesAvailable = $this->macros('emarket', 'isPromoCodesAvailable');
 	<div class="container mobile_all_width">
 		<div class="row background_gray">
 			<?php if ($isPromoCodesAvailable): ?>
-				<?= $this->render($variables, 'emarket/cart/promocode/index') ?>
+				<?= $this->render($variables, 'emarket/cart/promocode') ?>
 				<div class="col-sm-12 col-lg-6 order_pricing">
 			<?php else: ?>
 				<div class="col-sm-12 col-lg-offset-7 col-lg-4 order_pricing">

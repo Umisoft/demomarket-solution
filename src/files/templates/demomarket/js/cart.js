@@ -165,16 +165,19 @@ site.Cart = {
 		/** Применение промокода */
 		$('form#promocode').on('submit', function(e) {
 			e.preventDefault();
-			let $form = $(this);
 
-			let url = $form.attr('action');
 			$.ajax({
 				type: 'POST',
-				url: url,
-				data: $form.serialize(),
+				dataType: 'json',
+				url: '/udata/emarket/savePromoCode/.json',
+				data: $(this).serialize(),
 
-				success: function() {
-					window.location.reload();
+				success: function(data) {
+					if (data.result) {
+						window.location.reload();
+					} else {
+						$('.wrong_promocode').show();
+					}
 				}
 			});
 		});

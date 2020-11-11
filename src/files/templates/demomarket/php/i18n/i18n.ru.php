@@ -203,8 +203,8 @@
 
 		'apply-promocode' => 'Применить',
 		'enter-promocode' => 'Введите промокод',
-		'wrong-promocode' => 'Неверный промокод: ',
-		'promocode-applied' => 'Использован промокод: ',
+		'wrong-promocode' => 'Неверный промокод',
+		'promocode-applied' => 'Промокод использован',
 		'promocode' => 'Промокод',
 
 		'slab-view' => 'Плиткой',

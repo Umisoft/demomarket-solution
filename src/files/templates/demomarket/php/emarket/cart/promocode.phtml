@@ -1,0 +1,48 @@
+<?php
+/**
+ * Блок для использования промокода.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+$promoCode = $this->macros('emarket', 'getSavedPromoCode');
+?>
+<div class="col-sm-12 col-lg-6 promocode">
+	<div class="right_promocode"
+		<?php if (!$promoCode): ?>
+			style="display: none"
+		<?php endif; ?>
+	>
+		<?= $this->translate('promocode-applied') ?>
+	</div>
+
+	<div class="wrong_promocode" style="display: none">
+		<?= $this->translate('wrong-promocode') ?>
+	</div>
+
+	<form id="promocode" class="clearfix" method="post"
+		<?php if ($promoCode): ?>
+			style="display: none"
+		<?php endif; ?>
+	>
+		<h4>
+			<?= $this->translate('promocode') ?>
+		</h4>
+
+		<div class="col-sm-5">
+			<input
+				type="text"
+				name="promocode"
+				placeholder="<?= $this->translate('enter-promocode') ?>"
+			/>
+
+			<span class="sub_text">
+			<?= $this->translate('promocode') ?>
+		</span>
+		</div>
+
+		<div class="col-sm-5">
+			<input type="submit" value="<?= $this->translate('apply-promocode') ?>" />
+		</div>
+	</form>
+</div>

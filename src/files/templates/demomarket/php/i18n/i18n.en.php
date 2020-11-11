@@ -202,8 +202,8 @@
 
 		'apply-promocode' => 'Apply',
 		'use-promocode' => 'Enter your promocode',
-		'wrong-promocode' => 'Wrong promocode: ',
-		'promocode-applied' => 'Promocode applied: ',
+		'wrong-promocode' => 'Wrong promocode',
+		'promocode-applied' => 'Promocode applied',
 		'promocode' => 'Promocode',
 
 		'slab-view' => 'Slab',
