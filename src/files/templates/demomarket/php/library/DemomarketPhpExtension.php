@@ -905,21 +905,6 @@
 		}
 
 		/**
-		 * Определяет, доступно ли использование промокодов
-		 * @return bool
-		 */
-		public function isPromoCodesAvailable() : bool {
-			/** @var emarket|EmarketMacros $module */
-			$module = cmsController::getInstance()->getModule('emarket');
-
-			if (!$module->isPaymentAvailable()) {
-				return false;
-			}
-
-			return !empty($module->getPromoCodeDiscounts());
-		}
-
-		/**
 		 * Возвращает скидку на товар с префиксом/суффиксом валюты
 		 * @param array $product данные товара
 		 *

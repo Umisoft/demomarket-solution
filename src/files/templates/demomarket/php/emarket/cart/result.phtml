@@ -6,12 +6,13 @@
  * @var array $variables
  */
 $drawFormButton = isset($variables['drawFormButton']) ? $variables['drawFormButton'] : false;
+$isPromoCodesAvailable = $this->macros('emarket', 'isPromoCodesAvailable');
 ?>
 
 <div class="order_result">
 	<div class="container mobile_all_width">
 		<div class="row background_gray">
-			<?php if($this->isPromoCodesAvailable()): ?>
+			<?php if ($isPromoCodesAvailable): ?>
 				<?= $this->render($variables, 'emarket/cart/promocode/index') ?>
 				<div class="col-sm-12 col-lg-6 order_pricing">
 			<?php else: ?>

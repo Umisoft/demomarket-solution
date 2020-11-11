@@ -8,7 +8,7 @@
 $promoCode = $this->macros('emarket', 'getSavedPromoCode');
 $isSavedPromoCodeApplied = $this->macros('emarket', 'isSavedPromoCodeApplied');
 ?>
-<?php if($isSavedPromoCodeApplied): ?>
+<?php if ($isSavedPromoCodeApplied): ?>
 	<div class="right_promocode">
 		<?= $this->translate('promocode-applied') ?><?= $promoCode ?>
 	</div>
