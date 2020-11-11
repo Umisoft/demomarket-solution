@@ -1949,14 +1949,14 @@ form#promocode .col-sm-5:last-of-type input[type="submit"] {
   }
 }
 @media (max-width: 767px) {
-  form#promocode .col-sm-5 :first-of-type {
+  form#promocode .col-sm-5:first-of-type {
     padding-right: 0;
   }
-  form#promocode .col-sm-5 :last-of-type input[type="submit"] {
+  form#promocode .col-sm-5:last-of-type input[type="submit"] {
     margin-top: 20px;
     width: 100%;
   }
-  main .cart .order_result .blue_btn {
+  body main .cart .order_result .blue_btn {
     width: 100%;
   }
 }
