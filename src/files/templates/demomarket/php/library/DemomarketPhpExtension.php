@@ -4669,6 +4669,20 @@
 		}
 
 		/**
+		 * Возвращает идетификатор типа цены торгового предложения
+		 * @param int $productId идентификатор товара
+		 * @return int
+		 */
+		public function getPriceTypeId($productId) {
+			$product = $this->getPageByIdStrict($productId);
+			$offerCollection = $this->getTradeOfferCollection($product);
+			$priceCollection = Service::TradeOfferPriceFacade()
+				->getCollectionByOfferCollection($offerCollection);
+			$price = $priceCollection->getMain();
+			return $price instanceof iPrice ? $price->getTypeId() : 0;
+		}
+
+		/**
 		 * Возвращает цену торгового предложения
 		 * @param float $price значение цены
 		 * @param iCurrency $currency валюта

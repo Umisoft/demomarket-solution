@@ -13,6 +13,9 @@
 	}
 ?>
 
+<div id="price_type_id" data-price-type-id="<?= $this->getPriceTypeId($product->getId()) ?>">
+</div>
+
 <div class="additional_options">
 	<?php foreach ($characteristicSet as $title => $valueList): ?>
 		<div class="additional_options-item <?= $this->getCharacteristicBlockClass($title) ?>">

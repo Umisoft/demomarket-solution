@@ -34,7 +34,10 @@ site.Cart = {
 			}
 
 			if (site.TradeOffers.isAvailable()) {
-				site.Cart.putElementInCart($button, {'offer_id': site.TradeOffers.getOfferId()});
+				site.Cart.putElementInCart($button, {
+					'offer_id': site.TradeOffers.getOfferId(),
+					'price_type_id': $('#price_type_id').data('price-type-id')
+				});
 				return;
 			}
 
