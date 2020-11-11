@@ -7,7 +7,7 @@
  */
 $promoCodeApplied = $this->macros('emarket', 'getSavedPromoCode') != '';
 ?>
-<div class="col-sm-12 col-lg-6">
+<div class="col-sm-12 col-lg-6 promocode">
 	<?php if($promoCodeApplied): ?>
 		<?= $this->render($variables, 'emarket/cart/promocode/applied') ?>
 	<?php else: ?>

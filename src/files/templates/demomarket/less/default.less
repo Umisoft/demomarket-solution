@@ -1508,21 +1508,22 @@ form#promocode {
 	bottom: -30px;
 }
 
-.order_result > .container > .background_gray .col-sm-12.col-lg-6 {
+.order_result .promocode, .order_result .order_pricing {
 	height: 230px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	&:last-of-type {
-		align-items: flex-end;
-	}
+}
+
+.order_result .order_pricing {
+	align-items: flex-end;
 }
 
 @media (max-width: 1499px) {
-	.order_result > .container > .background_gray .col-sm-12.col-lg-6:last-of-type {
+	.order_result .order_pricing {
 		align-items: flex-start;
 	}
-	main .cart .order_result {
+	body main .cart .order_result {
 		p {
 			text-align: left;
 		}

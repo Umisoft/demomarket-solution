@@ -1909,7 +1909,8 @@ form#promocode .col-sm-5:last-of-type input[type="submit"] {
   position: absolute;
   bottom: -30px;
 }
-.order_result > .container > .background_gray .col-sm-12.col-lg-6 {
+.order_result .promocode,
+.order_result .order_pricing {
   height: 230px;
   display: -webkit-flex;
   display: -moz-box;
@@ -1925,23 +1926,23 @@ form#promocode .col-sm-5:last-of-type input[type="submit"] {
   -ms-flex-pack: end;
   justify-content: flex-end;
 }
-.order_result > .container > .background_gray .col-sm-12.col-lg-6:last-of-type {
+.order_result .order_pricing {
   -webkit-align-items: flex-end;
   -moz-box-align: end;
   -ms-flex-align: end;
   align-items: flex-end;
 }
 @media (max-width: 1499px) {
-  .order_result > .container > .background_gray .col-sm-12.col-lg-6:last-of-type {
+  .order_result .order_pricing {
     -webkit-align-items: flex-start;
     -moz-box-align: start;
     -ms-flex-align: start;
     align-items: flex-start;
   }
-  main .cart .order_result p {
+  body main .cart .order_result p {
     text-align: left;
   }
-  main .cart .order_result .blue_btn {
+  body main .cart .order_result .blue_btn {
     -webkit-align-self: flex-start;
     -ms-flex-item-align: start;
     align-self: flex-start;
