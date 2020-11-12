@@ -1534,9 +1534,7 @@ site.filters = (function($) {
 					change: function(event, ui) {
 						if (from.val() == ui.value) {
 							onChange(from.get(0));
-						}
-
-						if (to.val() == ui.value) {
+						} else if (to.val() == ui.value) {
 							onChange(to.get(0));
 						}
 					}
