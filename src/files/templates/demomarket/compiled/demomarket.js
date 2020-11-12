@@ -2357,6 +2357,15 @@ site.forms = {
 				// Обработчик события выбора адреса доставки или Самовывоза
 				$('input[type=radio]', addressSelector).click(function() {
 					var $address = $(this);
+
+					$('.delivery_address input:checked').each(
+						function() {
+							if ($(this).val() !== $address.val()) {
+								$(this).prop('checked', false);
+							}
+						}
+					);
+
 					var addressType = $address.data('type');
 
 					if (addressType === 'self') {

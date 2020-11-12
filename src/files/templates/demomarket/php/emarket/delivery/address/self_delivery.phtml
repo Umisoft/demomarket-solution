@@ -12,8 +12,8 @@ $selfDelivery = $variables;
 	<label>
 		<input
 			type="radio"
-			name="delivery-address"
-			value="delivery_<?= $selfDelivery['id'] ?>"
+			name="delivery-id"
+			value="<?= $selfDelivery['id'] ?>"
 			data-type="<?= $selfDelivery['type-class-name'] ?>"
 			data-price="<?= $selfDelivery['price'] ?>"
 			<?= $this->getRadioStatusByActivity($selfDelivery) ?>
