@@ -4634,6 +4634,10 @@
 
 			/** @var iCharacteristic $typeCharacteristic */
 			foreach ($typeCharacteristicCollection as $typeCharacteristic) {
+				if ($typeCharacteristic->isMultiple()) {
+					continue;
+				}
+
 				$valueList = [];
 
 				/** @var iOffer $tradeOffer */
@@ -4643,9 +4647,6 @@
 						->filterByField($typeCharacteristic->getName())
 						->extractField('value');
 					foreach ($offerValueList as $value) {
-						if (is_array($value)) {
-							continue 3;
-						}
 						$valueList[$value][] = $tradeOffer->getId();
 					}
 				}
