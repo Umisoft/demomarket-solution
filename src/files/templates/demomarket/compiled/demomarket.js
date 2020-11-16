@@ -2289,15 +2289,15 @@ site.forms = {
 					$form.removeAttr('novalidate');
 					$form.find('.personal_data_wrapper').show();
 				}
+
+				let $address = $(this);
+
+				$($form.find('input:checked').each( function() {
+					if ($(this).val() !== $address.val()) {
+						$(this).prop('checked', false);
+					}
+				}));
 			});
-
-			let $address = $(this);
-
-			$($form.find('input:checked').each( function() {
-				if ($(this).val() !== $address.val()) {
-					$(this).prop('checked', false);
-				}
-			}));
 		},
 
 		/**
