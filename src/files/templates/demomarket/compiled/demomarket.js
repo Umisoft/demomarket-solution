@@ -307,7 +307,10 @@ site.common = {
 		/** Инициализирует fancybox */
 		function initFancybox() {
 			$("a[rel=fancybox_group]").fancybox({
-				loop: true,
+				'loop': true,
+				'touch': false,
+				'toolbar': false,
+				'hideScrollbar': false,
 			});
 		}
 
@@ -912,7 +915,10 @@ site.TradeOffers = {
 		$imageContainer.attr('href', value);
 		$('img', $imageContainer).attr('src', value);
 		$("a[rel=fancybox_group]").fancybox({
-			loop: true,
+			'loop': true,
+			'touch': false,
+			'toolbar': false,
+			'hideScrollbar': false,
 		});
 	},
 
