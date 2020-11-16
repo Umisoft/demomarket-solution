@@ -156,13 +156,13 @@ site.forms = {
 	 */
 	emarket: {
 		toggleNewObjectForm: function(container, newObjectBlock) {
-			var block = $(newObjectBlock);
+			let block = $(newObjectBlock);
 
 			if (block.length === 0) {
 				return;
 			}
 
-			var $form = $('form#deliveryForm');
+			let $form = $('form#deliveryForm');
 
 			if ($('input[type=radio][value!=new]', container).length > 0) {
 				if ($('input[type=radio]:checked', container).val() !== 'new') {
@@ -183,6 +183,14 @@ site.forms = {
 					$form.find('.personal_data_wrapper').show();
 				}
 			});
+
+			let $address = $(this);
+
+			$($form.find('input:checked').each( function() {
+				if ($(this).val() !== $address.val()) {
+					$(this).prop('checked', false);
+				}
+			}));
 		},
 
 		/**
