@@ -17487,7 +17487,7 @@ INSERT INTO `cms3_objects` (`id`, `guid`, `name`, `is_locked`, `type_id`, `owner
 (2582, 'country-JM', 'i18n::object-country-JM', 1, 10, 0, 252, 1513955228),
 (2583, 'country-JP', 'i18n::object-country-JP', 1, 10, 0, 253, 1513955228),
 (2584, 'emarket-payment-type-yandex-kassa', 'i18n::object-payment-type-yandex-kassa', 1, 43, 0, 13, 1519627131),
-(2585, '', 'Online-оплата в Яндекс.Касса', 0, 222, 25, 15, 1519627723),
+(2585, '', 'Online-оплата в ЮKassa', 0, 222, 25, 15, 1519627723),
 (2588, '', '127.0.0.1', 0, 83, 46, 19, 1521454280),
 (2589, 'russianpost_wrapper_simple', 'i18n::object-wrapper_simple', 0, 14, 0, 8, 1538039627),
 (2590, 'russianpost_parcel', 'i18n::object-parcel', 0, 14, 0, 9, 1538039627),
