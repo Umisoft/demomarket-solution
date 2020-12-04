@@ -38,9 +38,8 @@
  * Снять дамп базы данных и сохранить его по пути `dump/dump-dev.sql`;
  * Загрузить файлы из `src/files/` поверх установленной umi.cms;
  * Удостовериться, что сайт открывается и работает базовый функционал (например: оформление заказа, авторизация);
- * Загрузить конфигурацию упаковщика `packer/config.php` в `/sys-temp/packer/config/`;
- * Поменять в конфигурации упаковщика, в ключах 'package' и 'destination' слово 'demomarket' на 'demomarket-dev';
- * Выполнить команду из корня проекта: `php classes/system/commands/Packer.php sys-temp/packer/config/config.php`;
+ * Загрузить конфигурацию упаковщика `packer/config-dev.php` в `/sys-temp/packer/config/`;
+ * Выполнить команду из корня проекта: `php classes/system/commands/Packer.php sys-temp/packer/config/config-dev.php`;
  
 #### Чтобы задеплоить dev версию, нужно:
  * Забрать файл из `/sys-temp/packer/out/demomarket-dev/demomarket-dev.tar`;
