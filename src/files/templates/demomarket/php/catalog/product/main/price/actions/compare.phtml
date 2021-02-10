@@ -7,11 +7,12 @@
  */
 
 $product = $variables;
+$data = $this->macros('emarket', 'getCompareLink', [$product->getId()]);
 ?>
 
 <div class="col-md-6 col-lg-3 rew diff">
-	<a href="<?= $this->getProductComparisonLink($product) ?>">
+	<a href="<?= $this->getProductComparisonLink($data) ?>">
 		<i class="sprite-item sprite-item_icons_circle_blue inline"></i>
-		<?= $this->getComparisonMessage($product) ?>
+		<?= $this->getComparisonMessage($data) ?>
 	</a>
 </div>
