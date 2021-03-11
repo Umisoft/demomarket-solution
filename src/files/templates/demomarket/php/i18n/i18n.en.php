@@ -21,6 +21,7 @@
 		'forgot_your_password' => 'Forgot password?',
 		'forgot_your_password_short' => 'Forgot?',
 		'send_password' => 'Send password',
+		'send_activation_code' => 'Send activation code',
 		'on-fast-edit' => 'Enable quick editing',
 		'go_to_admin' => 'Go to admin panel',
 		'password_was_sent' => 'Password was sent to your email address.',
