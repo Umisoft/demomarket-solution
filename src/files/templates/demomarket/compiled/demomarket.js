@@ -2118,10 +2118,18 @@ site.forms = {
 		$('#post_vote').on('submit', this.submitVoteForm);
 
 		if (location.href.indexOf('forget') !== -1) {
-			var $forgetPasswordForm = $('#forget');
+			let $forgetPasswordForm = $('#forget');
 
 			$forgetPasswordForm.find('input:radio').click(function() {
 				$forgetPasswordForm.find('input:text').attr('name', $(this).attr('id'));
+			});
+		}
+
+		if (location.href.indexOf('reactivate') !== -1) {
+			let $reactivateForm = $('#reactivate');
+
+			$reactivateForm.find('input:radio').click(function() {
+				$reactivateForm.find('input:text').attr('name', $(this).attr('id'));
 			});
 		}
 
@@ -2168,7 +2176,7 @@ site.forms = {
 
 	/** Инициализирует форму авторизации */
 	initLoginAjaxForm: function() {
-		var $form = $('#login_form');
+		let $form = $('#login_form');
 		$form.on('submit', function(e) {
 			e.preventDefault();
 			$.ajax({
@@ -2178,14 +2186,19 @@ site.forms = {
 				data: $form.serialize(),
 
 				success: function(data) {
-					var loginSuccess = !data.data;
+					let loginSuccess = !data.data;
 					if (loginSuccess) {
 						location.reload(true);
 					}
 
-					var loginFailed = (data.data && data.data.from_page);
+					let loginFailed = (data.data && data.data.from_page);
 					if (loginFailed) {
 						site.forms.showErrorMessage($form, getLabel('js-login_do_try_again'));
+					}
+
+					let loginNotActivated = (data.data && data.data.not_activated);
+					if (loginNotActivated) {
+						site.forms.showErrorMessage($form, getLabel('js-login_not_activated'));
 					}
 				}
 			});
