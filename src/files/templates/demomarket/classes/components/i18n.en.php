@@ -10,6 +10,7 @@
 		'js-one_click_order_fail' => 'Unfortunately there was a problem with processing your order.',
 		'js-one_click_order_success' => 'Your order #%s has been successfully processed! Our manager will call you right back.',
 		'js-login_do_try_again' => 'Your login or password is incorrect. Please try again and make sure your "Caps Lock" is off.',
+		'js-login_not_activated' => 'Your account is not activated. You can resend the email with the activation link <a href="' . cmsController::getInstance()->getPreLang() . '/users/reactivate/">here</a>',
 		'js-appointment-posted-successfully' => 'Appointment posted successfully. Our manager will reach you by phone/email.',
 		'js-appointment-no-data-message' => 'Add Services for Appointment to work',
 		'js-change' => 'Change',

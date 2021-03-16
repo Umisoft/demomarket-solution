@@ -21,6 +21,7 @@
 		'forgot_your_password' => 'Забыли пароль?',
 		'forgot_your_password_short' => 'Забыли?',
 		'send_password' => 'Выслать пароль',
+		'send_activation_code' => 'Отправить код активации',
 		'on-fast-edit' => 'Включить быстрое редактирование',
 		'go_to_admin' => 'Перейти в администрирование',
 		'password_was_sent' => 'На e-mail адрес, указанный Вами при регистрации, был выслан пароль.',

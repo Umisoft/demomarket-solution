@@ -1,0 +1,23 @@
+<?php
+/**
+ * Системная страница результата повторной отправки кода активации.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+<div class="section_capt">
+	<div class="container">
+		<div class="row">
+			<h1><?= $this->escape($variables['header']) ?></h1>
+		</div>
+	</div>
+</div>
+
+<div class="feedback">
+	<div class="container">
+		<div class="grey_border">
+			<h4><?= $this->translate('registration-activation-note') ?></h4>
+		</div>
+	</div>
+</div>
