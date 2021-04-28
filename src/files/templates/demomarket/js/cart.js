@@ -280,6 +280,17 @@ site.Cart = {
 		var orderPrice = data.summary.price.actual || data.summary.price.original;
 		$('#order_price').text(formatPrice(orderPrice, prefix, suffix));
 
+		var totalOriginalPrice = 0;
+		var orderItems = data.items.item;
+
+		$.each(orderItems, function () {
+			var originalPrice = (this["total-price"].original) ? this["total-price"].original : this["total-price"].actual;
+			totalOriginalPrice += originalPrice;
+		});
+
+		var totalDiscount = totalOriginalPrice - orderPrice;
+		$('#total_discount').text(formatPrice(totalDiscount, prefix, suffix));
+
 		var orderItemBlock = $('#order_item_' + id);
 		var orderItemWasRemoved = true;
 

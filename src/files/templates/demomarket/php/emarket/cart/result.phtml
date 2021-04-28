@@ -27,6 +27,14 @@ $isPromoCodesAvailable = $this->macros('emarket', 'isPromoCodesAvailable');
 					</span>
 				</p>
 
+				<p>
+					<?=$this->translate('total-discount')?>:
+
+					<span id="total_discount">
+						<?= $this->getTotalDiscount($variables) ?>
+					</span>
+				</p>
+
 				<p class="result_sum">
 					<?= $this->translate('summary-price') ?>:
 					<span id="order_price">

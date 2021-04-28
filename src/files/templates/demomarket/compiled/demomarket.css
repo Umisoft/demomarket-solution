@@ -1911,7 +1911,7 @@ form#promocode .col-sm-5:last-of-type input[type="submit"] {
 }
 .order_result .promocode,
 .order_result .order_pricing {
-  height: 230px;
+  height: 280px;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
