@@ -1341,6 +1341,10 @@
 			$propertyList = [];
 
 			foreach ($fieldList as $field) {
+				if (!$field->getIsVisible()) {
+					continue;
+				}
+
 				$propertyList[] = $object->getPropByName($field->getName());
 			}
 
