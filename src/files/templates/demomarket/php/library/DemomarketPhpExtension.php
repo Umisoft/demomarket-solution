@@ -993,10 +993,27 @@
 		 * @return string
 		 */
 		public function getTotalDiscount(array $variables) : string {
-			$orderPrice = $variables['data']['summary']['price']['actual'];
-			$orderItemsTotalOriginalPrice = $this->getOrderItemsTotalOriginalPrice($variables);
-			$totalDiscount = $orderItemsTotalOriginalPrice - $orderPrice;
+			if (!isset($variables['data']['summary']['price']['actual']) || !isset($variables['data']['items'])) {
+				return '';
+			}
 
+			$orderPrice = $variables['data']['summary']['price']['actual'];
+			$orderItems = $variables['data']['items'];
+			$totalOriginalPrice = 0;
+
+			foreach ($orderItems as $orderItem) {
+				if (isset($orderItem['total-price']['original'])) {
+					$orderItemPrice = $orderItem['total-price']['original'];
+				} else if (isset($orderItem['total-price']['actual'])) {
+					$orderItemPrice = $orderItem['total-price']['actual'];
+				} else {
+					return '';
+				}
+
+				$totalOriginalPrice += $orderItemPrice;
+			}
+
+			$totalDiscount = $totalOriginalPrice - $orderPrice;
 			return $this->formatPrice($totalDiscount);
 		}
 
@@ -4944,22 +4961,5 @@
 		 */
 		public function textReplaceLineBreaks($text) {
 			return str_replace("\n", '<br/>', $text);
-		}
-
-		/**
-		 * Возвращает сумму стоимостей всех товарных наименований в заказе
-		 * @param array $variables данные заказа
-		 * @return float
-		 */
-		private function getOrderItemsTotalOriginalPrice(array $variables) : float {
-			$orderItemsData = $variables['data']['items'];
-			$totalOriginalPrice = 0;
-
-			foreach ($orderItemsData as $orderItemData) {
-				$price = ($orderItemData['total-price']['original']) ?: $orderItemData['total-price']['actual'];
-				$totalOriginalPrice += $price;
-			}
-
-			return $totalOriginalPrice;
 		}
 	}
