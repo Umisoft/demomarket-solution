@@ -616,7 +616,7 @@ site.helpers = {
 			return s.join(dec);
 		};
 
-		price = number_format(price, 0, ',', ' ');
+		price = number_format(price, 2, '.', ' ');
 		prefix = prefix || '';
 		suffix = suffix || '';
 

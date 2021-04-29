@@ -85,6 +85,7 @@
 		'sum' => 'Subtotal',
 		'item-discount' => 'Discount',
 		'order-discount' => 'Order discount',
+		'total-discount' => 'Total discount',
 		'order-bonus' => 'Used bonuses',
 		'discounted-sum' => 'All total',
 		'delivery' => 'Delivery',

@@ -229,7 +229,7 @@
 		 */
 		public function formatPrice($price) {
 			$price = (float) $price;
-			return number_format($price, 0, ',', ' ');
+			return number_format($price, 2, '.', ' ');
 		}
 
 		/**
@@ -985,6 +985,36 @@
 		 */
 		public function getOrderDiscountAmount(array $variables) {
 			return isset($variables['summary']['price']['discount']) ? $variables['summary']['price']['discount'] : 0;
+		}
+
+		/**
+		 * Возвращает значение итоговой скидки на заказ
+		 * @param array $variables данные заказа
+		 * @return string
+		 */
+		public function getTotalDiscount(array $variables) : string {
+			if (!isset($variables['data']['summary']['price']['actual']) || !isset($variables['data']['items'])) {
+				return '';
+			}
+
+			$orderPrice = $variables['data']['summary']['price']['actual'];
+			$orderItems = $variables['data']['items'];
+			$totalOriginalPrice = 0;
+
+			foreach ($orderItems as $orderItem) {
+				if (isset($orderItem['total-price']['original'])) {
+					$orderItemPrice = $orderItem['total-price']['original'];
+				} else if (isset($orderItem['total-price']['actual'])) {
+					$orderItemPrice = $orderItem['total-price']['actual'];
+				} else {
+					return '';
+				}
+
+				$totalOriginalPrice += $orderItemPrice;
+			}
+
+			$totalDiscount = $totalOriginalPrice - $orderPrice;
+			return $this->formatPrice($totalDiscount);
 		}
 
 		/**

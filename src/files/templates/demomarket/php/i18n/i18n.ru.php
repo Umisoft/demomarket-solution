@@ -85,6 +85,7 @@
 		'sum' => 'Сумма',
 		'item-discount' => 'Скидка',
 		'order-discount' => 'Скидка на заказ',
+		'total-discount' => 'Итоговая скидка',
 		'order-bonus' => 'Использованные бонусы',
 		'discounted-sum' => 'Итого с учетом скидок на товары',
 		'delivery' => 'Доставка',
