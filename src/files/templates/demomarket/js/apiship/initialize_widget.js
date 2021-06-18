@@ -29,7 +29,7 @@
 	}
 
 	$('input[name="delivery-id"]').on('change', function (e) {
-		if ($(e.currentTarget).attr('checked') && $(e.currentTarget).attr('data-api') === 'api-ship') {
+		if ($(e.currentTarget).is(':checked') && $(e.currentTarget).attr('data-api') === 'api-ship') {
 			showApiShipWidget();
 		} else {
 			hideApiShipWidget();
