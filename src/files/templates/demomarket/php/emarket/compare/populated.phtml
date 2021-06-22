@@ -23,7 +23,6 @@ $fieldDataList = $this->filterAllowedFieldData($variables['fields']);
 	<div class="goods">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 col-xs-6"></div>
 				<?php foreach ($productList as $product): ?>
 					<?= $this->render($product, 'catalog/product/preview/index') ?>
 				<?php endforeach; ?>

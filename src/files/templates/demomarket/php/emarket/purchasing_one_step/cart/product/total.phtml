@@ -10,5 +10,4 @@ $product = $variables;
 ?>
 
 <span class="prefix"><?= $this->getTotalPricePrefix($product) ?></span>
-<span class="price"><?= $this->getTotalPrice($product) ?></span>
-<span class="suffix"><?= $this->getTotalPriceSuffix($product) ?></span>
+<span class="price"><?= $this->getTotalPrice($product) ?> <?= $this->getTotalPriceSuffix($product) ?></span>

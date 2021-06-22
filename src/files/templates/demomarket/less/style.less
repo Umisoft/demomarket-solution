@@ -344,6 +344,7 @@ main {
 							min-width: 100px;
 						}
 						h3 {
+							white-space: nowrap;
 							font-size: @baseFontSize + 12;
 							.padding_margin_clear();
 							font-family: @mediumBold;
@@ -481,6 +482,11 @@ main {
 						}
 					}
 					.additional {
+						margin-left: 10px;
+
+						@media screen and (max-width: 991px) {
+							margin-left: 0;
+						}
 						.additional-info {
 							display: none;
 						}

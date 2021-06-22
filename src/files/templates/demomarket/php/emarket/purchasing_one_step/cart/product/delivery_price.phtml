@@ -14,12 +14,14 @@ $suffix = isset($variables['delivery-price']['suffix']) ? $variables['delivery-p
 
 <span class="text"><?= $this->translate('delivery') ?></span>
 <span class="prefix"><?= $prefix ?></span>
-<span id="delivery_price"
-      class="price"
-      data-address="<?= $addressId ?>"
-      data-delivery="<?= $deliveryId ?>"
-      data-price="<?= $price ?>"
->
-	<?= $price ?>
-</span>
-<span class="suffix"><?= $suffix ?></span>
+<div class="result-line">
+	<span id="delivery_price"
+	      class="price"
+	      data-address="<?= $addressId ?>"
+	      data-delivery="<?= $deliveryId ?>"
+	      data-price="<?= $price ?>"
+	>
+		<?= $price ?>
+	</span>
+	<span class="suffix"><?= $suffix ?></span>
+</div>
