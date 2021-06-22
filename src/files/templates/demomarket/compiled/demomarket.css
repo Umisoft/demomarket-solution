@@ -1938,9 +1938,14 @@ form#promocode .col-sm-5:last-of-type input[type="submit"] {
     -moz-box-align: start;
     -ms-flex-align: start;
     align-items: flex-start;
+    height: auto;
+    white-space: nowrap;
   }
   body main .cart .order_result p {
     text-align: left;
+  }
+  body main .cart .order_result p span {
+    font-size: 25px;
   }
   body main .cart .order_result .blue_btn {
     -webkit-align-self: flex-start;
@@ -2361,6 +2366,7 @@ main .catalog_list .col-md-3 .tab_container .tab_item .price del {
   min-width: 100px;
 }
 main .catalog_list .col-md-3 .tab_container .tab_item .price h3 {
+  white-space: nowrap;
   font-size: 26px;
   padding: 0;
   margin: 0;
@@ -2510,6 +2516,14 @@ main .catalog_inline .col-md-3 .tab_container .tab_item .info p a {
 }
 main .catalog_inline .col-md-3 .tab_container .tab_item .info .lazy_comment_count {
   margin-left: 5px;
+}
+main .catalog_inline .col-md-3 .tab_container .tab_item .additional {
+  margin-left: 10px;
+}
+@media screen and (max-width: 991px) {
+  main .catalog_inline .col-md-3 .tab_container .tab_item .additional {
+    margin-left: 0;
+  }
 }
 main .catalog_inline .col-md-3 .tab_container .tab_item .additional .additional-info {
   display: none;
@@ -3495,7 +3509,7 @@ header .search_row > .row > div {
   height: 63px;
 }
 header .search_row > .row > div.catalog_menu {
-  padding: 20px 25px;
+  padding: 20px 15px;
 }
 header .search_row > .row > div:last-of-type {
   padding: 18px 0;
@@ -4634,7 +4648,7 @@ main .order_bill .price {
 main .order_bill .prefix,
 main .order_bill .suffix {
   font-size: 26px;
-  font-weight: 300;
+  font-weight: 600;
   font-family: 'arial';
   margin: 0 0 -3px 6px;
 }
@@ -4851,17 +4865,18 @@ main div.personal_data_error {
   }
 }
 @media (max-width: 480px) {
-  main .order_bill .price {
-    font-size: 22px;
+  main .order_bill .bill_goods .price {
+    font-size: 20px;
+    white-space: nowrap;
   }
-  main .order_bill .rub {
-    font-size: 22px;
+  main .order_bill .order_bill-item .result-line {
+    margin-top: 3px;
   }
-  main .order_bill .result .price {
-    font-size: 30px;
+  main .order_bill .order_bill-item .result-line span {
+    font-size: 20px;
   }
-  main .order_bill .result .rub {
-    font-size: 30px;
+  main .order_bill .order_bill-item .result-line .suffix {
+    font-weight: 600;
   }
 }
 main .cart {
@@ -4910,6 +4925,11 @@ main .cart .order_item .goods_in_cart {
 }
 main .cart .order_item .goods_in_cart:not(.order_img) {
   padding: 50px 0;
+}
+@media (max-width: 1499px) {
+  main .cart .order_item .goods_in_cart {
+    white-space: nowrap;
+  }
 }
 main .cart .order_item .order_about p {
   font-family: 'open_sans_med';
@@ -5684,6 +5704,11 @@ main .order #apiShipWidget a.btn {
   width: 265px;
   font-size: 14px;
   font-family: 'open_sans_med', sans-serif;
+}
+@media (max-width: 450px) {
+  main .order #apiShipWidget a.btn {
+    width: 100%;
+  }
 }
 main .order #apiShipWidget .filter p input[type=checkbox] {
   vertical-align: middle;
@@ -7643,8 +7668,9 @@ main .desktop_filters .show_result {
     margin-right: 0;
   }
   main .catalog_inline .col-md-3 .tab_container .tab_item .info .price del {
-    font-size: 16px;
-    top: -5px;
+    font-size: 11px;
+    top: -2px;
+    left: 3px;
   }
   main .catalog_inline .col-md-3 .tab_container .tab_item .info .price h3 {
     font-size: 16px;
@@ -8096,7 +8122,10 @@ main .desktop_filters .show_result {
   main .order #deliveryForm .del_row.order_img_1 {
     background-image: none;
   }
-  main .order #deliveryForm .del_row .del_content {
+  main .order #deliveryForm .del_row .del_content,
+  main .order #deliverySettingsForm .del_row .del_content,
+  main .order #payment_choose .del_row .del_content,
+  main .order #invoice .del_row .del_content {
     width: auto;
   }
   main .cart .order_item .order_price {

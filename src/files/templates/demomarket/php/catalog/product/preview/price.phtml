@@ -11,6 +11,7 @@
  */
 
 $product = $variables;
+$comparisonData = $this->macros('emarket', 'getCompareLink', [$product->getId()]);
 $isShowComments = $this->isShowCommentsOnProductPage();
 ?>
 
@@ -29,8 +30,8 @@ $isShowComments = $this->isShowCommentsOnProductPage();
 	<?php endif; ?>
 
 	<p>
-		<a href="<?= $this->getProductComparisonLink($product) ?>">
-			<?= $this->getComparisonMessage($product) ?>
+		<a href="<?= $this->getProductComparisonLink($comparisonData) ?>">
+			<?= $this->getComparisonMessage($comparisonData) ?>
 		</a>
 	</p>
 </div>
