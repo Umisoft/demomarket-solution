@@ -201,7 +201,9 @@
 		'pay-by-bonuses' => 'Оплата бонусами:',
 		'can-use-bonuses' => 'Вы можете оплатить Ваш заказ накопленными бонусами.',
 		'available-bonuses' => 'Доступно бонусов на сумму',
+		'available-bonus-short' => 'Доступно бонусов',
 		'spend_bonus' => 'Оплатить бонусами',
+		'bonus_wrong_value' => 'Указано некорректное количество бонусов',
 
 		'apply-promocode' => 'Применить',
 		'enter-promocode' => 'Введите промокод',

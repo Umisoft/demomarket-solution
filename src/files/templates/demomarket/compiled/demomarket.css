@@ -4662,7 +4662,7 @@ main .order_bill .delivery_bill {
 main .order_bill .order_bill-item.bill_goods {
   border-bottom: 1px solid #ebebeb;
 }
-main .order_bill .order_bill-item.discount {
+main .order_bill .order_bill-item.bonus {
   border-bottom: 2px solid #3b3b3b;
 }
 main .order_bill .order_bill-item.result {
@@ -4741,13 +4741,21 @@ main div.personal_data_wrapper label[for=purchase-step-address-152-federal-law] 
   font-size: 11px;
   padding-left: 38px;
 }
-main div.personal_data_error {
+main #bonusBlock div div div {
+  margin-bottom: 10px;
+}
+main div.personal_data_error,
+main #bonus_error {
   background: #f05242;
   padding: 14px 40px 14px;
   color: #fff;
   text-align: center;
   margin-top: 20px;
   display: none;
+}
+main input#bonus {
+  width: 210px;
+  height: 37px;
 }
 @media (max-width: 1500px) {
   main .order .container #oneStepForm {

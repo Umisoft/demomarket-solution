@@ -2392,6 +2392,37 @@ site.forms = {
 				var price = $deliveryRadioButton.data('price');
 				this.setPriceInCart(price);
 
+				// Обработчик события оплаты бонусами
+				$('button#pay_bonus').click(function() {
+					let bonusValue = parseInt($('input#bonus').val());
+					let availableBonus = parseInt($('#available_bonus').text());
+					let bonusBlock = $('#bonusBlock');
+					let bonusErrorBlock = $('#bonus_error');
+
+					if (bonusValue > availableBonus) {
+						bonusErrorBlock.show();
+						return;
+					}
+
+					bonusErrorBlock.hide();
+					bonusBlock.hide();
+
+					$.ajax({
+						type: 'POST',
+						url: '/emarket/purchase/payment/bonus/do',
+						data: {'bonus' : bonusValue},
+
+						success: function() {
+							let orderPriceBlock = $('#order_price');
+							let orderPrice = parseFloat(orderPriceBlock.data('price')) - parseFloat(bonusValue);
+							orderPriceBlock.text(site.helpers.formatPrice(orderPrice));
+
+							let bonusesBlock = $('.order_bill-item.bonus .prefix');
+							bonusesBlock.text(bonusValue);
+						}
+					});
+				});
+
 				// Обработчик события выбора адреса доставки или Самовывоза
 				$('input[type=radio]', addressSelector).click(function() {
 					var $address = $(this);
