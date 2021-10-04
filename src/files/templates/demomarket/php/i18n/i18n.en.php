@@ -200,7 +200,9 @@
 		'pay-by-bonuses' => 'Pay by bonuses:',
 		'can-use-bonuses' => 'You can pay using accumulated bonuses.',
 		'available-bonuses' => 'Available bonuses of',
+		'available-bonus-short' => 'Bonuses are available',
 		'spend_bonus' => 'Use bonuses',
+		'bonus_wrong_value' => 'Incorrect number of bonuses',
 
 		'apply-promocode' => 'Apply',
 		'use-promocode' => 'Enter your promocode',

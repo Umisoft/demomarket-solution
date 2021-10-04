@@ -1217,7 +1217,7 @@ main {
 		.order_bill-item.bill_goods {
 			border-bottom: 1px solid @bord_color;
 		}
-		.order_bill-item.discount {
+		.order_bill-item.bonus {
 			border-bottom: 2px solid @black;
 		}
 		.order_bill-item.result {
@@ -1321,13 +1321,21 @@ main {
 			}
 		}
 	}
-	div.personal_data_error {
+	#bonusBlock div div div {
+		margin-bottom: 10px;
+	}
+	div.personal_data_error,
+	#bonus_error {
 		background: #f05242;
 		padding: 14px 40px 14px;
 		color: #fff;
 		text-align: center;
 		margin-top: 20px;
 		display: none;
+	}
+	input#bonus {
+		width: 210px;
+		height: 37px;
 	}
 	@media (max-width: 1500px) {
 		.order {

@@ -2998,6 +2998,31 @@
 		}
 
 		/**
+		 * Возвращает результат проверки, доступна ли оплата бонусами
+		 * @return bool
+		 */
+		public function getBonusIsAvailable() : bool {
+			return $this->getAvailableBonus() && !$this->getAppliedBonus();
+		}
+
+		/**
+		 * Возвращает доступное количество бонусов для оплаты
+		 * @return int
+		 */
+		public function getAvailableBonus() : int {
+			return customer::get()->getValue('bonus');
+		}
+
+		/**
+		 * Возвращает количество бонусов, примененных к заказу
+		 * @return int
+		 */
+		public function getAppliedBonus() : int {
+			$cart = $this->macros('emarket', 'cart');
+			return isset($cart['summary']['price']['bonus']) ? $cart['summary']['price']['bonus'] : 0;
+		}
+
+		/**
 		 * Возвращает action для формы применения промокода
 		 * @return string
 		 */
