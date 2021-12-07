@@ -274,68 +274,84 @@ site.forms = {
 				var price = $deliveryRadioButton.data('price');
 				this.setPriceInCart(price);
 
-				// Обработчик события оплаты бонусами
-				$('button#pay_bonus').click(function() {
-					let bonusValue = parseInt($('input#bonus').val());
-					let availableBonus = parseInt($('#available_bonus').text());
-					let bonusBlock = $('#bonusBlock');
-					let bonusErrorBlock = $('#bonus_error');
+				let orderPriceBlock = $('#order_price', $form);
+				let spendBonusBlock = $('#spend_bonus_block');
+				let returnBonusBlock = $('#return_bonus_block');
+				let bonusErrorBlock = $('#bonus_error');
+				let paymentBlock = $('#payment_choose');
+				let spentBonus = $('#spent-bonus');
+				let orderBonus = $('.order_bill-item.bonus .prefix');
 
-					if (bonusValue > availableBonus) {
+				this.renderBonusAndPayment(orderBonus, orderPriceBlock, returnBonusBlock, spendBonusBlock, paymentBlock);
+
+				// Обработчик события оплаты бонусами
+				$('button#spend_bonus').click(function() {
+					let bonus = $('input#bonus').val();
+
+					if (bonus.indexOf('.') !== -1) {
 						bonusErrorBlock.show();
 						return;
 					}
 
+					bonus = parseFloat(bonus);
+					let availableBonus = parseInt($('#available_bonus').text());
+					let orderPrice = parseFloat(orderPriceBlock.attr('data-price'));
+
+					switch (true) {
+						case !bonus:
+						case bonus > availableBonus:
+						case bonus < 0:
+						case bonus > orderPrice:
+							bonusErrorBlock.show();
+							return;
+					}
+
 					bonusErrorBlock.hide();
-					bonusBlock.hide();
 
 					$.ajax({
 						type: 'POST',
-						url: '/emarket/purchase/payment/bonus/do',
-						data: {'bonus' : bonusValue},
+						url: '/udata://emarket/saveInfo/0/0/0/0/0',
+						data: {'bonus' : bonus},
 
 						success: function() {
-							let orderPriceBlock = $('#order_price');
-							let orderPrice = parseFloat(orderPriceBlock.data('price')) - parseFloat(bonusValue);
-							orderPriceBlock.text(site.helpers.formatPrice(orderPrice));
+							spendBonusBlock.hide();
+							returnBonusBlock.show();
 
-							let bonusesBlock = $('.order_bill-item.bonus .prefix');
-							bonusesBlock.text(bonusValue);
+							let newOrderPrice = orderPrice - bonus;
+							orderPriceBlock.text(site.helpers.formatPrice(newOrderPrice));
+							orderPriceBlock.attr('data-price', newOrderPrice);
+
+							spentBonus.text(bonus);
+							orderBonus.text(bonus);
+
+							if (newOrderPrice === 0) {
+								paymentBlock.hide();
+							}
 						}
 					});
 				});
 
-				// Обработчик события выбора адреса доставки или Самовывоза
-				$('input[type=radio]', addressSelector).click(function() {
-					var $address = $(this);
+				// Обработчик события возврата бонусов
+				$('button#return_bonus').click(function() {
+					$.ajax({
+						type: 'POST',
+						url: '/udata://emarket/saveInfo/0/0/0/0/0',
+						data: {'bonus' : 0},
 
-					$('.delivery_address input:checked').each(
-						function() {
-							if ($(this).val() !== $address.val()) {
-								$(this).prop('checked', false);
-							}
+						success: function() {
+							spendBonusBlock.show();
+							returnBonusBlock.hide();
+
+							let orderPrice = parseFloat(orderPriceBlock.attr('data-price'));
+							let spentBonus = parseFloat(orderBonus.text());
+							let newOrderPrice = orderPrice + spentBonus;
+
+							orderPriceBlock.text(site.helpers.formatPrice(newOrderPrice));
+							orderPriceBlock.attr('data-price', newOrderPrice);
+							orderBonus.text(0);
+							paymentBlock.show();
 						}
-					);
-
-					var addressType = $address.data('type');
-
-					if (addressType === 'self') {
-						$deliveryBlock.hide(animationSpeed);
-						$paymentBlock.show(animationSpeed);
-					} else {
-						$deliveryBlock.show(animationSpeed);
-					}
-
-					var addressId = $address.attr('value');
-
-					if (addressId === 'new') {
-						purchasing.saveDeliveryAddress();
-					} else if (addressType !== 'self') {
-						purchasing.updateDeliveryPrice({'delivery-address' : addressId});
-					}
-
-					var deliveryPrice = $address.data('price');
-					purchasing.setPriceInCart(deliveryPrice);
+					});
 				});
 
 				// Обработчик события выбора способа доставки
@@ -445,6 +461,21 @@ site.forms = {
 
 				var totalPrice = parseFloat($orderPrice.data('price')) + parseFloat(deliveryPrice) - discount;
 				$orderPrice.text(formatPrice(totalPrice));
+			},
+
+			/** Изменяет отображение блоков оплаты бонусами и способов оплаты */
+			renderBonusAndPayment: function(orderBonus, orderPriceBlock, returnBonusBlock, spendBonusBlock, paymentBlock) {
+				if (parseInt(orderBonus.text()) === 0) {
+					returnBonusBlock.hide();
+					return;
+				}
+
+				spendBonusBlock.hide();
+				let orderPrice = parseFloat(orderPriceBlock.attr('data-price'));
+
+				if (orderPrice === 0) {
+					paymentBlock.hide();
+				}
 			},
 
 			/** Сохраняет адрес доставки в заказ */

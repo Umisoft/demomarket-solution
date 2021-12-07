@@ -3002,7 +3002,8 @@
 		 * @return bool
 		 */
 		public function getBonusIsAvailable() : bool {
-			return $this->getAvailableBonus() && !$this->getAppliedBonus();
+			$paymentIsAvailable = $this->macros('emarket', 'isPaymentAvailable');
+			return $paymentIsAvailable && $this->getAvailableBonus();
 		}
 
 		/**

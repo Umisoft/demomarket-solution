@@ -86,7 +86,7 @@
 		'item-discount' => 'Discount',
 		'order-discount' => 'Order discount',
 		'total-discount' => 'Total discount',
-		'order-bonus' => 'Used bonuses',
+		'order-bonus' => 'Used bonuses:',
 		'discounted-sum' => 'All total',
 		'delivery' => 'Delivery',
 
@@ -202,6 +202,7 @@
 		'available-bonuses' => 'Available bonuses of',
 		'available-bonus-short' => 'Bonuses are available',
 		'spend_bonus' => 'Use bonuses',
+		'return_bonus' => 'Return bonuses',
 		'bonus_wrong_value' => 'Incorrect number of bonuses',
 
 		'apply-promocode' => 'Apply',

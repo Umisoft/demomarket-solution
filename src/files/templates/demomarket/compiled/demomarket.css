@@ -4741,7 +4741,8 @@ main div.personal_data_wrapper label[for=purchase-step-address-152-federal-law] 
   font-size: 11px;
   padding-left: 38px;
 }
-main #bonusBlock div div div {
+main #spend_bonus_block div div div,
+main #return_bonus_block div div div {
   margin-bottom: 10px;
 }
 main div.personal_data_error,

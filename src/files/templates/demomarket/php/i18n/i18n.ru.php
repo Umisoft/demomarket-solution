@@ -86,7 +86,7 @@
 		'item-discount' => 'Скидка',
 		'order-discount' => 'Скидка на заказ',
 		'total-discount' => 'Итоговая скидка',
-		'order-bonus' => 'Использованные бонусы',
+		'order-bonus' => 'Использованные бонусы:',
 		'discounted-sum' => 'Итого с учетом скидок на товары',
 		'delivery' => 'Доставка',
 
@@ -203,6 +203,7 @@
 		'available-bonuses' => 'Доступно бонусов на сумму',
 		'available-bonus-short' => 'Доступно бонусов',
 		'spend_bonus' => 'Оплатить бонусами',
+		'return_bonus' => 'Вернуть бонусы',
 		'bonus_wrong_value' => 'Указано некорректное количество бонусов',
 
 		'apply-promocode' => 'Применить',

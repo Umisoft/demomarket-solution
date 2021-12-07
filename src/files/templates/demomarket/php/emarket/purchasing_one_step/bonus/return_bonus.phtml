@@ -1,0 +1,21 @@
+<?php
+/**
+ * Блок возврата бонусов.
+ *
+ * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
+ * @var array $variables
+ */
+?>
+<div id="return_bonus_block">
+	<div class="del_row">
+		<div class="del_content">
+			<h3 class="up input_capt">
+				<?= $this->translate('return_bonus') ?>
+			</h3>
+			<div>
+				<div><?= $this->translate('order-bonus') ?> <span id="spent-bonus"><?= $this->getAppliedBonus() ?></span></div>
+				<button id="return_bonus" type="button"><?= $this->translate('return_bonus') ?></button>
+			</div>
+		</div>
+	</div>
+</div>
