@@ -12,7 +12,6 @@
  */
 
 $variables = $this->macros('emarket', 'purchasing_one_step');
-$bonusIsAvailable = $this->getBonusIsAvailable();
 ?>
 
 <div class="section_capt">
@@ -30,11 +29,7 @@ $bonusIsAvailable = $this->getBonusIsAvailable();
 				<?= $this->render($variables, 'emarket/purchasing_one_step/customer_info') ?>
 				<?= $this->render($variables, 'emarket/purchasing_one_step/delivery_address') ?>
 				<?= $this->render($variables, 'emarket/purchasing_one_step/delivery_choose') ?>
-
-				<?php if ($bonusIsAvailable): ?>
-					<?= $this->render($variables, 'emarket/purchasing_one_step/bonus_block') ?>
-				<?php endif; ?>
-
+				<?= $this->render($variables, 'emarket/purchasing_one_step/bonus') ?>
 				<?= $this->render($variables, 'emarket/purchasing_one_step/payment_choose') ?>
 				<?= $this->render($variables, 'emarket/purchasing_one_step/comment_block') ?>
 			</div>

@@ -1,13 +1,12 @@
 <?php
 /**
- * Блок для оплаты заказа бонусами.
+ * Блок оплаты заказа бонусами.
  *
  * @var umiTemplaterPHP|ViewPhpExtension|DemomarketPhpExtension $this
  * @var array $variables
  */
 ?>
-
-<div id="bonusBlock">
+<div id="spend_bonus_block">
 	<div class="del_row">
 		<div class="del_content">
 			<h3 class="up input_capt">
@@ -17,7 +16,7 @@
 				<div><?= $this->translate('available-bonus-short') ?> <span id="available_bonus"><?= $this->getAvailableBonus() ?></span></div>
 				<p id="bonus_error"><?= $this->translate('bonus_wrong_value') ?></p>
 				<div><input id="bonus" type="number" /></div>
-				<button id="pay_bonus" type="button"><?= $this->translate('spend_bonus') ?></button>
+				<button id="spend_bonus" type="button"><?= $this->translate('spend_bonus') ?></button>
 			</div>
 		</div>
 	</div>
