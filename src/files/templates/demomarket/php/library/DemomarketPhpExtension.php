@@ -2998,15 +2998,6 @@
 		}
 
 		/**
-		 * Возвращает результат проверки, доступна ли оплата бонусами
-		 * @return bool
-		 */
-		public function getBonusIsAvailable() : bool {
-			$paymentIsAvailable = $this->macros('emarket', 'isPaymentAvailable');
-			return $paymentIsAvailable && $this->getAvailableBonus();
-		}
-
-		/**
 		 * Возвращает доступное количество бонусов для оплаты
 		 * @return int
 		 */

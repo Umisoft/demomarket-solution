@@ -33,7 +33,7 @@ $discount = $this->getOrderDiscountAmount($variables);
 	<span class="text"><?= $this->translate('summary-price') ?>:</span>
 	<span class="prefix large"><?= $prefix ?></span>
 	<div class="result-line">
-		<span id="order_price" class="price" data-price="<?= $actualPrice ?>">
+		<span id="order_price" class="price" data-price="<?= $actualPrice ?>" data-original-price="<?= $originalPrice ?: $actualPrice ?>">
 			<?= $actualPrice ?>
 		</span>
 		<span class="suffix large"><?= $suffix ?></span>
