@@ -115,16 +115,6 @@
   background: url('../img/social_sprite.png') no-repeat;
   display: block;
 }
-.sprite-social_fb {
-  width: 19px;
-  height: 16px;
-  background-position: -5px -5px;
-}
-.sprite-social_inst {
-  width: 16px;
-  height: 16px;
-  background-position: -5px -31px;
-}
 .sprite-social_tw {
   width: 18px;
   height: 15px;
@@ -183,11 +173,6 @@
   background: url('../img/modal_sprite.png') no-repeat;
   display: block;
 }
-.sprite-modal_icon_fb {
-  width: 19px;
-  height: 16px;
-  background-position: -5px -5px;
-}
 .sprite-modal_icon_tw {
   width: 18px;
   height: 15px;
@@ -228,11 +213,6 @@
   width: 35px;
   height: 23px;
   background-position: -103px -55px;
-}
-.sprite-social_icons_fb {
-  width: 19px;
-  height: 16px;
-  background-position: -84px -35px;
 }
 .sprite-social_icons_tw {
   width: 18px;
@@ -5456,16 +5436,6 @@ main .catalog_item .social_count li span:last-child {
   text-align: center;
   padding: 10px 0;
   border-left: 1px solid #ebebeb;
-}
-main .catalog_item .social_count li.fb {
-  background: #3b5998;
-}
-main .catalog_item .social_count li.fb span {
-  border-color: #7489b6;
-}
-main .catalog_item .social_count li.fb span i {
-  top: 25%;
-  left: 30%;
 }
 main .catalog_item .social_count li.vk {
   background: #5b7fa6;
