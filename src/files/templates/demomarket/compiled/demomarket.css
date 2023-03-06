@@ -3054,7 +3054,7 @@ footer .container .row .list_products > div .category_list {
 footer .container .row .list_products > div .category_list h3 {
   margin-bottom: 10px;
 }
-footer .container .row .list_products > div .category_list a:hover {
+footer .container .row .list_products > div .category_list li a:hover {
   -webkit-filter: brightness(125%);
   filter: brightness(125%);
 }
