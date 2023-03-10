@@ -31,8 +31,8 @@ $pageId = $page->getId();
 				'empty' => $this->getNoPhotoPath(),
 				'width' => 495,
 				'objectId' => $page->getObjectId(),
-				'folderHash' => $this->getPhotoDirHash($photo),
-				'fileHash' => $this->getPhotoPathHash($photo),
+				'folderHash' => $this->getPhotoDirHash($page),
+				'fileHash' => $this->getPhotoPathHash($page),
 			],
 			'library/thumbnail'
 		) ?>
